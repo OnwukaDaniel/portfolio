@@ -268,6 +268,7 @@ class NigerianWidowTile extends StatelessWidget {
                   " tool designed to bring attention to the plight of widows "
                   "in Nigeria through intuitive and interactive data "
                   "visualization.";
+
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
