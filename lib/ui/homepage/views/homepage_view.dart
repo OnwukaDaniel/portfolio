@@ -28,8 +28,8 @@ class HomepageView extends StatelessWidget {
               HomeTopBar(),
               IntroCard(),
               PowerPlugTile(),
-              NigerianWidowTile(),
               HowFarTile(),
+              NigerianWidowTile(),
             ],
           ),
         );
