@@ -356,7 +356,8 @@ class CryptoBotTile extends StatelessWidget {
             padding: const EdgeInsets.all(32),
             child: Builder(builder: (context) {
               var title = 'Crypto Trage';
-              var txt = "Crypto Trage is designed to show fiat and crypto prices";
+              var txt = "Crypto Trage is designed to show fiat and crypto prices"
+                  " and create an arbitrage bot.";
 
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
