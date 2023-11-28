@@ -355,9 +355,8 @@ class CryptoBotTile extends StatelessWidget {
             width: width/2.5,
             padding: const EdgeInsets.all(32),
             child: Builder(builder: (context) {
-              var title = 'Nigerian Widow Chart App';
-              var txt = "Welcome to the Nigerian Widow Chart App. A powerful"
-                  " tool designed to bring attention to the plight of widows "
+              var title = 'Crypto Trage';
+              var txt = "Crypto Trage is designed to bring attention to the plight of widows "
                   "in Nigeria through intuitive and interactive data "
                   "visualization.";
 
