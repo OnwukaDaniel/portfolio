@@ -30,6 +30,7 @@ class HomepageView extends StatelessWidget {
               PowerPlugTile(),
               HowFarTile(),
               NigerianWidowTile(),
+              NigerianWidowTile(),
             ],
           ),
         );
