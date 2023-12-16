@@ -1,6 +1,5 @@
 import 'package:portfolio/imports/common_imports.dart';
-import 'package:portfolio/ui/homepage/views/homepage_view.dart';
-import 'globals/theme.dart';
+
 
 void main() => runApp(const MyApp());
 
