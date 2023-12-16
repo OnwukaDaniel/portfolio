@@ -1,5 +1,4 @@
 import 'package:portfolio/imports/common_imports.dart';
-import 'package:portfolio/ui/homepage/enums/appbar_action_enum.dart';
 
 class HomepageViewModel extends BaseViewModel {
   AppBarActionEnum _selectedAppBarAction = AppBarActionEnum.home;
