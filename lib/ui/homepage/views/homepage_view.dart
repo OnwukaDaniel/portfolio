@@ -1,7 +1,6 @@
 import 'package:portfolio/globals/textUtils.dart';
 import 'package:portfolio/imports/common_imports.dart';
 import 'package:portfolio/ui/homepage/enums/appbar_action_enum.dart';
-import 'package:portfolio/ui/homepage/widgets/widgets.dart';
 
 Color backColor = const Color(0xFFFFFFFF);
 Color textOnBackColor = Colors.black87;
