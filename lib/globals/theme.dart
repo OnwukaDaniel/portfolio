@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'appColor.dart';
+import 'package:portfolio/imports/common_imports.dart';
 
 class AppTheme {
   static const double titleLarge = 42;

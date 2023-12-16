@@ -10,3 +10,4 @@ export 'package:portfolio/ui/homepage/enums/appbar_action_enum.dart';import 'dar
 export 'package:portfolio/globals/theme.dart';
 export 'package:portfolio/ui/homepage/views/homepage_view.dart';
 export 'package:portfolio/globals/textUtils.dart';
+export 'package:portfolio/globals/appColor.dart';
