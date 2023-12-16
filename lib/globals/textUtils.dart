@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:portfolio/imports/common_imports.dart';
 
 class TextUtils{
   static TextStyle titleLarge(BuildContext context){

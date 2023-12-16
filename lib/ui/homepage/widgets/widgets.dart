@@ -1,6 +1,4 @@
 import 'package:portfolio/imports/common_imports.dart';
-import 'package:portfolio/ui/homepage/enums/appbar_action_enum.dart';
-import 'package:stacked_hooks/stacked_hooks.dart';
 
 class HomeAppBarText extends StackedHookView<HomepageViewModel> {
   final AppBarActionEnum appBarActionEnum;
