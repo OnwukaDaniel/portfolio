@@ -1,9 +1,9 @@
 export 'dart:async';
 export 'package:flutter/material.dart';
+export 'package:portfolio/globals/gap.dart';
 export 'package:portfolio/globals/colorUtils.dart';
 export 'package:stacked/stacked.dart';
 export 'package:portfolio/globals/appColor.dart';
-export 'package:portfolio/globals/gap.dart';
 export 'package:portfolio/globals/textUtils.dart';
 export 'package:portfolio/globals/theme.dart';
 export 'package:stacked_hooks/stacked_hooks.dart';
