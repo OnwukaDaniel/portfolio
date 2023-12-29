@@ -331,96 +331,6 @@ class NigerianWidowTile extends StatelessWidget {
   }
 }
 
-class CryptoBotTile extends StatelessWidget {
-  const CryptoBotTile({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    TextStyle tl = TextUtils.titleLarge(context).copyWith(color: Colors.white);
-    TextStyle tm = TextUtils.titleMedium(context).copyWith(color: Colors.white);
-    TextStyle bl = TextUtils.bodyLarge(context).copyWith(color: Colors.white);
-    TextStyle bm = TextUtils.bodyMedium(context).copyWith(color: Colors.white);
-    TextStyle bs = TextUtils.bodySmall(context).copyWith(color: Colors.white);
-    return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
-      color: Colors.black87,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: width/2.5,
-            padding: const EdgeInsets.all(32),
-            child: Builder(builder: (context) {
-              var title = 'Crypto Trage';
-              var txt = "Crypto Trage is designed to show fiat and crypto prices"
-                  " and create an arbitrage bot.";
-
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/icons/nigeria_widow_appicon.png",
-                        width: 70,
-                        height: 70,
-                      ),
-                      gap(16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              title,
-                              style: tm.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                            Text(
-                              " - Empowering Through Data Visualization",
-                              style: bs.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  gap(64, v: true),
-                  Text(
-                    txt,
-                    style: bm.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ],
-              );
-            }),
-          ),
-          gap(32),
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/display/nigerian_widow_display.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});
 
@@ -518,6 +428,96 @@ class HomeTopBar extends StatelessWidget {
                 double h = w * 0.8;
                 return Image.asset(
                   "assets/home/apps.png",
+                  width: w,
+                  height: h,
+                );
+              }
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CryptoBotTile extends StatelessWidget {
+  const CryptoBotTile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    TextStyle tl = TextUtils.titleLarge(context).copyWith(color: Colors.white);
+    TextStyle tm = TextUtils.titleMedium(context).copyWith(color: Colors.white);
+    TextStyle bl = TextUtils.bodyLarge(context).copyWith(color: Colors.white);
+    TextStyle bm = TextUtils.bodyMedium(context).copyWith(color: Colors.white);
+    TextStyle bs = TextUtils.bodySmall(context).copyWith(color: Colors.white);
+    return Container(
+      constraints: BoxConstraints(minHeight:  height / 1.3),
+      color: Colors.black87,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: width/2.5,
+            padding: const EdgeInsets.all(32),
+            child: Builder(builder: (context) {
+              var title = 'Crypto Trage';
+              var txt = "Crypto Trage is designed to show fiat and crypto prices"
+                  " and create an arbitrage bot.";
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/icons/nigeria_widow_appicon.png",
+                        width: 70,
+                        height: 70,
+                      ),
+                      gap(16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              title,
+                              style: tm.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            Text(
+                              " - Empowering Through Data Visualization",
+                              style: bs.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  gap(64, v: true),
+                  Text(
+                    txt,
+                    style: bm.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ],
+              );
+            }),
+          ),
+          gap(32),
+          Builder(
+              builder: (context) {
+                double w = width/3.5;
+                double h = w * 0.8;
+                return Image.asset(
+                  "assets/display/nigerian_widow_display.png",
                   width: w,
                   height: h,
                 );
