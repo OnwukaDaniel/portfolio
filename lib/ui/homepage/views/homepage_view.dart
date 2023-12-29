@@ -421,73 +421,6 @@ class CryptoBotTile extends StatelessWidget {
   }
 }
 
-class IntroCard extends StatelessWidget {
-  const IntroCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    TextStyle tl = TextUtils.titleLarge(context);
-    TextStyle tm = TextUtils.titleMedium(context);
-    TextStyle bl = TextUtils.bodyLarge(context);
-    TextStyle bm = TextUtils.bodyMedium(context);
-    TextStyle bs = TextUtils.bodySmall(context);
-    var aboutText2 = 'What sets me apart is not just the code I write but the '
-        'passion I bring to every project. I understand that technology is a '
-        'powerful tool, and its true potential is realized when it enhances the '
-        'lives of users. My commitment to creating impactful and scalable '
-        'solutions is what drives me, and my journey in the realm of Flutter '
-        'has allowed me to explore the boundaries of creativity and functionality.';
-
-    return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/mocks/apps1.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
-          gap(32),
-          Container(
-            width: width/2.5,
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  aboutText2,
-                  style: bm.copyWith(color: textOnBackColor),
-                ),
-                gap(32, v: true),
-                Row(
-                  children: [
-                    Text(
-                      "Download my resume",
-                      style: bl.copyWith(color: textOnBackColor),
-                    ),
-                    gap(8),
-                    Icon(Icons.file_present, color: textOnBackColor),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});
 
@@ -589,6 +522,73 @@ class HomeTopBar extends StatelessWidget {
                   height: h,
                 );
               }
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class IntroCard extends StatelessWidget {
+  const IntroCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    TextStyle tl = TextUtils.titleLarge(context);
+    TextStyle tm = TextUtils.titleMedium(context);
+    TextStyle bl = TextUtils.bodyLarge(context);
+    TextStyle bm = TextUtils.bodyMedium(context);
+    TextStyle bs = TextUtils.bodySmall(context);
+    var aboutText2 = 'What sets me apart is not just the code I write but the '
+        'passion I bring to every project. I understand that technology is a '
+        'powerful tool, and its true potential is realized when it enhances the '
+        'lives of users. My commitment to creating impactful and scalable '
+        'solutions is what drives me, and my journey in the realm of Flutter '
+        'has allowed me to explore the boundaries of creativity and functionality.';
+
+    return Container(
+      constraints: BoxConstraints(minHeight:  height / 1.3),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Builder(
+              builder: (context) {
+                double w = width/3.5;
+                double h = w * 0.8;
+                return Image.asset(
+                  "assets/mocks/apps1.png",
+                  width: w,
+                  height: h,
+                );
+              }
+          ),
+          gap(32),
+          Container(
+            width: width/2.5,
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  aboutText2,
+                  style: bm.copyWith(color: textOnBackColor),
+                ),
+                gap(32, v: true),
+                Row(
+                  children: [
+                    Text(
+                      "Download my resume",
+                      style: bl.copyWith(color: textOnBackColor),
+                    ),
+                    gap(8),
+                    Icon(Icons.file_present, color: textOnBackColor),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
