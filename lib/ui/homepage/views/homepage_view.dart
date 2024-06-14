@@ -10,38 +10,13 @@ class HomepageView extends StatelessWidget {
   Widget build(BuildContext context) {
     AppNavigate.addToPath(PathEnum.home);
     var ll = TextUtils.labelLarge(context);
-    var bs = TextUtils.bodySmall(context);
-    List<PathEnum> actions = [
-      PathEnum.home,
-      PathEnum.aboutMe,
-      PathEnum.contactUs,
-      PathEnum.portfolio,
-      PathEnum.services,
-    ];
+    var bs = TextUtils.bodySmall(context); 
 
     return ViewModelBuilder<HomepageViewModel>.nonReactive(
       viewModelBuilder: () => HomepageViewModel(),
       builder: (context, model, child) {
         return AppWrapper(
           child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.black.withOpacity(0.8),
-              actions: List.generate(
-                actions.length,
-                (index) {
-                  return TextButton(
-                    onPressed: () {
-                      AppNavigate.push(context, actions.elementAt(index));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child:
-                          Text(actions[index].name, style: bs),
-                    ),
-                  );
-                },
-              ),
-            ),
             body: ListView(
               children: const [],
             ),

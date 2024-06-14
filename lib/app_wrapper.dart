@@ -8,10 +8,19 @@ class AppWrapper extends StackedHookView<HomepageViewModel> {
   @override
   Widget builder(BuildContext context, model) {
     var ll = TextUtils.labelLarge(context);
+    var bs = TextUtils.bodySmall(context);
+
     var size = MediaQuery.of(context).size;
+    List<PathEnum> actions = [
+      PathEnum.home,
+      PathEnum.aboutMe,
+      PathEnum.contactUs,
+      PathEnum.portfolio,
+      PathEnum.services,
+    ];
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size(size.width, 50),
+        preferredSize: Size(size.width, 96),
         child: Column(
           children: [
             ClipRRect(
@@ -57,6 +66,21 @@ class AppWrapper extends StackedHookView<HomepageViewModel> {
               ),
             ),
             const PathBar(),
+            AppBar(
+              backgroundColor: Colors.black.withOpacity(0.8),
+              automaticallyImplyLeading: false,
+              actions: List.generate(
+                actions.length,
+                    (index) {
+                  return TextButton(
+                    onPressed: () {
+                      AppNavigate.push(context, actions.elementAt(index));
+                    },
+                    child: Text(actions[index].name, style: bs),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

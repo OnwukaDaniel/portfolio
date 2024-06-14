@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:developer';
+
 import 'package:portfolio/imports/common_imports.dart';
 
 class AppNavigate {
@@ -17,15 +18,14 @@ class AppNavigate {
   static push(BuildContext context, PathEnum path) {
     var paths = _navigationPath;
     var screen = PageFromPath.getPage(path);
-    if (paths.contains(paths)) {
-      if (paths.elementAt(paths.length - 1) != path) {
-        // is not last
+    if (paths.contains(path)) {
+      if (paths.last != path) {
         var navigateIndex = paths.toList().indexOf(path);
-        var newPath = paths.toList().sublist(0, navigateIndex).toSet();
-        Navigator.pushReplacement(
-          context,
-          CupertinoPageRoute(builder: (_) => screen),
-        );
+        var newPath = paths.toList().sublist(0, navigateIndex + 1).toSet();
+        var pops = paths.length - newPath.length;
+        for (int p in List.generate(pops, (e) => e)) {
+          if (Navigator.canPop(context)) Navigator.pop(context);
+        }
         return resetPath(newPath);
       } else {
         return;
