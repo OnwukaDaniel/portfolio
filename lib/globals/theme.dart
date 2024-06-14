@@ -6,6 +6,8 @@ class AppTheme {
   static const double bodyLarge = 26;
   static const double bodyMedium = 20;
   static const double bodySmall = 16;
+  static const double labelLarge = 14;
+  static const double labelMedium = 12;
 
   static final ThemeData lightTheme = ThemeData(
     primaryColor: AppColor.appColor,
@@ -23,7 +25,6 @@ class AppTheme {
       iconTheme: IconThemeData(color: Colors.white),
     ),
     dividerColor: const Color(0xfff0f0f0),
-    backgroundColor: const Color(0xfff8fcfa),
     cardColor: const Color(0xFFD5D5D5),
     fontFamily: 'Inter',
     buttonTheme: ButtonThemeData(
@@ -70,6 +71,16 @@ class AppTheme {
         fontSize: bodySmall,
         fontFamily: "Nunito",
       ),
+      labelLarge: TextStyle(
+        color: Colors.black,
+        fontSize: labelLarge,
+        fontFamily: "Nunito",
+      ),
+      labelMedium: TextStyle(
+        color: Colors.black,
+        fontSize: labelMedium,
+        fontFamily: "Nunito",
+      ),
     ),
   );
 
@@ -107,7 +118,6 @@ class AppTheme {
       ),
     ),
     dividerColor: Colors.white,
-    backgroundColor: Colors.black87,
     cardColor: const Color(0xff444343),
     cardTheme: const CardTheme(color: Color(0xff444343)),
     textTheme: const TextTheme(
@@ -134,6 +144,16 @@ class AppTheme {
       bodySmall: TextStyle(
         color: Colors.white,
         fontSize: bodySmall,
+        fontFamily: "Nunito",
+      ),
+      labelLarge: TextStyle(
+        color: Colors.white,
+        fontSize: labelLarge,
+        fontFamily: "Nunito",
+      ),
+      labelMedium: TextStyle(
+        color: Colors.white,
+        fontSize: labelMedium,
         fontFamily: "Nunito",
       ),
     ),

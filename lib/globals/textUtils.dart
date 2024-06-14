@@ -16,4 +16,10 @@ class TextUtils{
   static TextStyle bodySmall(BuildContext context){
     return Theme.of(context).textTheme.bodySmall!;
   }
+  static TextStyle labelLarge(BuildContext context){
+    return Theme.of(context).textTheme.labelLarge!;
+  }
+  static TextStyle labelMedium(BuildContext context){
+    return Theme.of(context).textTheme.labelMedium!;
+  }
 }

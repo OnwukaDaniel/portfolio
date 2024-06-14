@@ -1,3 +1,4 @@
+import 'package:portfolio/app_navigate.dart';
 import 'package:portfolio/imports/common_imports.dart';
 
 Color backColor = const Color(0xFFFFFFFF);
@@ -8,43 +9,45 @@ class HomepageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var ll = TextUtils.labelLarge(context);
+    var bs = TextUtils.bodySmall(context);
+    List<PathEnum> actions = [
+      PathEnum.home,
+      PathEnum.aboutMe,
+      PathEnum.contactUs,
+      PathEnum.portfolio,
+      PathEnum.services,
+    ];
+
     return ViewModelBuilder<HomepageViewModel>.nonReactive(
       viewModelBuilder: () => HomepageViewModel(),
       builder: (context, model, child) {
-        return Scaffold(
-          backgroundColor: backColor,
-          appBar: AppBar(
-            backgroundColor: Colors.black.withOpacity(0.8),
-            actions: List.generate(
-              AppBarActionEnum.values.length,
-              (index) => appBarItem(index),
+        return AppWrapper(
+          child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.black.withOpacity(0.8),
+              actions: List.generate(
+                actions.length,
+                (index) {
+                  return TextButton(
+                    onPressed: () {
+                      AppNavigate.push(context, actions.elementAt(index));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child:
+                          Text(actions[index].name, style: bs),
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-          body: ListView(
-            children: const [
-              HomeTopBar(),
-              IntroCard(),
-              PowerPlugTile(),
-              HowFarTile(),
-              NigerianWidowTile(),
-              NigerianWidowTile(),
-            ],
+            body: ListView(
+              children: const [],
+            ),
           ),
         );
       },
-    );
-  }
-
-  Widget appBarItem(int index) {
-    TextStyle ts = const TextStyle(color: Colors.white);
-    return Row(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(8),
-          child: Text(AppBarActionEnum.values[index].name, style: ts),
-        ),
-        gap(16),
-      ],
     );
   }
 }
@@ -62,25 +65,23 @@ class PowerPlugTile extends StatelessWidget {
     TextStyle bm = TextUtils.bodyMedium(context);
     TextStyle bs = TextUtils.bodySmall(context);
     return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
+      constraints: BoxConstraints(minHeight: height / 1.3),
       color: Colors.red,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/display/power_plug_display.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
+          Builder(builder: (context) {
+            double w = width / 3.5;
+            double h = w * 0.8;
+            return Image.asset(
+              "assets/display/power_plug_display.png",
+              width: w,
+              height: h,
+            );
+          }),
           gap(32),
           Container(
-            width: width/2.5,
+            width: width / 2.5,
             padding: const EdgeInsets.all(16),
             child: Builder(builder: (context) {
               var title = 'PowerPlug';
@@ -155,13 +156,13 @@ class HowFarTile extends StatelessWidget {
     TextStyle bm = TextUtils.bodyMedium(context);
     TextStyle bs = TextUtils.bodySmall(context);
     return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
+      constraints: BoxConstraints(minHeight: height / 1.3),
       color: Colors.amber,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: width/2.5,
+            width: width / 2.5,
             padding: const EdgeInsets.all(32),
             child: Builder(builder: (context) {
               var title = 'HowFar';
@@ -222,17 +223,15 @@ class HowFarTile extends StatelessWidget {
             }),
           ),
           gap(32),
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/display/howfar_display.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
+          Builder(builder: (context) {
+            double w = width / 3.5;
+            double h = w * 0.8;
+            return Image.asset(
+              "assets/display/howfar_display.png",
+              width: w,
+              height: h,
+            );
+          }),
         ],
       ),
     );
@@ -252,13 +251,13 @@ class NigerianWidowTile extends StatelessWidget {
     TextStyle bm = TextUtils.bodyMedium(context).copyWith(color: Colors.white);
     TextStyle bs = TextUtils.bodySmall(context).copyWith(color: Colors.white);
     return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
+      constraints: BoxConstraints(minHeight: height / 1.3),
       color: Colors.black87,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: width/2.5,
+            width: width / 2.5,
             padding: const EdgeInsets.all(32),
             child: Builder(builder: (context) {
               var title = 'Nigerian Widow Chart App';
@@ -314,17 +313,15 @@ class NigerianWidowTile extends StatelessWidget {
             }),
           ),
           gap(32),
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/display/nigerian_widow_display.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
+          Builder(builder: (context) {
+            double w = width / 3.5;
+            double h = w * 0.8;
+            return Image.asset(
+              "assets/display/nigerian_widow_display.png",
+              width: w,
+              height: h,
+            );
+          }),
         ],
       ),
     );
@@ -357,7 +354,7 @@ class HomeTopBar extends StatelessWidget {
         'solutions is what drives me, and my journey in the realm of Flutter '
         'has allowed me to explore the boundaries of creativity and functionality.';
     return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
+      constraints: BoxConstraints(minHeight: height / 1.3),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -378,7 +375,7 @@ class HomeTopBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            width: width/2.5,
+            width: width / 2.5,
             padding: const EdgeInsets.all(32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -422,17 +419,15 @@ class HomeTopBar extends StatelessWidget {
               ],
             ),
           ),
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/home/apps.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
+          Builder(builder: (context) {
+            double w = width / 3.5;
+            double h = w * 0.8;
+            return Image.asset(
+              "assets/home/apps.png",
+              width: w,
+              height: h,
+            );
+          }),
         ],
       ),
     );
@@ -452,17 +447,18 @@ class CryptoBotTile extends StatelessWidget {
     TextStyle bm = TextUtils.bodyMedium(context).copyWith(color: Colors.white);
     TextStyle bs = TextUtils.bodySmall(context).copyWith(color: Colors.white);
     return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
+      constraints: BoxConstraints(minHeight: height / 1.3),
       color: Colors.black87,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: width/2.5,
+            width: width / 2.5,
             padding: const EdgeInsets.all(32),
             child: Builder(builder: (context) {
               var title = 'Crypto Trage';
-              var txt = "Crypto Trage is designed to show fiat and crypto prices"
+              var txt =
+                  "Crypto Trage is designed to show fiat and crypto prices"
                   " and create an arbitrage bot.";
 
               return Column(
@@ -512,17 +508,15 @@ class CryptoBotTile extends StatelessWidget {
             }),
           ),
           gap(32),
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/display/nigerian_widow_display.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
+          Builder(builder: (context) {
+            double w = width / 3.5;
+            double h = w * 0.8;
+            return Image.asset(
+              "assets/display/nigerian_widow_display.png",
+              width: w,
+              height: h,
+            );
+          }),
         ],
       ),
     );
@@ -549,24 +543,22 @@ class IntroCard extends StatelessWidget {
         'has allowed me to explore the boundaries of creativity and functionality.';
 
     return Container(
-      constraints: BoxConstraints(minHeight:  height / 1.3),
+      constraints: BoxConstraints(minHeight: height / 1.3),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Builder(
-              builder: (context) {
-                double w = width/3.5;
-                double h = w * 0.8;
-                return Image.asset(
-                  "assets/mocks/apps1.png",
-                  width: w,
-                  height: h,
-                );
-              }
-          ),
+          Builder(builder: (context) {
+            double w = width / 3.5;
+            double h = w * 0.8;
+            return Image.asset(
+              "assets/mocks/apps1.png",
+              width: w,
+              height: h,
+            );
+          }),
           gap(32),
           Container(
-            width: width/2.5,
+            width: width / 2.5,
             padding: const EdgeInsets.all(32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

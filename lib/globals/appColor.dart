@@ -8,7 +8,7 @@ class AppColor{
   static Color wCardTextBlack = Colors.black;
 
   // Orange card color
-  static Color oCardTextBlack = Colors.black;
+  static Color hintColor = Colors.grey;
 
   static const Color appColor = Color(0xffa4bdc2);
   static Color appOrange = const Color(0xffffc502);
