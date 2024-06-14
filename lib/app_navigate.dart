@@ -8,14 +8,13 @@ class AppNavigate {
 
   factory AppNavigate() => _instance;
 
-  static StreamController<Set<PathEnum>> pathStream= StreamController.broadcast();
+  static ValueNotifier<Set<PathEnum>> pathVn = ValueNotifier({});
 
   static final Set<PathEnum> _navigationPath = {PathEnum.home};
 
   static Set<PathEnum> get navigationPath => _navigationPath;
 
   static push(BuildContext context, PathEnum path) {
-    var model = HomepageViewModel();
     var paths = _navigationPath;
     var screen = PageFromPath.getPage(path);
     if (paths.contains(paths)) {
@@ -38,12 +37,12 @@ class AppNavigate {
 
   static addToPath(PathEnum path) {
     _navigationPath.add(path);
-    pathStream.sink.add(_navigationPath);
+    pathVn.value = _navigationPath;
   }
 
   static resetPath(Set<PathEnum> path) {
     _navigationPath.clear();
     _navigationPath.addAll(path);
-    pathStream.sink.add(_navigationPath);
+    pathVn.value = _navigationPath;
   }
 }

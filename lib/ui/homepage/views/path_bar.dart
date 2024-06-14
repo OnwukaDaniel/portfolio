@@ -13,17 +13,17 @@ class PathBar extends StackedHookView<HomepageViewModel> {
         Expanded(
           child: SizedBox(
             height: 20,
-            child: StreamBuilder(
-              stream: AppNavigate.pathStream.stream,
-              builder: (context, stream) {
-                if (!stream.hasData) return const SizedBox();
+            child: ValueListenableBuilder(
+              valueListenable: AppNavigate.pathVn,
+              builder: (context, pathSet, _) {
+                if (pathSet.isEmpty) return const SizedBox();
                 return ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_, index) => InkWell(
                     onTap: () => AppNavigate.push(
-                        context, stream.data!.elementAt(index)),
+                        context, pathSet.elementAt(index)),
                     child: Text(
-                      stream.data!.elementAt(index).name,
+                      pathSet.elementAt(index).name,
                       style: ll,
                     ),
                   ),
@@ -36,7 +36,7 @@ class PathBar extends StackedHookView<HomepageViewModel> {
                       size: 14,
                     ),
                   ),
-                  itemCount: stream.data!.length,
+                  itemCount: pathSet.length,
                 );
               },
             ),

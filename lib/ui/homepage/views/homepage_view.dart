@@ -1,4 +1,3 @@
-import 'package:portfolio/app_navigate.dart';
 import 'package:portfolio/imports/common_imports.dart';
 
 Color backColor = const Color(0xFFFFFFFF);
@@ -9,6 +8,7 @@ class HomepageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppNavigate.addToPath(PathEnum.home);
     var ll = TextUtils.labelLarge(context);
     var bs = TextUtils.bodySmall(context);
     List<PathEnum> actions = [
