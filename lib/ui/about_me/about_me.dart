@@ -22,18 +22,16 @@ class AboutMe extends StatelessWidget {
                 width: .2,
                 color: Colors.grey,
               ),
-              Expanded(
+              const Expanded(
                 flex: 3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const PersonalInfoList(),
-                    Container(
-                      height: .2,
-                      width: size.width,
-                      color: Colors.grey,
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      PersonalInfoList(),
+                    ],
+                  ),
                 ),
               ),
               Container(

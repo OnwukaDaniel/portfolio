@@ -17,26 +17,26 @@ class PersonalInfoList extends StackedHookView<AboutMeViewmodel> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                InkWell(
-                  onTap: () => model.showPersonalInfo(!data.show, index),
-                  child: Icon(
+            InkWell(
+              onTap: () => model.showPersonalInfo(!data.show, index),
+              child: Row(
+                children: [
+                  Icon(
                     data.show
                         ? Icons.keyboard_arrow_down
                         : Icons.keyboard_arrow_right,
                     color: bs.color,
                   ),
-                ),
-                const SizedBox(width: 6),
-                Image.asset(data.icon),
-                const SizedBox(width: 6),
-                Text(
-                  data.displayName,
-                  style: ll,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+                  const SizedBox(width: 6),
+                  Image.asset(data.icon),
+                  const SizedBox(width: 6),
+                  Text(
+                    data.displayName,
+                    style: ll,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ),
             if (data.show)
               Padding(
