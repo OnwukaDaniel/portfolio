@@ -15,7 +15,7 @@ class PageFromPath{
   static Widget getPage(PathEnum path){
     switch(path) {
       case PathEnum.home:
-        return const HomepageView();
+        return const Home();
       case PathEnum.services:
         return const HomepageView();
       case PathEnum.aboutMe:

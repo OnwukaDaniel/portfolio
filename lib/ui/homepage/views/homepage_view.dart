@@ -15,11 +15,9 @@ class HomepageView extends StatelessWidget {
     return ViewModelBuilder<HomepageViewModel>.nonReactive(
       viewModelBuilder: () => HomepageViewModel(),
       builder: (context, model, child) {
-        return AppWrapper(
+        return const AppWrapper(
           child: Scaffold(
-            body: ListView(
-              children: const [],
-            ),
+            body: Home(),
           ),
         );
       },

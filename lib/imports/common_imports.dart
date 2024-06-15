@@ -19,3 +19,8 @@ export 'package:portfolio/enums/path_enum.dart';
 export 'package:portfolio/ui/about_me/about_me.dart';
 export 'package:portfolio/app_navigate.dart';
 export 'package:flutter/cupertino.dart' hide RefreshCallback;
+export 'package:portfolio/globals/app_constants.dart';
+export 'package:portfolio/imports/common_imports.dart';
+export 'package:animated_text_kit/animated_text_kit.dart';
+export 'package:portfolio/ui/home/home.dart';
+
