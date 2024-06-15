@@ -12,6 +12,7 @@ class AboutMe extends StatelessWidget {
 
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => AboutMeViewmodel(),
+      onViewModelReady: (_) => _.init(),
       builder: (context, model, _) {
         return AppWrapper(
           child: Row(

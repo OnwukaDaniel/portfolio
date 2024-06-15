@@ -9,7 +9,25 @@ class AboutMeRepo {
         files: [
           AboutSideBarInfo(
             file: 'bio.dart',
-            info: 'Here is the given text with \n replacing newlines and the entire string placed on a single line: dart /** * About me\n * I have 5 years of еxperience in web\n * development lorem ipsum dolor sit amet, \n * consectetur adipiscing elit, sed do eiusmod\n * tempor incididunt ut labore et dolore\n * magna aliqua. Ut enim ad minim veniam,\n * quis nostrud exercitation ullamco laboris\n * nisi ut aliquip ex ea commodo consequat.\n * Duis aute irure dolor in reprehenderit in\n *\n * Duis aute irure dolor in reprehenderit in\n * voluptate velit esse cillum dolore eu fugiat \n * nulla pariatur. Excepteur sint occaecat \n * officia deserunt mollit anim id est laborum.\n */',
+            info: '/**'
+                '\n**     About Me\n* With 4 years of experience in software development, '
+                '\n** I am a results-oriented IT professional dedicated to delivering '
+                '\n** high-quality solutions. My excellent communication skills and passion'
+                '\n** for problem-solving enable me to effectively collaborate with team '
+                '\n** members and stakeholders, ensuring project success. '
+                '\n**     I am proficient in version control and adept at working with '
+                '\n** third-party APIs to enhance functionality. My expertise includes '
+                '\n** UI/UX design, where I strive to create user-centric solutions that '
+                '\n** meet the needs and expectations of end-users. Additionally, I have a'
+                '\n** strong background in research, Firebase, and Google Maps integration,'
+                '\n** which allows me to develop robust and scalable applications. My technical'
+                '\n** skill set includes a deep understanding of RESTful API integration,'
+                '\n** state management, and the implementation of CI/CD practices for continuous'
+                '\n** integration and continuous development. I excel in debugging processes,'
+                '\n** ensuring that issues are resolved promptly to maintain the quality and'
+                '\n** performance of the software.\n * I am eager to bring my diverse skill set'
+                '\n** to a dynamic and collaborative tech environment where I can continue to grow'
+                '\n** and contribute to innovative projects.\n**/',
           )
         ],
         show: true,

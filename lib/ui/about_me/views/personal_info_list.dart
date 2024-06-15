@@ -51,7 +51,7 @@ class PersonalInfoList extends StackedHookView<AboutMeViewmodel> {
                   itemBuilder: (_, index) {
                     var files = data.files[index];
                     return InkWell(
-                      onTap: () => model.setDisplayPersonalInfo(data, index),
+                      onTap: () => model.setDisplayPersonalInfo(files),
                       child: Padding(
                         padding: const EdgeInsets.all(4),
                         child: Row(

@@ -1,10 +1,15 @@
 import 'package:portfolio/imports/common_imports.dart';
 
 class AboutMeViewmodel extends HomepageViewModel {
-  AboutSideBar displayPersonalInfo = AboutMeRepo.getPersonalInfo().first;
-  int _infoIndex = 0;
-  int get infoIndex => _infoIndex;
+  AboutSideBarInfo displayPersonalInfo = AboutSideBarInfo();
+  Set<AboutSideBarInfo> aboutDisplayInfoList = {};
   var personalInfo = AboutMeRepo.getPersonalInfo();
+
+  init() {
+    displayPersonalInfo = personalInfo.first.files.first;
+    aboutDisplayInfoList.add(displayPersonalInfo);
+    notifyListeners();
+  }
 
   showPersonalInfo(bool input, int index) {
     try {
@@ -13,9 +18,21 @@ class AboutMeViewmodel extends HomepageViewModel {
     } catch (e) {}
   }
 
-  setDisplayPersonalInfo(AboutSideBar input, int infoIndex) {
+  setDisplayPersonalInfo(AboutSideBarInfo input) {
     displayPersonalInfo = input;
-    _infoIndex = infoIndex;
+    aboutDisplayInfoList.add(input);
+    notifyListeners();
+  }
+
+  removePersonalInfo(AboutSideBarInfo input) {
+    aboutDisplayInfoList.remove(input);
+    if (aboutDisplayInfoList.isNotEmpty) {
+      if (!aboutDisplayInfoList.contains(displayPersonalInfo)) {
+        return setDisplayPersonalInfo(aboutDisplayInfoList.last);
+      }
+    } else {
+      displayPersonalInfo = AboutSideBarInfo();
+    }
     notifyListeners();
   }
 }

@@ -1,11 +1,11 @@
 import 'package:portfolio/imports/common_imports.dart';
 
 enum PathEnum{
-  home("Home"),
-  services("Services"),
-  aboutMe("About me"),
-  portfolio("Portfolio"),
-  contactUs("Contact Us");
+  home("_home"),
+  services("_services"),
+  aboutMe("_about-me"),
+  portfolio("_portfolio"),
+  contactUs("_contact-us");
 
   const PathEnum(this.name);
   final String name;
