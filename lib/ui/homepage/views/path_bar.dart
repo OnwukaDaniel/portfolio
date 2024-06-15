@@ -1,11 +1,10 @@
-import 'package:portfolio/app_navigate.dart';
 import 'package:portfolio/imports/common_imports.dart';
 
-class PathBar extends StackedHookView<HomepageViewModel> {
+class PathBar extends StatelessWidget {
   const PathBar({super.key});
 
   @override
-  Widget builder(BuildContext context, model) {
+  Widget build(BuildContext context) {
     var color = ColorUtils.textColor(context);
     var ll = TextUtils.labelLarge(context);
     return Row(

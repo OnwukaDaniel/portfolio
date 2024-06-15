@@ -2,13 +2,13 @@ import 'package:portfolio/ui/views/footer.dart';
 
 import 'imports/common_imports.dart';
 
-class AppWrapper extends StackedHookView<HomepageViewModel> {
+class AppWrapper extends StatelessWidget {
   final Widget child;
 
   const AppWrapper({super.key, required this.child});
 
   @override
-  Widget builder(BuildContext context, model) {
+  Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context);
     var lm = TextUtils.labelMedium(context);
     var bs = TextUtils.bodySmall(context);
@@ -22,9 +22,10 @@ class AppWrapper extends StackedHookView<HomepageViewModel> {
       PathEnum.services,
     ];
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(size.width, 96),
-        child: Column(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.only(
@@ -121,8 +122,8 @@ class AppWrapper extends StackedHookView<HomepageViewModel> {
                                       return Container(
                                         height: 1,
                                         width:
-                                            (actions[index].name.length * 11) +
-                                                16 * 2,
+                                        (actions[index].name.length * 11) +
+                                            16 * 2,
                                         color: actions[index] == value.last
                                             ? Colors.amberAccent
                                             : Colors.transparent,
@@ -147,14 +148,14 @@ class AppWrapper extends StackedHookView<HomepageViewModel> {
             ),
             Container(
               height: .2,
-              margin: const EdgeInsets.only(left: 64),
               width: double.infinity,
               color: Colors.grey,
             ),
           ],
         ),
+          Expanded(child: child),
+        ],
       ),
-      body: child,
       bottomNavigationBar: const Wrap(
         children: [
           Footer(),
