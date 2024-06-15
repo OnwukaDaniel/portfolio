@@ -1,3 +1,5 @@
+import 'package:portfolio/ui/views/footer.dart';
+
 import 'imports/common_imports.dart';
 
 class AppWrapper extends StackedHookView<HomepageViewModel> {
@@ -121,7 +123,9 @@ class AppWrapper extends StackedHookView<HomepageViewModel> {
                                         width:
                                             (actions[index].name.length * 11) +
                                                 16 * 2,
-                                        color: actions[index] == value.last? Colors.amberAccent: Colors.transparent,
+                                        color: actions[index] == value.last
+                                            ? Colors.amberAccent
+                                            : Colors.transparent,
                                       );
                                     },
                                   ),
@@ -151,6 +155,11 @@ class AppWrapper extends StackedHookView<HomepageViewModel> {
         ),
       ),
       body: child,
+      bottomNavigationBar: const Wrap(
+        children: [
+          Footer(),
+        ],
+      ),
     );
   }
 }

@@ -23,4 +23,6 @@ export 'package:portfolio/globals/app_constants.dart';
 export 'package:portfolio/imports/common_imports.dart';
 export 'package:animated_text_kit/animated_text_kit.dart';
 export 'package:portfolio/ui/home/home.dart';
+export 'package:portfolio/enums/socials_enum.dart';
+export 'package:url_launcher/url_launcher.dart';
 

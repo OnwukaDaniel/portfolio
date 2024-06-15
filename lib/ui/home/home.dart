@@ -18,66 +18,65 @@ class Home extends StatelessWidget {
       children: [
         SizedBox(
           height: size.height - (kToolbarHeight * 2),
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
+              const Spacer(),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Spacer(),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Hi, I am', style: lm),
-                      const SizedBox(height: 32),
-                      DefaultTextStyle(
-                        style: tl.copyWith(fontFamily: 'JMH Typewriter'),
-                        child: AnimatedTextKit(
-                          repeatForever: true,
-                          pause: const Duration(seconds: 2),
-                          animatedTexts: List.generate(
-                            5,
+                  Text('Hi, I am', style: lm),
+                  const SizedBox(height: 32),
+                  DefaultTextStyle(
+                    style: tl.copyWith(fontFamily: 'JMH Typewriter'),
+                    child: AnimatedTextKit(
+                      repeatForever: true,
+                      pause: const Duration(seconds: 2),
+                      animatedTexts: List.generate(
+                        5,
                             (e) => TypewriterAnimatedText(
-                              AppConstants.devName,
-                            ),
-                          ),
+                          AppConstants.devName,
                         ),
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        '> Front-end developer',
-                        style: tm.copyWith(color: Colors.deepPurple),
-                      ),
-                      const SizedBox(height: 70),
-                      Text(
-                        '// complete the game to continue\n// you can also see it on my Github page',
-                        style: ll.copyWith(color: bs.color!.withOpacity(.2)),
-                      ),
-                      const SizedBox(height: 4),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'const ',
-                              style: ll.copyWith(color: Colors.red),
-                            ),
-                            TextSpan(text: 'String ', style: ll),
-                            TextSpan(text: 'githubLink = ', style: ll),
-                            TextSpan(
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  launchWeb(AppConstants.github);
-                                },
-                              text: '"${AppConstants.github}"',
-                              style: ll.copyWith(color: Colors.amber),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                  const Spacer(),
+                  const SizedBox(height: 8),
+                  Text(
+                    '> Front-end developer',
+                    style: tm.copyWith(color: Colors.deepPurple),
+                  ),
+                  const SizedBox(height: 70),
+                  Text(
+                    '// complete the game to continue\n// you can also see it on my Github page',
+                    style: ll.copyWith(color: bs.color!.withOpacity(.2)),
+                  ),
+                  const SizedBox(height: 4),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'const ',
+                          style: ll.copyWith(color: Colors.red),
+                        ),
+                        TextSpan(text: 'String ', style: ll),
+                        TextSpan(text: 'githubLink = ', style: ll),
+                        TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              launchWeb(AppConstants.github);
+                            },
+                          text: '"${AppConstants.github}"',
+                          style: ll.copyWith(color: Colors.amber),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Wrap(
+                children: [
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
@@ -97,20 +96,20 @@ class Home extends StatelessWidget {
                     child: Row(
                       children: [
                         /*Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset(
-                              'assets/icons/screew.png',
-                              width: 12,
-                              height: 12,
-                            ),
-                            Image.asset(
-                              'assets/icons/screew.png',
-                              width: 12,
-                              height: 12,
-                            ),
-                          ],
-                        ),*/
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Image.asset(
+                                  'assets/icons/screew.png',
+                                  width: 12,
+                                  height: 12,
+                                ),
+                                Image.asset(
+                                  'assets/icons/screew.png',
+                                  width: 12,
+                                  height: 12,
+                                ),
+                              ],
+                            ),*/
                         Stack(
                           alignment: Alignment.bottomCenter,
                           children: [
@@ -219,10 +218,9 @@ class Home extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Spacer(),
                 ],
               ),
-              
+              const Spacer(),
             ],
           ),
         ),
