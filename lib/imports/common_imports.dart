@@ -27,4 +27,6 @@ export 'package:portfolio/enums/socials_enum.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:portfolio/ui/about_me/viewmodel/about_me_viewmodel.dart';
 export 'package:portfolio/models/about_side_bar.dart';
+export 'package:portfolio/ui/about_me/views/personal_info_list.dart';
+export 'package:portfolio/ui/about_me/repo/about_me_repo.dart';
 

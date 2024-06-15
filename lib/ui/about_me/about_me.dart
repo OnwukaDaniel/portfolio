@@ -1,4 +1,5 @@
 import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/ui/about_me/views/personal_info_display.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
@@ -21,10 +22,11 @@ class AboutMe extends StatelessWidget {
                 color: Colors.grey,
               ),
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const PersonalInfoList(),
                     Container(
                       height: .2,
                       width: size.width,
@@ -38,9 +40,9 @@ class AboutMe extends StatelessWidget {
                 width: .2,
                 color: Colors.grey,
               ),
-              Expanded(
+              const Expanded(
                 flex: 8,
-                child: Container(),
+                child: PersonalInfoDisplay(),
               ),
             ],
           ),
