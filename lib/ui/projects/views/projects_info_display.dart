@@ -130,7 +130,7 @@ class _ProjectGridState extends State<ProjectGrid>
                                       fit: BoxFit.cover,
                                     ),
                                     Container(
-                                      color: Colors.black.withOpacity(.7),
+                                      color: Colors.black.withOpacity(.5),
                                     ),
                                     Positioned(
                                       right: 8,
