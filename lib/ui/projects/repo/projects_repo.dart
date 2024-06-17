@@ -4,19 +4,19 @@ class ProjectsRepo {
   static List<SideBar> getProjects() {
     return [
       SideBar(
-        displayName: 'Dart-projects',
+        displayName: 'dart-projects',
         icon: 'assets/icons/folder1.png',
         files: [
           SideBarInfo(
-            file: 'PowerPlug.dart',
-            info:
-                'Facilitate electricity bill payments across all electricity providers in Nigeria',
-            icon: 'assets/icons/dart.png',
-            image: 'assets/projects/power_plug_bulb.png'
-          ),
+              file: 'PowerPlug.dart',
+              info:
+                  'Facilitate electricity bill payments across all electricity providers in Nigeria',
+              icon: 'assets/icons/dart.png',
+              image: 'assets/projects/power_plug_bulb.png'),
           SideBarInfo(
             file: 'Snacc Food.dart',
-            info: 'Monitor and regulate your food and calories intake. Analyse meal and get insight',
+            info:
+                'Monitor and regulate your food and calories intake. Analyse meal and get insight',
             icon: 'assets/icons/dart.png',
             image: 'assets/projects/snacc_food.jpg',
           ),
@@ -50,6 +50,37 @@ class ProjectsRepo {
             info: 'A crypto price tracking app with arbitrage opportunities',
             icon: 'assets/icons/dart.png',
             image: 'assets/projects/snacc_food.jpg',
+          ),
+        ],
+        show: false,
+      ),
+      SideBar(
+        displayName: 'kotlin-projects',
+        icon: 'assets/icons/folder1.png',
+        files: [
+          SideBarInfo(
+              file: 'HowFar.kt',
+              info:
+                  'Super app. Create connection with family and friends, co-workers. Browse video content, chat, video and audio call and earn creating content ',
+              icon: 'assets/icons/kotlin.png',
+              image: 'assets/icons/kotlin.png'),
+          SideBarInfo(
+            file: 'ABB-Blind-Dating.kt',
+            info: 'In korean language. Connect and meet people who are willing to date.',
+            icon: 'assets/icons/kotlin.png',
+            image: 'assets/display/abb_blind_dating.png',
+          ),
+          SideBarInfo(
+            file: 'Cronet Solution.kt',
+            info: 'This is a e-commerce app I developed for a business enterprise "Cronet Solution"',
+            icon: 'assets/icons/kotlin.png',
+            image: 'assets/projects/sentrified.jpg',
+          ),
+          SideBarInfo(
+            file: 'Note-IO.kt',
+            info: 'Keep notes in a simplified way. Organize your day and create tasks and alarms. ',
+            icon: 'assets/icons/kotlin.png',
+            image: 'assets/display/note_io.png',
           ),
         ],
         show: false,

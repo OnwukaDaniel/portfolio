@@ -5,9 +5,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
 
   @override
   Widget builder(BuildContext context, model) {
-    var bs = TextUtils.bodySmall(context);
     var ll = TextUtils.labelLarge(context);
-    var size = MediaQuery.of(context).size;
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -17,11 +15,15 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
         return Row(
           children: [
             Checkbox(
-              value: data.show,
-              onChanged: (value) => model.showSideBarInfo(!data.show, index),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16)
+              ),
+              value: model.sideBarInfoList.contains(data.files.first),
+              onChanged: (value) => model.setProject(data.files),
             ),
-            Image.asset(data.icon, width: 20, height: 20),
-            const SizedBox(width: 12),
+            const SizedBox(width: 16),
+            Image.asset(data.files.first.icon, width: 18, height: 18),
+            const SizedBox(width: 8),
             Text(data.displayName, style: ll)
           ],
         );

@@ -17,6 +17,12 @@ class ProjectsViewmodel extends AboutMeViewmodel {
     } catch (e) {}
   }
 
+  setProject(List<SideBarInfo> input){
+    sideBarInfoList.clear();
+    sideBarInfoList.addAll(input);
+    notifyListeners();
+  }
+
   @override
   setDisplayPersonalInfo(SideBarInfo input) {
     displayPersonalInfo = input;
