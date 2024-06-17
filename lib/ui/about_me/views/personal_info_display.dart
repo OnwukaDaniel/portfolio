@@ -17,7 +17,7 @@ class PersonalInfoDisplay extends StackedHookView<AboutMeViewmodel> {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
-              var data = model.aboutDisplayInfoList.elementAt(index);
+              var data = model.sideBarInfoList.elementAt(index);
               return InkWell(
                 onTap: () => model.setDisplayPersonalInfo(data),
                 child: Row(
@@ -30,7 +30,7 @@ class PersonalInfoDisplay extends StackedHookView<AboutMeViewmodel> {
                       child: Icon(Icons.close, color: textColor, size: 14),
                     ),
                     const SizedBox(width: 16),
-                    if (index == model.aboutDisplayInfoList.length - 1)
+                    if (index == model.sideBarInfoList.length - 1)
                       Container(
                         height: double.infinity,
                         width: .2,
@@ -47,7 +47,7 @@ class PersonalInfoDisplay extends StackedHookView<AboutMeViewmodel> {
                 color: Colors.grey,
               );
             },
-            itemCount: model.aboutDisplayInfoList.length,
+            itemCount: model.sideBarInfoList.length,
           ),
         ),
         Container(

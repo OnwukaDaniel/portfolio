@@ -18,7 +18,7 @@ class PersonalInfoList extends StackedHookView<AboutMeViewmodel> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-              onTap: () => model.showPersonalInfo(!data.show, index),
+              onTap: () => model.showSideBarInfo(!data.show, index),
               child: Row(
                 children: [
                   Icon(

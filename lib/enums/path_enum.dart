@@ -21,7 +21,7 @@ class PageFromPath{
       case PathEnum.aboutMe:
         return const AboutMe();
       case PathEnum.portfolio:
-        return const HomepageView();
+        return const Projects();
       case PathEnum.contactUs:
         return const HomepageView();
       default:

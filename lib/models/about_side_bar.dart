@@ -1,10 +1,10 @@
-class AboutSideBar {
+class SideBar {
   String displayName;
   String icon;
   bool show;
-  List<AboutSideBarInfo> files = [];
+  List<SideBarInfo> files = [];
 
-  AboutSideBar({
+  SideBar({
     this.displayName = '',
     this.icon = '',
     this.files = const [],
@@ -12,9 +12,16 @@ class AboutSideBar {
   });
 }
 
-class AboutSideBarInfo {
+class SideBarInfo {
   String file;
   String info;
+  String icon;
+  String image;
 
-  AboutSideBarInfo({this.file = '', this.info = ''});
+  SideBarInfo({
+    this.file = '',
+    this.info = '',
+    this.icon = '',
+    this.image = '',
+  });
 }

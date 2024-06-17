@@ -16,6 +16,7 @@ dependencies:
   device_frame: ^1.2.0
   animated_text_kit: ^4.2.2
   url_launcher: ^6.3.0
+  flutter_staggered_grid_view: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -34,6 +35,7 @@ flutter:
     - assets/icons/
     - assets/display/
     - assets/power_plug/
+    - assets/projects/
 
   fonts:
     - family: Nunito

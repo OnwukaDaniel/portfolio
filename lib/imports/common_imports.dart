@@ -29,4 +29,10 @@ export 'package:portfolio/ui/about_me/viewmodel/about_me_viewmodel.dart';
 export 'package:portfolio/models/about_side_bar.dart';
 export 'package:portfolio/ui/about_me/views/personal_info_list.dart';
 export 'package:portfolio/ui/about_me/repo/about_me_repo.dart';
-
+export 'package:portfolio/ui/projects/viewmodel/projects_viewmodel.dart';
+export 'package:portfolio/ui/projects/repo/projects_repo.dart';
+export 'package:portfolio/ui/projects/projects.dart';
+export 'package:portfolio/ui/about_me/views/personal_info_display.dart';
+export 'package:portfolio/ui/projects/views/project_side_bar.dart';
+export 'package:portfolio/ui/projects/views/projects_info_display.dart';
+export 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';

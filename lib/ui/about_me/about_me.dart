@@ -1,5 +1,4 @@
 import 'package:portfolio/imports/common_imports.dart';
-import 'package:portfolio/ui/about_me/views/personal_info_display.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});

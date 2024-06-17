@@ -1,13 +1,13 @@
 import 'package:portfolio/imports/common_imports.dart';
 
 class AboutMeRepo {
-  static List<AboutSideBar> getPersonalInfo() {
+  static List<SideBar> getPersonalInfo() {
     return [
-      AboutSideBar(
+      SideBar(
         displayName: 'bio',
         icon: 'assets/icons/folder1.png',
         files: [
-          AboutSideBarInfo(
+          SideBarInfo(
             file: 'bio.dart',
             info: '/**'
                 '\n**       About Me:\n* With 4 years of experience in software development, '
@@ -32,18 +32,18 @@ class AboutMeRepo {
         ],
         show: true,
       ),
-      AboutSideBar(
+      SideBar(
         displayName: 'interest',
         icon: 'assets/icons/folder2.png',
-        files: [AboutSideBarInfo(file: 'interest.dart')],
+        files: [SideBarInfo(file: 'interest.dart')],
         show: false,
       ),
-      AboutSideBar(
+      SideBar(
         displayName: 'education',
         icon: 'assets/icons/folder3.png',
         files: [
-          AboutSideBarInfo(file: 'high-school.dart'),
-          AboutSideBarInfo(file: 'university.dart'),
+          SideBarInfo(file: 'high-school.dart'),
+          SideBarInfo(file: 'university.dart'),
         ],
         show: false,
       ),
