@@ -50,11 +50,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
             itemCount: model.sideBarInfoList.length,
           ),
         ),
-        Container(
-          height: .2,
-          width: size.width,
-          color: Colors.grey,
-        ),
+        Container(height: .2, width: size.width, color: Colors.grey),
         Expanded(child: ProjectGrid(model)),
       ],
     );
@@ -75,20 +71,39 @@ class _ProjectGridState extends State<ProjectGrid>
   @override
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: StaggeredGrid.count(
-          crossAxisCount: 4,
-          children: List.generate(
-            widget.model.sideBarInfoList.length,
-            (index) {
-              var data = widget.model.sideBarInfoList.elementAt(index);
-              return ViewModelBuilder.nonReactive(
-                viewModelBuilder: () => ProjectsCardViewmodel(),
-                onViewModelReady: (_) => _.init(this),
-                builder: (context, model, _) {
-                  return AnimatedBuilder(
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: MasonryGridView.count(
+        itemCount: widget.model.sideBarInfoList.length,
+        crossAxisCount: 3,
+        mainAxisSpacing: 12,
+        itemBuilder: (BuildContext context, int index) {
+          var data = widget.model.sideBarInfoList.elementAt(index);
+          return ViewModelBuilder.nonReactive(
+            viewModelBuilder: () => ProjectsCardViewmodel(),
+            onViewModelReady: (_) => _.init(this),
+            builder: (context, model, _) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const SizedBox(width: 4),
+                      Text(
+                        '// ${data.file.substring(0, data.file.indexOf('.'))}',
+                        style: ll.copyWith(color: Colors.blue[800]),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          ' Project ${index + 1}',
+                          maxLines: 1,
+                          style: ll.copyWith(color: ll.color!.withOpacity(.4)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  AnimatedBuilder(
                     animation: model.boxShadowAnimation,
                     builder: (context, _) {
                       return MouseRegion(
@@ -101,7 +116,7 @@ class _ProjectGridState extends State<ProjectGrid>
                           model.sizeController.animateTo(0);
                         },
                         child: Container(
-                          width: model.sizeAnimation.value * 150,
+                          width: model.sizeAnimation.value * double.infinity,
                           height: model.sizeAnimation.value * 200,
                           margin: const EdgeInsets.all(8),
                           clipBehavior: Clip.hardEdge,
@@ -151,7 +166,8 @@ class _ProjectGridState extends State<ProjectGrid>
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     data.info,
-                                    maxLines: (model.sizeAnimation.value * 2).round(),
+                                    maxLines:
+                                        (model.sizeAnimation.value * 2).round(),
                                     style: ll.copyWith(
                                       overflow: TextOverflow.ellipsis,
                                     ),
@@ -174,12 +190,12 @@ class _ProjectGridState extends State<ProjectGrid>
                         ),
                       );
                     },
-                  );
-                },
+                  ),
+                ],
               );
             },
-          ),
-        ),
+          );
+        },
       ),
     );
   }

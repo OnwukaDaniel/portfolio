@@ -1,7 +1,9 @@
 import 'package:portfolio/imports/common_imports.dart';
 
 class ProjectsViewmodel extends AboutMeViewmodel {
+  bool showAll = false;
   List<SideBar> sideBarList = [];
+
   @override
   init() {
     sideBarList = ProjectsRepo.getProjects();
@@ -17,7 +19,7 @@ class ProjectsViewmodel extends AboutMeViewmodel {
     } catch (e) {}
   }
 
-  setProject(List<SideBarInfo> input){
+  setProject(List<SideBarInfo> input) {
     sideBarInfoList.clear();
     sideBarInfoList.addAll(input);
     notifyListeners();
@@ -40,6 +42,17 @@ class ProjectsViewmodel extends AboutMeViewmodel {
     } else {
       displayPersonalInfo = SideBarInfo();
     }
+    notifyListeners();
+  }
+
+  setShowAll(bool input) {
+    showAll = input;
+    List<SideBarInfo> list = [];
+    for (SideBar s in sideBarList) {
+      list.addAll(s.files);
+    }
+    if (showAll) sideBarInfoList.clear();
+    if (showAll) sideBarInfoList.addAll(list);
     notifyListeners();
   }
 }
