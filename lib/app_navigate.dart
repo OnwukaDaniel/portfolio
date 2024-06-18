@@ -15,9 +15,9 @@ class AppNavigate {
 
   static Set<PathEnum> get navigationPath => _navigationPath;
 
-  static push(BuildContext context, PathEnum path) {
+  static push(BuildContext context, PathEnum path, {dynamic data}) {
     var paths = _navigationPath;
-    var screen = PageFromPath.getPage(path);
+    var screen = PageFromPath.getPage(path, data);
     if (paths.contains(path)) {
       if (paths.last != path) {
         var navigateIndex = paths.toList().indexOf(path);

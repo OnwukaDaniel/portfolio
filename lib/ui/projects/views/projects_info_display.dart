@@ -182,8 +182,17 @@ class _ProjectGridState extends State<ProjectGrid>
                                     backgroundColor:
                                         WidgetStateProperty.all(Colors.black),
                                   ),
-                                  onPressed: () {},
-                                  child: Text('View project', style: ll),
+                                  onPressed: () {
+                                    AppNavigate.push(
+                                      context,
+                                      PathEnum.projectInfo,
+                                      data: data,
+                                    );
+                                  },
+                                  child: Text(
+                                    'View project',
+                                    style: ll.copyWith(color: Colors.white),
+                                  ),
                                 ),
                               ),
                             ],

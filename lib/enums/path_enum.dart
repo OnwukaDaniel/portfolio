@@ -1,18 +1,20 @@
 import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/ui/projects/project_info.dart';
 
 enum PathEnum{
   home("_home"),
   services("_services"),
   aboutMe("_about-me"),
   portfolio("_portfolio"),
-  contactUs("_contact-us");
+  contactUs("_contact-us"),
+  projectInfo("_project-info");
 
   const PathEnum(this.name);
   final String name;
 }
 
 class PageFromPath{
-  static Widget getPage(PathEnum path){
+  static Widget getPage(PathEnum path, dynamic data){
     switch(path) {
       case PathEnum.home:
         return const Home();
@@ -24,6 +26,8 @@ class PageFromPath{
         return const Projects();
       case PathEnum.contactUs:
         return const HomepageView();
+      case PathEnum.projectInfo:
+        return ProjectInfo(data as SideBarInfo);
       default:
         return const HomepageView();
     }
