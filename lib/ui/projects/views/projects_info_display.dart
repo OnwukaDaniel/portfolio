@@ -72,11 +72,12 @@ class _ProjectGridState extends State<ProjectGrid>
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context);
     return Padding(
-      padding: const EdgeInsets.all(32),
+      padding: const EdgeInsets.only(top: 64, right: 64, left: 64),
       child: MasonryGridView.count(
         itemCount: widget.model.sideBarInfoList.length,
         crossAxisCount: 3,
         mainAxisSpacing: 12,
+        crossAxisSpacing: 32,
         itemBuilder: (BuildContext context, int index) {
           var data = widget.model.sideBarInfoList.elementAt(index);
           return ViewModelBuilder.nonReactive(

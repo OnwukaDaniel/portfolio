@@ -11,7 +11,7 @@ class PathBar extends StatelessWidget {
       children: [
         Expanded(
           child: SizedBox(
-            height: 20,
+            height: 25,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ValueListenableBuilder(
@@ -24,7 +24,7 @@ class PathBar extends StatelessWidget {
                       onTap: () => AppNavigate.push(
                           context, pathSet.elementAt(index)),
                       child: Text(
-                        pathSet.elementAt(index).name,
+                        pathSet.elementAt(index).name.replaceAll('_', ''),
                         style: ll,
                       ),
                     ),

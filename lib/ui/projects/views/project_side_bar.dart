@@ -12,8 +12,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
           children: [
             Checkbox(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)
-              ),
+                  borderRadius: BorderRadius.circular(8)),
               value: model.showAll,
               onChanged: (value) => model.setShowAll(!model.showAll),
             ),
@@ -32,8 +31,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
               children: [
                 Checkbox(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)
-                  ),
+                      borderRadius: BorderRadius.circular(16)),
                   value: model.sideBarInfoList.contains(data.files.first),
                   onChanged: (value) => model.setProject(data.files),
                 ),
