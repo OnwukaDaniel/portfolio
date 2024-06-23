@@ -7,7 +7,7 @@ class ProjectsViewmodel extends AboutMeViewmodel {
   @override
   init() {
     sideBarList = ProjectsRepo.getProjects();
-    sideBarInfoList.addAll(sideBarList.first.files);
+    setShowAll(true);
     notifyListeners();
   }
 

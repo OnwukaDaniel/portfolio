@@ -15,6 +15,10 @@ class AppNavigate {
 
   static Set<PathEnum> get navigationPath => _navigationPath;
 
+  static justPush(BuildContext context, Widget page){
+    Navigator.push(context, CupertinoPageRoute(builder: (_) => page));
+  }
+
   static push(BuildContext context, PathEnum path, {dynamic data}) {
     var paths = _navigationPath;
     var screen = PageFromPath.getPage(path, data);

@@ -8,11 +8,18 @@ class ProjectsRepo {
         icon: 'assets/icons/folder1.png',
         files: [
           SideBarInfo(
-              file: 'PowerPlug.dart',
-              info:
-                  'Facilitate electricity bill payments across all electricity providers in Nigeria',
-              icon: 'assets/icons/dart.png',
-              image: 'assets/projects/power_plug_bulb.png'),
+            file: 'PowerPlug.dart',
+            info:
+                'Facilitate electricity bill payments across all electricity providers in Nigeria, including BEDC, KAEDO, KADO, IBDC, JED, AEDC, EKEDC, IKEDC, and PHEDC.',
+            icon: 'assets/icons/dart.png',
+            appIcon: 'assets/icons/powerplug.png',
+            keyFeatures: [
+              '- Purchase of electricity units with different payment methods: card, bank transfer and wallet.',
+              '- Purchase of airtime, data, internet and cable tv.',
+              '- Enhanced Features: Enables users make any purchase with just one click.',
+            ],
+            image: 'assets/projects/power_plug_bulb.png',
+          ),
           SideBarInfo(
             file: 'Snacc Food.dart',
             info:
@@ -59,26 +66,30 @@ class ProjectsRepo {
         icon: 'assets/icons/folder1.png',
         files: [
           SideBarInfo(
-              file: 'HowFar.kt',
-              info:
-                  'Super app. Create connection with family and friends, co-workers. Browse video content, chat, video and audio call and earn creating content ',
-              icon: 'assets/icons/kotlin.png',
-              image: 'assets/icons/kotlin.png'),
+            file: 'HowFar.kt',
+            info:
+                'Super app. Create connection with family and friends, co-workers. Browse video content, chat, video and audio call and earn creating content ',
+            icon: 'assets/icons/kotlin.png',
+            image: 'assets/icons/kotlin.png',
+          ),
           SideBarInfo(
             file: 'ABB-Blind-Dating.kt',
-            info: 'In korean language. Connect and meet people who are willing to date.',
+            info:
+                'In korean language. Connect and meet people who are willing to date.',
             icon: 'assets/icons/kotlin.png',
             image: 'assets/display/abb_blind_dating.png',
           ),
           SideBarInfo(
             file: 'Cronet Solution.kt',
-            info: 'This is a e-commerce app I developed for a business enterprise "Cronet Solution"',
+            info:
+                'This is a e-commerce app I developed for a business enterprise "Cronet Solution"',
             icon: 'assets/icons/kotlin.png',
             image: 'assets/projects/sentrified.jpg',
           ),
           SideBarInfo(
             file: 'Note-IO.kt',
-            info: 'Keep notes in a simplified way. Organize your day and create tasks and alarms. ',
+            info:
+                'Keep notes in a simplified way. Organize your day and create tasks and alarms. ',
             icon: 'assets/icons/kotlin.png',
             image: 'assets/display/note_io.png',
           ),

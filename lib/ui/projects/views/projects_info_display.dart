@@ -1,4 +1,5 @@
 import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/ui/projects/project_info.dart';
 import 'package:portfolio/ui/projects/viewmodel/project_card_viewmodel.dart';
 
 class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
@@ -183,10 +184,9 @@ class _ProjectGridState extends State<ProjectGrid>
                                         WidgetStateProperty.all(Colors.black),
                                   ),
                                   onPressed: () {
-                                    AppNavigate.push(
+                                    AppNavigate.justPush(
                                       context,
-                                      PathEnum.projectInfo,
-                                      data: data,
+                                      ProjectInfo(data),
                                     );
                                   },
                                   child: Text(
