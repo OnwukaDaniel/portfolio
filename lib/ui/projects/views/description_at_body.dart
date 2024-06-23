@@ -41,6 +41,7 @@ class DescriptionAtBody extends StackedHookView<ProjectsViewmodel> {
               overflow: TextOverflow.ellipsis,
             ),
           ),
+          const SizedBox(height: 18),
         ],
       );
     }

@@ -17,7 +17,6 @@ class AppWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context);
-    var lm = TextUtils.labelMedium(context);
     var bs = TextUtils.bodySmall(context);
 
     List<PathEnum> actions = [
@@ -88,14 +87,14 @@ class AppWrapper extends StatelessWidget {
                       flex: 2,
                       child: Text(
                         AppConstants.devName,
-                        style: bs.copyWith(color: lm.color!.withOpacity(.6)),
+                        style: bs.copyWith(color: ll.color!.withOpacity(.6)),
                       ),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
                       flex: 5,
                       child: SizedBox(
-                        height: 42,
+                        height: 42.2,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
@@ -125,7 +124,7 @@ class AppWrapper extends StatelessWidget {
                                       Padding(
                                         padding: const EdgeInsets.all(12),
                                         child: Text(actions[index].name,
-                                            style: lm),
+                                            style: ll),
                                       ),
                                       ValueListenableBuilder(
                                         valueListenable: AppNavigate.pathVn,

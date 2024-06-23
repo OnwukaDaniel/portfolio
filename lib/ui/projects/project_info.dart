@@ -14,6 +14,7 @@ class ProjectInfo extends StatelessWidget {
     var bl = TextUtils.bodyLarge(context);
     var bm = TextUtils.bodyMedium(context);
     var ll = TextUtils.labelLarge(context);
+    var lm = TextUtils.labelMedium(context);
 
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => ProjectsViewmodel(),
@@ -166,6 +167,69 @@ class ProjectInfo extends StatelessWidget {
                         children: [
                           const SizedBox(height: 16),
                           DescriptionAtBody(data),
+                          StaggeredGrid.extent(
+                            maxCrossAxisExtent: 240,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8,
+                            children: List.generate(data.keyFeatures.length + 1,
+                                (index) {
+                              if (index == 0) {
+                                return SizedBox(
+                                  width: 120,
+                                  height: 200,
+                                  child: Stack(
+                                    children: [
+                                      Center(
+                                        child: Text('Key features', style: bm),
+                                      ),
+                                      Positioned(
+                                        bottom: 32,
+                                        right: 1,
+                                        top: 1,
+                                        child: Image.asset(
+                                            'assets/icons/star.png',
+                                            width: 100,
+                                            height: 100),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }
+                              var key = data.keyFeatures[index - 1];
+                              return Container(
+                                width: 120,
+                                height: 160,
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).cardColor,
+                                  borderRadius: BorderRadius.circular(24),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 30,
+                                      height: 30,
+                                      padding: const EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        color: Colors.white,
+                                      ),
+                                      child: Text(
+                                        index.toString(),
+                                        textAlign: TextAlign.center,
+                                        style: lm.copyWith(
+                                          fontWeight: FontWeight.w900,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(child: Text(key, style: ll)),
+                                  ],
+                                ),
+                              );
+                            }),
+                          ),
                           const SizedBox(height: 600),
                         ],
                       ),

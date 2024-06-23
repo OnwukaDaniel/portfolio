@@ -1,13 +1,13 @@
 import 'package:portfolio/imports/common_imports.dart';
 
 class AppTheme {
-  static const double titleLarge = 42;
-  static const double titleMedium = 30;
-  static const double bodyLarge = 26;
-  static const double bodyMedium = 20;
-  static const double bodySmall = 16;
-  static const double labelLarge = 14;
-  static const double labelMedium = 12;
+  static const double titleLarge = 30;
+  static const double titleMedium = 24;
+  static const double bodyLarge = 20;
+  static const double bodyMedium = 16;
+  static const double bodySmall = 14;
+  static const double labelLarge = 12;
+  static const double labelMedium = 8;
 
   static final ThemeData lightTheme = ThemeData(
     primaryColor: AppColor.appColor,
