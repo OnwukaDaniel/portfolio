@@ -1,8 +1,12 @@
+import 'dart:developer';
 import 'package:portfolio/imports/common_imports.dart';
 
 class ProjectsViewmodel extends AboutMeViewmodel {
+  ScrollController pageScrollController = ScrollController();
+  double scrollOffset = 0;
   bool showAll = false;
   List<SideBar> sideBarList = [];
+  int topOfSilverBar = 0;
 
   @override
   init() {
@@ -54,5 +58,13 @@ class ProjectsViewmodel extends AboutMeViewmodel {
     if (showAll) sideBarInfoList.clear();
     if (showAll) sideBarInfoList.addAll(list);
     notifyListeners();
+  }
+
+  silverBarStretched() {
+    pageScrollController.addListener((){
+      scrollOffset = pageScrollController.offset;
+      notifyListeners();
+      log('Stretched ********** ${pageScrollController.offset}');
+    });
   }
 }
