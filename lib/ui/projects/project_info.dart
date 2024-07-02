@@ -1,4 +1,3 @@
-import 'package:highlight/languages/dart.dart';
 import 'package:portfolio/imports/common_imports.dart';
 
 class ProjectInfo extends StatelessWidget {
@@ -63,8 +62,10 @@ class ProjectInfo extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      data.file
-                                          .substring(0, data.file.indexOf('.')),
+                                      data.file.substring(
+                                        0,
+                                        data.file.indexOf('.'),
+                                      ),
                                       maxLines: 5,
                                       textAlign: TextAlign.center,
                                       style: bl.copyWith(
@@ -161,44 +162,32 @@ class ProjectInfo extends StatelessWidget {
                     ),
                   ),
                   SliverList(
-                    delegate: SliverChildListDelegate([
-                      const SizedBox(height: 16),
-                      Text(
-                        'Project details',
-                        style: bm.copyWith(fontWeight: FontWeight.w900),
-                      ),
-                      const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 8,
-                            child: Container(
-                              height: .2,
-                              width: double.infinity,
-                              color: Colors.grey,
-                            ),
-                          ),
-                          const Spacer(flex: 2),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      if (getDeviceType(context) == DeviceType.desktop)
+                    delegate: SliverChildListDelegate(
+                      [
+                        const SizedBox(height: 16),
+                        Text(
+                          'Project details',
+                          style: bm.copyWith(fontWeight: FontWeight.w900),
+                        ),
+                        const SizedBox(height: 16),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 5,
-                              child: mainBody(),
+                              flex: 8,
+                              child: Container(
+                                height: .2,
+                                width: double.infinity,
+                                color: Colors.grey,
+                              ),
                             ),
+                            const Spacer(flex: 2),
                           ],
                         ),
-                      if (getDeviceType(context) == DeviceType.mobile)
-                        Column(
-                          children: [
-                            mainBody(),
-                          ],
-                        ),
-                    ]),
+                        const SizedBox(height: 16),
+                        mainBody(),
+                        if(data.project == ProjectsEnum.powerPlug) const PowerPlugInfo(),
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -364,7 +353,8 @@ class ProjectInfo extends StatelessWidget {
                         spaceBtwRows,
                         Text(data.technology, style: bs),
                         spaceBtwRows,
-                        Text(data.file.split('.').last.toUpperCase(), style: bs),
+                        Text(data.file.split('.').last.toUpperCase(),
+                            style: bs),
                         spaceBtwRows,
                         Text(team, style: bs),
                         spaceBtwRows,

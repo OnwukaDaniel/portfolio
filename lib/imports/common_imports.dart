@@ -38,3 +38,5 @@ export 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 export 'package:portfolio/enums/device_type.dart';
 export 'package:code_text_field/code_text_field.dart';
 export 'package:portfolio/enums/projects_enum.dart';
+export 'package:highlight/languages/dart.dart';
+export 'package:portfolio/ui/projects/info_view/power_plug_info.dart';
