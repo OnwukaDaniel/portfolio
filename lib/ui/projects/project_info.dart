@@ -1,5 +1,5 @@
+import 'package:highlight/languages/dart.dart';
 import 'package:portfolio/imports/common_imports.dart';
-import 'package:portfolio/ui/projects/views/description_at_body.dart';
 
 class ProjectInfo extends StatelessWidget {
   final SideBarInfo data;
@@ -162,77 +162,42 @@ class ProjectInfo extends StatelessWidget {
                   ),
                   SliverList(
                     delegate: SliverChildListDelegate([
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      const SizedBox(height: 16),
+                      Text(
+                        'Project details',
+                        style: bm.copyWith(fontWeight: FontWeight.w900),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
                         children: [
-                          const SizedBox(height: 16),
-                          DescriptionAtBody(data),
-                          StaggeredGrid.extent(
-                            maxCrossAxisExtent: 240,
-                            crossAxisSpacing: 8,
-                            mainAxisSpacing: 8,
-                            children: List.generate(data.keyFeatures.length + 1,
-                                (index) {
-                              if (index == 0) {
-                                return SizedBox(
-                                  width: 120,
-                                  height: 200,
-                                  child: Stack(
-                                    children: [
-                                      Center(
-                                        child: Text('Key features', style: bm),
-                                      ),
-                                      Positioned(
-                                        bottom: 32,
-                                        right: 1,
-                                        top: 1,
-                                        child: Image.asset(
-                                            'assets/icons/star.png',
-                                            width: 100,
-                                            height: 100),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              }
-                              var key = data.keyFeatures[index - 1];
-                              return Container(
-                                width: 120,
-                                height: 160,
-                                padding: const EdgeInsets.all(16),
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).cardColor,
-                                  borderRadius: BorderRadius.circular(24),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 30,
-                                      height: 30,
-                                      padding: const EdgeInsets.all(8.0),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                        color: Colors.white,
-                                      ),
-                                      child: Text(
-                                        index.toString(),
-                                        textAlign: TextAlign.center,
-                                        style: lm.copyWith(
-                                          fontWeight: FontWeight.w900,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 12),
-                                    Expanded(child: Text(key, style: ll)),
-                                  ],
-                                ),
-                              );
-                            }),
+                          Expanded(
+                            flex: 8,
+                            child: Container(
+                              height: .2,
+                              width: double.infinity,
+                              color: Colors.grey,
+                            ),
                           ),
-                          const SizedBox(height: 600),
+                          const Spacer(flex: 2),
                         ],
                       ),
+                      const SizedBox(height: 16),
+                      if (getDeviceType(context) == DeviceType.desktop)
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 5,
+                              child: mainBody(),
+                            ),
+                          ],
+                        ),
+                      if (getDeviceType(context) == DeviceType.mobile)
+                        Column(
+                          children: [
+                            mainBody(),
+                          ],
+                        ),
                     ]),
                   )
                 ],
@@ -242,5 +207,205 @@ class ProjectInfo extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget codeBar() {
+    var blue = Colors.blueAccent;
+    var red1 = Colors.redAccent[600];
+    var orange = Colors.orange;
+    CodeController codeController = CodeController(
+      text:
+          "void toggleServices(Map<String, bool> services) { services.updateAll((key, value) => !value); }\nvoid main() {\n  // Initial states: false means off, true means on\n  Map<String, bool> services = {\n    'electricity': false,\n    'airtime': false,\n    'data': false,\n  };\n  print('Initial states: \$services');\n\n  // Toggle services\n  toggleServices(services);\n  print('After first toggle: \$services');\n\n  // Toggle services again\n  toggleServices(services);\n  print('After second toggle: \$services');\n}",
+      language: dart,
+      stringMap: {
+        "void": TextStyle(fontStyle: FontStyle.italic, color: blue),
+        "print": TextStyle(color: blue),
+        "\$": TextStyle(color: blue),
+        "Map": TextStyle(color: orange),
+        "String": TextStyle(color: orange),
+        "int": TextStyle(color: orange),
+        "double": TextStyle(color: orange),
+        "List": TextStyle(color: orange),
+        "bool": TextStyle(color: orange),
+        "Set": TextStyle(color: orange),
+        "dynamic": TextStyle(color: orange),
+        "key": TextStyle(color: red1),
+        "value": TextStyle(color: red1),
+        "'": const TextStyle(color: Colors.green),
+      },
+    );
+
+    return Builder(
+      builder: (c) {
+        var size = MediaQuery.of(c).size;
+        var bm = TextUtils.bodyMedium(c);
+        var ll = TextUtils.labelLarge(c);
+        var lm = TextUtils.labelMedium(c);
+
+        return Column(
+          children: [
+            const SizedBox(height: 36),
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: orange,
+                  radius: 18,
+                ),
+                const SizedBox(width: 12),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('@OnwukaDaniel', style: ll.copyWith(color: blue)),
+                    const SizedBox(height: 6),
+                    Text(
+                      'Created 7 months ago',
+                      style: ll.copyWith(fontStyle: FontStyle.italic),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 16),
+              padding: const EdgeInsets.only(top: 4),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.grey),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: CodeField(
+                  background: Theme.of(c).scaffoldBackgroundColor,
+                  controller: codeController,
+                  lineNumbers: false,
+                  readOnly: true,
+                  textStyle: TextStyle(
+                    color: ll.color,
+                    fontFamily: 'SourceCode',
+                    fontSize: ll.fontSize,
+                  ),
+                ),
+              ),
+            ),
+            const Divider(
+              thickness: .2,
+            ),
+            Text(
+              '// This is a sample code generated to emulate the services provided by this product (project',
+              style: ll.copyWith(color: blue),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  getWords(String text) {
+    RegExp regex = RegExp(r"[\w']+|[{}:,<=>/]");
+    var input =
+        text.replaceAll('/*', '').replaceAll('*', '').replaceAll('*/', '');
+
+    Iterable<Match> matches = regex.allMatches(input);
+    return matches.map((match) => match.group(0)!).toList();
+  }
+
+  Widget mainBody() {
+    return Builder(
+      builder: (context) {
+        var bs = TextUtils.bodySmall(context);
+        var ll = TextUtils.labelLarge(context);
+        var lm = TextUtils.labelMedium(context);
+        var team = '';
+        Widget spaceBtwRows = const SizedBox(height: 12);
+        for (String i in data.teamMembers) {
+          team += ' $i,';
+        }
+        team = team.trim().substring(0, team.length - 1);
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Name:', style: bs),
+                        spaceBtwRows,
+                        Text('Type:', style: bs),
+                        spaceBtwRows,
+                        Text('Technology:', style: bs),
+                        spaceBtwRows,
+                        Text('Language:', style: bs),
+                        spaceBtwRows,
+                        Text('Team:', style: bs),
+                        spaceBtwRows,
+                        Text('Client:', style: bs),
+                        spaceBtwRows,
+                        Text('Year:', style: bs),
+                        spaceBtwRows,
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Expanded(
+                    flex: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(data.project?.name ?? '', style: bs),
+                        spaceBtwRows,
+                        Text(data.type?.name ?? '', style: bs),
+                        spaceBtwRows,
+                        Text(data.technology, style: bs),
+                        spaceBtwRows,
+                        Text(data.file.split('.').last.toUpperCase(), style: bs),
+                        spaceBtwRows,
+                        Text(team, style: bs),
+                        spaceBtwRows,
+                        Text(data.client, style: bs),
+                        spaceBtwRows,
+                        Text(
+                          '${data.date?.month.toString().length == 1 ? '0' : '' + data.date!.month.toString()}-${data.date?.year}',
+                          style: bs,
+                        ),
+                        spaceBtwRows,
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  if (getDeviceType(context) == DeviceType.desktop)
+                    Expanded(flex: 4, child: about(spaceBtwRows)),
+                ],
+              ),
+              if (getDeviceType(context) == DeviceType.mobile)
+                about(spaceBtwRows),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget about(Widget spaceBtwRows) {
+    return Builder(builder: (context) {
+      var bs = TextUtils.bodySmall(context);
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'About',
+            style: bs.copyWith(fontWeight: FontWeight.bold),
+          ),
+          spaceBtwRows,
+          Text(data.info, style: bs),
+        ],
+      );
+    });
   }
 }

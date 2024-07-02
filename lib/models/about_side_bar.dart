@@ -1,3 +1,6 @@
+import 'package:portfolio/enums/project_type.dart';
+import 'package:portfolio/enums/projects_enum.dart';
+
 class SideBar {
   String displayName;
   String icon;
@@ -16,16 +19,28 @@ class SideBarInfo {
   String file;
   String info;
   String icon;
+  ProjectType? type;
   String appIcon;
   String image;
-  List<String> keyFeatures;
+  String about;
+  String technology;
+  ProjectsEnum? project;
+  DateTime? date;
+  String client;
+  List<String> teamMembers;
 
   SideBarInfo({
     this.file = '',
     this.info = '',
     this.appIcon = '',
+    this.about = '',
     this.icon = '',
+    this.type,
+    this.project,
+    this.technology ='',
+    this.date,
+    this.client = '',
     this.image = '',
-    this.keyFeatures = const [],
+    this.teamMembers = const [],
   });
 }

@@ -36,3 +36,5 @@ export 'package:portfolio/ui/projects/views/project_side_bar.dart';
 export 'package:portfolio/ui/projects/views/projects_info_display.dart';
 export 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 export 'package:portfolio/enums/device_type.dart';
+export 'package:code_text_field/code_text_field.dart';
+export 'package:portfolio/enums/projects_enum.dart';

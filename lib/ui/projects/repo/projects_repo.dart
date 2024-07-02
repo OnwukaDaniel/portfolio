@@ -1,3 +1,4 @@
+import 'package:portfolio/enums/project_type.dart';
 import 'package:portfolio/imports/common_imports.dart';
 
 class ProjectsRepo {
@@ -13,11 +14,17 @@ class ProjectsRepo {
                 'Facilitate electricity bill payments across all electricity providers in Nigeria, including BEDC, KAEDO, KADO, IBDC, JED, AEDC, EKEDC, IKEDC, and PHEDC.',
             icon: 'assets/icons/dart.png',
             appIcon: 'assets/icons/powerplug.png',
-            keyFeatures: [
-              '- Purchase of electricity units with different payment methods: card, bank transfer and wallet.',
-              '- Purchase of airtime, data, internet and cable tv.',
-              '- Enhanced Features: Enables users make any purchase with just one click.',
+            about: 'Purchase of electricity units with different payment methods: card, bank transfer and wallet.\n- Purchase of airtime, data, internet and cable tv.\n- Enhanced Features: Enables users make any purchase with just one click.',
+            project: ProjectsEnum.powerPlug,
+            teamMembers: [
+              'Japhet Sheba',
+              'Boluwatife Okolowankwo',
+              'Crusader Hendry',
             ],
+            date: DateTime(2020, 8, 1),
+            type: ProjectType.mobile,
+            technology: 'Flutter',
+            client: 'Hesplat Technologies',
             image: 'assets/projects/power_plug_bulb.png',
           ),
           SideBarInfo(

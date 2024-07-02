@@ -13,6 +13,7 @@ class Projects extends StatelessWidget {
       viewModelBuilder: () => ProjectsViewmodel(),
       onViewModelReady: (_) => _.init(),
       builder: (_, model, __) {
+        var desktop = getDeviceType(context) == DeviceType.desktop;
         return AppWrapper(
           child: Row(
             children: [
@@ -21,23 +22,24 @@ class Projects extends StatelessWidget {
                 width: .2,
                 color: Colors.grey,
               ),
-              const Expanded(
-                flex: 3,
-                child: Padding(
-                  padding: EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [ProjectSideBar()],
+
+                Expanded(
+                  flex: desktop? 5: 3,
+                  child: const Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [ProjectSideBar()],
+                    ),
                   ),
                 ),
-              ),
               Container(
                 height: size.height,
                 width: .2,
                 color: Colors.grey,
               ),
               const Expanded(
-                flex: 8,
+                flex: 13,
                 child: ProjectsInfoDisplay(),
               ),
             ],
