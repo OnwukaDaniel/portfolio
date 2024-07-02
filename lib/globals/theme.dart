@@ -12,6 +12,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     primaryColor: AppColor.appColor,
     canvasColor: Colors.white,
+    scaffoldBackgroundColor: const Color(0x000b0b0b),
     colorScheme: const ColorScheme.light(
       outline: Colors.transparent,
       surface: Colors.white,
@@ -47,37 +48,37 @@ class AppTheme {
     cardTheme: const CardTheme(color: Colors.white60),
     textTheme: const TextTheme(
       titleLarge: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: titleLarge,
         fontFamily: "Nunito",
       ),
       titleMedium: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: titleMedium,
         fontFamily: "Nunito",
       ),
       bodyLarge: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: bodyLarge,
         fontFamily: "Nunito",
       ),
       bodyMedium: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: bodyMedium,
         fontFamily: "Nunito",
       ),
       bodySmall: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: bodySmall,
         fontFamily: "Nunito",
       ),
       labelLarge: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: labelLarge,
         fontFamily: "Nunito",
       ),
       labelMedium: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: labelMedium,
         fontFamily: "Nunito",
       ),
@@ -86,6 +87,7 @@ class AppTheme {
 
   static final ThemeData darkTheme = ThemeData(
     primaryColor: Colors.black,
+    scaffoldBackgroundColor: Colors.white,
     canvasColor: const Color(0xff444343),
     colorScheme: const ColorScheme.dark(
       outline: Colors.transparent,
@@ -122,37 +124,37 @@ class AppTheme {
     cardTheme: const CardTheme(color: Color(0xff444343)),
     textTheme: const TextTheme(
       titleLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: titleLarge,
         fontFamily: "Nunito",
       ),
       titleMedium: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: titleMedium,
         fontFamily: "Nunito",
       ),
       bodyLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: bodyLarge,
         fontFamily: "Nunito",
       ),
       bodyMedium: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: bodyMedium,
         fontFamily: "Nunito",
       ),
       bodySmall: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: bodySmall,
         fontFamily: "Nunito",
       ),
       labelLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: labelLarge,
         fontFamily: "Nunito",
       ),
       labelMedium: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: labelMedium,
         fontFamily: "Nunito",
       ),
