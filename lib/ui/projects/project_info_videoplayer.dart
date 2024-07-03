@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
-
-import 'package:flutter/scheduler.dart';
+import 'dart:isolate';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:portfolio/imports/common_imports.dart';
@@ -21,21 +21,14 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
   VideoPlayerController? controller;
   late final player = Player();
   late final mediaController = VideoController(player);
+  double w = 200;
+  double h = 480;
 
   @override
   void initState() {
-    if (!Platform.isWindows) {
-      controller = VideoPlayerController.asset(widget.asset);
-      controller!.initialize().then((_) {
-        controller!.play();
-      });
-    }
-    if (Platform.isWindows) {
-      saveAssetToFile().then((file){
-        player.open(Media(file.path));
-      });
-    }
     super.initState();
+    controller = VideoPlayerController.asset(widget.asset);
+    controller!.initialize().then((_) => controller!.play());
   }
 
   @override
@@ -47,40 +40,59 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    double w = 200;
-    double h = 480;
 
+    if (kIsWeb) return normalPlayer();
     if (Platform.isWindows) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: SizedBox(
           width: w,
           height: h,
-          child: Video(
-            width: w,
-            height: h,
-            controller: mediaController,
-            fit: BoxFit.cover,
-            controls: (state) {
-              return Center(
-                child: IconButton(
-                  onPressed: () => setState(() {
-                    mediaController.player.playOrPause();
-                  }),
-                  icon: StreamBuilder(
-                    stream: mediaController.player.stream.playing,
-                    builder: (BuildContext context,  snapshot) {
-                      if(snapshot.data??false) return const Icon(Icons.play_arrow, color: Colors.white);
-                      return const Icon(Icons.pause, color: Colors.white);
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
+          child: FutureBuilder(
+              future: saveAssetToFile(),
+              builder: (_, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(color: AppColor.appColor),
+                  );
+                }
+                if (snapshot.data == null) {
+                  return const Icon(Icons.nearby_error, color: Colors.white);
+                }
+                player.open(Media(snapshot.data!.path));
+
+                return Video(
+                  width: w,
+                  height: h,
+                  controller: mediaController,
+                  fit: BoxFit.cover,
+                  controls: (state) {
+                    return Center(
+                      child: IconButton(
+                        onPressed: () => setState(() {
+                          mediaController.player.playOrPause();
+                        }),
+                        icon: StreamBuilder(
+                          stream: mediaController.player.stream.playing,
+                          builder: (BuildContext context, snapshot) {
+                            if (snapshot.data ?? false)
+                              return const Icon(Icons.play_arrow,
+                                  color: Colors.white);
+                            return const Icon(Icons.pause, color: Colors.white);
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                );
+              }),
         ),
       );
     }
+    return normalPlayer();
+  }
+
+  Widget normalPlayer() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: SizedBox(width: w, height: h, child: VideoPlayer(controller!)),
@@ -97,5 +109,17 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
     await file.writeAsBytes(byteData.buffer
         .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
     return file;
+  }
+
+  runIsolate() async {
+    ReceivePort receivePort = ReceivePort();
+    //await Isolate.spawn(saveAssetToFile, receivePort.sendPort);
+
+    // Listen for messages from the isolate
+    receivePort.listen((message) {
+      log('Result from isolate: $message');
+      // Close the receive port once done
+      receivePort.close();
+    });
   }
 }

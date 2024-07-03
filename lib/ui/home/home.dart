@@ -7,17 +7,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var ll = TextUtils.labelLarge(context);
-    var lm = TextUtils.labelMedium(context);
-    var bs = TextUtils.bodySmall(context);
-    var tm = TextUtils.titleMedium(context);
-    var tl = TextUtils.titleLarge(context);
 
     return ListView(
       children: [
         SizedBox(
           height: size.height - (kToolbarHeight * 2),
-          child: getDeviceType(context) == DeviceType.desktop
+          child: getDeviceType(context) == DeviceType.desktop ||
+                  getDeviceType(context) == DeviceType.largeDesktop
               ? SizedBox(
                   height: 360,
                   child: Center(

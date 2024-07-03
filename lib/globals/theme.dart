@@ -9,10 +9,10 @@ class AppTheme {
   static const double labelLarge = 12;
   static const double labelMedium = 8;
 
-  static final ThemeData lightTheme = ThemeData(
+  static final ThemeData darkTheme = ThemeData(
     primaryColor: AppColor.appColor,
     canvasColor: Colors.white,
-    scaffoldBackgroundColor: const Color(0x000b0b0b),
+    scaffoldBackgroundColor: const Color(0xff0b0b0b),
     colorScheme: const ColorScheme.light(
       outline: Colors.transparent,
       surface: Colors.white,
@@ -85,7 +85,7 @@ class AppTheme {
     ),
   );
 
-  static final ThemeData darkTheme = ThemeData(
+  static final ThemeData lightTheme = ThemeData(
     primaryColor: Colors.black,
     scaffoldBackgroundColor: Colors.white,
     canvasColor: const Color(0xff444343),

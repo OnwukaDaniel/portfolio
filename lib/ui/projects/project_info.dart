@@ -162,32 +162,31 @@ class ProjectInfo extends StatelessWidget {
                     ),
                   ),
                   SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
-                        const SizedBox(height: 16),
-                        Text(
-                          'Project details',
-                          style: bm.copyWith(fontWeight: FontWeight.w900),
-                        ),
-                        const SizedBox(height: 16),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                height: .2,
-                                width: double.infinity,
-                                color: Colors.grey,
-                              ),
+                    delegate: SliverChildListDelegate([
+                      const SizedBox(height: 16),
+                      Text(
+                        'Project details',
+                        style: bm.copyWith(fontWeight: FontWeight.w900),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 8,
+                            child: Container(
+                              height: .2,
+                              width: double.infinity,
+                              color: Colors.grey,
                             ),
-                            const Spacer(flex: 2),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        mainBody(),
-                        if(data.project == ProjectsEnum.powerPlug) const PowerPlugInfo(),
-                      ],
-                    ),
+                          ),
+                          const Spacer(flex: 2),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      mainBody(),
+                      if (data.project == ProjectsEnum.powerPlug)
+                        const PowerPlugInfo(),
+                    ]),
                   )
                 ],
               ),
@@ -309,7 +308,7 @@ class ProjectInfo extends StatelessWidget {
         for (String i in data.teamMembers) {
           team += ' $i,';
         }
-        team = team.trim().substring(0, team.length - 1);
+        if (team.isNotEmpty) team = team.trim().substring(0, team.length - 1);
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -360,16 +359,23 @@ class ProjectInfo extends StatelessWidget {
                         spaceBtwRows,
                         Text(data.client, style: bs),
                         spaceBtwRows,
-                        Text(
-                          '${data.date?.month.toString().length == 1 ? '0' : '' + data.date!.month.toString()}-${data.date?.year}',
-                          style: bs,
-                        ),
+                        Builder(builder: (context) {
+                          var date = data.date ?? DateTime.now();
+                          var day = date.day.toString().length == 1
+                              ? '0${date.day}'
+                              : date.day;
+                          var month = date.month.toString().length == 1
+                              ? '0${date.month}'
+                              : date.month;
+                          var year = date.year;
+                          return Text('$day $month $year', style: bs);
+                        }),
                         spaceBtwRows,
                       ],
                     ),
                   ),
                   const SizedBox(height: 8),
-                  if (getDeviceType(context) == DeviceType.desktop)
+                  if (getDeviceType(context) == DeviceType.desktop || getDeviceType(context) == DeviceType.largeDesktop)
                     Expanded(flex: 4, child: about(spaceBtwRows)),
                 ],
               ),
