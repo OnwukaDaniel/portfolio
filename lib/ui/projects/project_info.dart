@@ -33,6 +33,8 @@ class ProjectInfo extends StatelessWidget {
                   SliverAppBar(
                     automaticallyImplyLeading: false,
                     expandedHeight: size.height * .25,
+                    foregroundColor: Colors.transparent,
+                    backgroundColor: Colors.transparent,
                     pinned: true,
                     flexibleSpace: LayoutBuilder(
                       builder: (_, BoxConstraints constraints) {
