@@ -40,3 +40,6 @@ export 'package:code_text_field/code_text_field.dart';
 export 'package:portfolio/enums/projects_enum.dart';
 export 'package:highlight/languages/dart.dart';
 export 'package:portfolio/ui/projects/info_view/power_plug_info.dart';
+export 'package:video_player/video_player.dart';
+export 'package:portfolio/ui/projects/project_info_videoplayer.dart';
+export 'package:media_kit/media_kit.dart';

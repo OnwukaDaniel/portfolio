@@ -7,38 +7,40 @@ class PowerPlugInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var bs = TextUtils.bodySmall(context);
-    return Container(
-      padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
-        color: Colors.red,
-      ),
-      child: Column(
-        children: [
-          const SizedBox(height: 8),
-          Text('Onboarding', style: bs),
-          const SizedBox(height: 8),
-          Container(width: double.infinity, height: .2, color: Colors.white),
-          const SizedBox(height: 12),
-          if (getDeviceType(context) == DeviceType.desktop) Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    var tl = TextUtils.titleLarge(context);
+
+    List<Widget> assets = [
+      const ProjectInfoVideoPlayer('assets/power_plug/screen-20240702-121523.mp4'),
+      buildImage('assets/power_plug/Screenshot_20240614-051401.jpg'),
+      buildImage('assets/power_plug/Screenshot_20240703-113456.jpg'),
+    ];
+
+    return Column(
+      children: [
+        Text('HOMEPAGE', style: tl.copyWith(fontWeight: FontWeight.bold)),
+        Container(
+          padding: const EdgeInsets.all(16),
+          margin: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(4),
+            color: Colors.red,
+          ),
+          child: Column(
             children: [
-              buildImage('assets/power_plug/Screenshot_20240614-051300.jpg'),
-              buildImage('assets/power_plug/Screenshot_20240614-051300.jpg'),
-              buildImage('assets/power_plug/Screenshot_20240614-051300.jpg'),
+              if (getDeviceType(context) == DeviceType.desktop)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: assets,
+                ),
+              if (getDeviceType(context) == DeviceType.mobile)
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: assets,
+                )
             ],
           ),
-          if (getDeviceType(context) == DeviceType.mobile) Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              buildImage('assets/power_plug/Screenshot_20240614-051300.jpg'),
-              buildImage('assets/power_plug/Screenshot_20240614-051300.jpg'),
-              buildImage('assets/power_plug/Screenshot_20240614-051300.jpg'),
-            ],
-          )
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -55,3 +57,4 @@ class PowerPlugInfo extends StatelessWidget {
     );
   }
 }
+

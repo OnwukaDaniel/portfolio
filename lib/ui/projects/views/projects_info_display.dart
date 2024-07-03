@@ -109,14 +109,14 @@ class _ProjectGridState extends State<ProjectGrid>
                     animation: model.boxShadowAnimation,
                     builder: (context, _) {
                       return MouseRegion(
-                        onEnter: (_) {
+                        /*onEnter: (_) {
                           model.controller.animateTo(1);
                           model.sizeController.animateTo(1);
                         },
                         onExit: (_) {
                           model.controller.animateTo(0);
                           model.sizeController.animateTo(0);
-                        },
+                        },*/
                         child: Container(
                           width: model.sizeAnimation.value * double.infinity,
                           height: model.sizeAnimation.value * 200,
