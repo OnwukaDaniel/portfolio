@@ -9,6 +9,8 @@ class AppTheme {
   static const double labelLarge = 12;
   static const double labelMedium = 8;
 
+  static var fontFamily = 'FiraCode';
+
   static final ThemeData darkTheme = ThemeData(
     primaryColor: AppColor.appColor,
     canvasColor: Colors.white,
@@ -27,7 +29,7 @@ class AppTheme {
     ),
     dividerColor: const Color(0xfff0f0f0),
     cardColor: const Color(0xFFD5D5D5),
-    fontFamily: 'Inter',
+    fontFamily: 'FiraCode',
     buttonTheme: ButtonThemeData(
       buttonColor: AppColor.appColor,
       disabledColor: Colors.grey.withOpacity(0.1),
@@ -46,41 +48,41 @@ class AppTheme {
       ),
     ),
     cardTheme: const CardTheme(color: Colors.white60),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       titleLarge: TextStyle(
         color: Colors.white,
         fontSize: titleLarge,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       titleMedium: TextStyle(
         color: Colors.white,
         fontSize: titleMedium,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       bodyLarge: TextStyle(
         color: Colors.white,
         fontSize: bodyLarge,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       bodyMedium: TextStyle(
         color: Colors.white,
         fontSize: bodyMedium,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       bodySmall: TextStyle(
         color: Colors.white,
         fontSize: bodySmall,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       labelLarge: TextStyle(
         color: Colors.white,
         fontSize: labelLarge,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       labelMedium: TextStyle(
         color: Colors.white,
         fontSize: labelMedium,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
     ),
   );
@@ -101,7 +103,7 @@ class AppTheme {
       backgroundColor: Colors.grey,
       iconTheme: IconThemeData(color: Colors.white),
     ),
-    fontFamily: 'Inter',
+    fontFamily: 'FiraCode',
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.grey.withOpacity(0.8),
       disabledColor: Colors.grey.withOpacity(0.1),
@@ -122,41 +124,41 @@ class AppTheme {
     dividerColor: Colors.white,
     cardColor: const Color(0xff444343),
     cardTheme: const CardTheme(color: Color(0xff444343)),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       titleLarge: TextStyle(
         color: Colors.black,
         fontSize: titleLarge,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       titleMedium: TextStyle(
         color: Colors.black,
         fontSize: titleMedium,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       bodyLarge: TextStyle(
         color: Colors.black,
         fontSize: bodyLarge,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       bodyMedium: TextStyle(
         color: Colors.black,
         fontSize: bodyMedium,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       bodySmall: TextStyle(
         color: Colors.black,
         fontSize: bodySmall,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       labelLarge: TextStyle(
         color: Colors.black,
         fontSize: labelLarge,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
       labelMedium: TextStyle(
         color: Colors.black,
         fontSize: labelMedium,
-        fontFamily: "Nunito",
+        fontFamily: fontFamily,
       ),
     ),
   );

@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:portfolio/imports/common_imports.dart';
 
 class Home extends StatelessWidget {
@@ -57,11 +56,11 @@ class Home extends StatelessWidget {
 
   Widget _shortBio() {
     return Builder(builder: (context) {
-      var ll = TextUtils.labelLarge(context);
-      var lm = TextUtils.labelMedium(context);
-      var bs = TextUtils.bodySmall(context);
-      var tm = TextUtils.titleMedium(context);
-      var tl = TextUtils.titleLarge(context);
+      var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
+      var lm = TextUtils.labelMedium(context).copyWith(fontFamily: 'Nunito');
+      var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+      var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
+      var tl = TextUtils.titleLarge(context).copyWith(fontFamily: 'Nunito');
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +103,7 @@ class Home extends StatelessWidget {
                 TextSpan(
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      launchWeb(AppConstants.github);
+                      Utils.launchWeb(AppConstants.github);
                     },
                   text: '"${AppConstants.github}"',
                   style: ll.copyWith(color: Colors.amber),
@@ -259,12 +258,5 @@ class Home extends StatelessWidget {
         ],
       );
     });
-  }
-
-  static launchWeb(String link) async {
-    var data = Uri.parse(link);
-    var url = Uri(scheme: data.scheme, host: data.host, path: data.path);
-    await launchUrl(url, mode: LaunchMode.inAppBrowserView);
-    return;
   }
 }

@@ -304,7 +304,6 @@ class ProjectInfo extends StatelessWidget {
       builder: (context) {
         var bs = TextUtils.bodySmall(context);
         var ll = TextUtils.labelLarge(context);
-        var lm = TextUtils.labelMedium(context);
         var team = '';
         Widget spaceBtwRows = const SizedBox(height: 12);
         for (String i in data.teamMembers) {
@@ -377,7 +376,8 @@ class ProjectInfo extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  if (getDeviceType(context) == DeviceType.desktop || getDeviceType(context) == DeviceType.largeDesktop)
+                  if (getDeviceType(context) == DeviceType.desktop ||
+                      getDeviceType(context) == DeviceType.largeDesktop)
                     Expanded(flex: 4, child: about(spaceBtwRows)),
                 ],
               ),
@@ -393,15 +393,68 @@ class ProjectInfo extends StatelessWidget {
   Widget about(Widget spaceBtwRows) {
     return Builder(builder: (context) {
       var bs = TextUtils.bodySmall(context);
+      var tm = TextUtils.titleMedium(context);
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'About',
-            style: bs.copyWith(fontWeight: FontWeight.bold),
+            style: tm.copyWith(fontWeight: FontWeight.bold),
           ),
           spaceBtwRows,
           Text(data.info, style: bs),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              if (data.appleLink.isNotEmpty) ...[
+                TextButton(
+                  onPressed: () => Utils.launchWeb(data.appleLink),
+                  child: Row(
+                    children: [
+                      Text('Get it on ', style: bs),
+                      const SizedBox(width: 12),
+                      Image.asset(
+                        'assets/icons/apple.png',
+                        color: bs.color,
+                        width: 20,
+                        height: 20,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+              const SizedBox(width: 12),
+              if (data.playLink.isNotEmpty) ...[
+                TextButton(
+                  onPressed: () => Utils.launch(data.playLink),
+                  child: Row(
+                    children: [
+                      Text('Get it on ', style: bs),
+                      const SizedBox(width: 12),
+                      Image.asset(
+                        'assets/icons/playstore.webp',
+                        width: 20,
+                        height: 20,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+              const SizedBox(width: 12),
+              if (data.downloadLink.isNotEmpty) ...[
+                TextButton(
+                  onPressed: () => Utils.launchWeb(data.downloadLink),
+                  child: Row(
+                    children: [
+                      Text('Download apk ', style: bs),
+                      const SizedBox(width: 12),
+                      Icon(Icons.download_outlined, color: bs.color),
+                    ],
+                  ),
+                ),
+              ],
+            ],
+          ),
         ],
       );
     });

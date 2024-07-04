@@ -43,49 +43,52 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
 
     if (kIsWeb) return normalPlayer();
     if (Platform.isWindows) {
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: SizedBox(
-          width: w,
-          height: h,
-          child: FutureBuilder(
-              future: saveAssetToFile(),
-              builder: (_, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(color: AppColor.appColor),
-                  );
-                }
-                if (snapshot.data == null) {
-                  return const Icon(Icons.nearby_error, color: Colors.white);
-                }
-                player.open(Media(snapshot.data!.path));
-
-                return Video(
-                  width: w,
-                  height: h,
-                  controller: mediaController,
-                  fit: BoxFit.cover,
-                  controls: (state) {
-                    return Center(
-                      child: IconButton(
-                        onPressed: () => setState(() {
-                          mediaController.player.playOrPause();
-                        }),
-                        icon: StreamBuilder(
-                          stream: mediaController.player.stream.playing,
-                          builder: (BuildContext context, snapshot) {
-                            if (snapshot.data ?? false)
-                              return const Icon(Icons.play_arrow,
-                                  color: Colors.white);
-                            return const Icon(Icons.pause, color: Colors.white);
-                          },
-                        ),
-                      ),
+      return Hero(
+        tag: widget.asset,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: SizedBox(
+            width: w,
+            height: h,
+            child: FutureBuilder(
+                future: saveAssetToFile(),
+                builder: (_, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(color: AppColor.appColor),
                     );
-                  },
-                );
-              }),
+                  }
+                  if (snapshot.data == null) {
+                    return const Icon(Icons.nearby_error, color: Colors.white);
+                  }
+                  player.open(Media(snapshot.data!.path));
+
+                  return Video(
+                    width: w,
+                    height: h,
+                    controller: mediaController,
+                    fit: BoxFit.cover,
+                    controls: (state) {
+                      return Center(
+                        child: IconButton(
+                          onPressed: () => setState(() {
+                            mediaController.player.playOrPause();
+                          }),
+                          icon: StreamBuilder(
+                            stream: mediaController.player.stream.playing,
+                            builder: (BuildContext context, snapshot) {
+                              if (snapshot.data ?? false)
+                                return const Icon(Icons.play_arrow,
+                                    color: Colors.white);
+                              return const Icon(Icons.pause, color: Colors.white);
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }),
+          ),
         ),
       );
     }
@@ -93,9 +96,12 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
   }
 
   Widget normalPlayer() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
-      child: SizedBox(width: w, height: h, child: VideoPlayer(controller!)),
+    return Hero(
+      tag: widget.asset,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: SizedBox(width: w, height: h, child: VideoPlayer(controller!)),
+      ),
     );
   }
 

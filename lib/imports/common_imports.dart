@@ -43,3 +43,5 @@ export 'package:portfolio/ui/projects/info_view/power_plug_info.dart';
 export 'package:video_player/video_player.dart';
 export 'package:portfolio/ui/projects/project_info_videoplayer.dart';
 export 'package:media_kit/media_kit.dart';
+export 'package:flutter/gestures.dart';
+export 'package:portfolio/utils.dart';

@@ -26,6 +26,8 @@ class ProjectsRepo {
             technology: 'Flutter',
             client: 'Hesplat Technologies',
             image: 'assets/projects/power_plug_bulb.png',
+            playLink: 'https://play.google.com/store/apps/details?id=ng.powerplug.power_plug',
+            appleLink: 'https://apps.apple.com/ng/app/powerplug-pay-electricity/id6443731074'
           ),
           SideBarInfo(
             file: 'Snacc Food.dart',

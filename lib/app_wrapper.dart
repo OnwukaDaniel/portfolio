@@ -16,8 +16,8 @@ class AppWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var ll = TextUtils.labelLarge(context);
-    var bs = TextUtils.bodySmall(context);
+    var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
+    var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
 
     List<PathEnum> actions = [
       PathEnum.home,

@@ -27,6 +27,9 @@ class SideBarInfo {
   ProjectsEnum? project;
   DateTime? date;
   String client;
+  String playLink;
+  String appleLink;
+  String downloadLink;
   List<String> teamMembers;
 
   SideBarInfo({
@@ -41,6 +44,9 @@ class SideBarInfo {
     this.date,
     this.client = '',
     this.image = '',
+    this.playLink = '',
+    this.appleLink = '',
+    this.downloadLink = '',
     this.teamMembers = const [],
   });
 }
