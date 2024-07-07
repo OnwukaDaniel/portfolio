@@ -17,7 +17,7 @@ class HomepageView extends StatelessWidget {
       builder: (context, model, child) {
         return AppWrapper(
           child: Scaffold(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            backgroundColor: Colors.transparent,
             body: const Home(),
           ),
         );

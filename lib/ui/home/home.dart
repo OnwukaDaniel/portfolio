@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Hi, I am', style: lm),
+          Text('Hi, I am', style: ll),
           const SizedBox(height: 32),
           DefaultTextStyle(
             style: tl.copyWith(fontFamily: 'JMH Typewriter'),
