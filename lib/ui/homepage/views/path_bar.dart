@@ -11,31 +11,35 @@ class PathBar extends StatelessWidget {
       children: [
         Expanded(
           child: SizedBox(
-            height: 25,
+            height: 30,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ValueListenableBuilder(
                 valueListenable: AppNavigate.pathVn,
                 builder: (context, pathSet, _) {
                   if (pathSet.isEmpty) return const SizedBox();
-                  return ListView.separated(
+                  return ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, index) => InkWell(
-                      onTap: () => AppNavigate.push(
-                          context, pathSet.elementAt(index)),
-                      child: Text(
-                        pathSet.elementAt(index).name.replaceAll('_', ''),
-                        style: ll,
-                      ),
-                    ),
-                    separatorBuilder: (_, index) => Padding(
-                      padding:
+                    itemBuilder: (_, index) => Row(
+                      children: [
+                        InkWell(
+                          onTap: () => AppNavigate.push(
+                              context, pathSet.elementAt(index)),
+                          child: Text(
+                            pathSet.elementAt(index).name.replaceAll('_', ''),
+                            style: ll,
+                          ),
+                        ),
+                        if(index != pathSet.length - 1) Padding(
+                          padding:
                           const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                      child: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        color: color.withOpacity(.8),
-                        size: 14,
-                      ),
+                          child: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            color: color.withOpacity(.8),
+                            size: 14,
+                          ),
+                        ),
+                      ],
                     ),
                     itemCount: pathSet.length,
                   );
