@@ -50,16 +50,22 @@ class PersonalInfoDisplay extends StackedHookView<AboutMeViewmodel> {
             itemCount: model.sideBarInfoList.length,
           ),
         ),
-        Container(
-          height: .2,
-          width: size.width,
-          color: Colors.grey,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            text,
-            style: ll.copyWith(color: ll.color!.withOpacity(.5)),
+        Expanded(
+          child: ListView(
+            children: [
+              Container(
+                height: .2,
+                width: size.width,
+                color: Colors.grey,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  text,
+                  style: ll.copyWith(color: ll.color!.withOpacity(.5)),
+                ),
+              ),
+            ],
           ),
         ),
       ],

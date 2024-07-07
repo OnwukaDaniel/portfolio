@@ -30,10 +30,12 @@ class PersonalInfoList extends StackedHookView<AboutMeViewmodel> {
                   const SizedBox(width: 6),
                   Image.asset(data.icon),
                   const SizedBox(width: 6),
-                  Text(
-                    data.displayName,
-                    style: ll,
-                    overflow: TextOverflow.ellipsis,
+                  Expanded(
+                    child: Text(
+                      data.displayName,
+                      style: ll,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
@@ -62,10 +64,12 @@ class PersonalInfoList extends StackedHookView<AboutMeViewmodel> {
                               height: 16,
                             ),
                             const SizedBox(width: 6),
-                            Text(
-                              files.file,
-                              style: ll,
-                              overflow: TextOverflow.ellipsis,
+                            Expanded(
+                              child: Text(
+                                files.file,
+                                style: ll,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ],
                         ),
