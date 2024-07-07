@@ -29,23 +29,27 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 )
-              : Column(
+              : ListView(
+            shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   children: [
                     const SizedBox(height: 16),
-                    _shortBio(),
+                    Center(child: _shortBio()),
                     const SizedBox(height: 16),
                     if (getDeviceType(context) == DeviceType.mobile)
-                      SizedBox(
-                        height: 360,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          children: [
-                            _game(),
-                          ],
+                      Center(
+                        child: SizedBox(
+                          height: 360,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            children: [
+                              _game(),
+                            ],
+                          ),
                         ),
                       ),
-                    if (getDeviceType(context) == DeviceType.desktop) _game(),
+                    if (getDeviceType(context) == DeviceType.desktop) Center(child: _game()),
                     const SizedBox(height: 16),
                   ],
                 ),
