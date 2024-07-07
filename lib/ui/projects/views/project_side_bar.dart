@@ -19,7 +19,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
               onChanged: (value) => model.setShowAll(!model.showAll),
             ),
             const SizedBox(width: 8),
-            Text('All ${desktop? 'projects':''}', style: ll)
+            Expanded(child: Text('All ${desktop? 'projects':''}', style: ll))
           ],
         ),
         const SizedBox(height: 32),
@@ -40,7 +40,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
                 const SizedBox(width: 16),
                 Image.asset(data.files.first.icon, width: 18, height: 18),
                 const SizedBox(width: 8),
-                if(desktop) Expanded(child: Text(data.displayName, style: ll, maxLines: 1,))
+                Expanded(child: Text(data.displayName, style: ll, maxLines: 1,))
               ],
             );
           },

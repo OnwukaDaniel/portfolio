@@ -72,11 +72,23 @@ class _ProjectGridState extends State<ProjectGrid>
   @override
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context);
+    int count = 0;
+    switch(getDeviceType(context)){
+      case DeviceType.desktop:
+        count = 2;
+        break;
+      case DeviceType.mobile:
+        count = 1;
+        break;
+      case DeviceType.largeDesktop:
+        count = 3;
+        break;
+    }
     return Padding(
       padding: const EdgeInsets.only(top: 64, right: 64, left: 64),
       child: MasonryGridView.count(
         itemCount: widget.model.sideBarInfoList.length,
-        crossAxisCount: 3,
+        crossAxisCount: count,
         mainAxisSpacing: 12,
         crossAxisSpacing: 32,
         itemBuilder: (BuildContext context, int index) {

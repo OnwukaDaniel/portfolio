@@ -22,17 +22,16 @@ class Projects extends StatelessWidget {
                 width: .2,
                 color: Colors.grey,
               ),
-
-                Expanded(
-                  flex: desktop? 5: 3,
-                  child: const Padding(
-                    padding: EdgeInsets.all(12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [ProjectSideBar()],
-                    ),
+              Expanded(
+                flex: desktop ? 5 : 4,
+                child: const Padding(
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [ProjectSideBar()],
                   ),
                 ),
+              ),
               Container(
                 height: size.height,
                 width: .2,
