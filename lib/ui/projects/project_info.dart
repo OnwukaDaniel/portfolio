@@ -8,12 +8,12 @@ class ProjectInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var tm = TextUtils.titleMedium(context);
-    var bs = TextUtils.bodySmall(context);
-    var bl = TextUtils.bodyLarge(context);
-    var bm = TextUtils.bodyMedium(context);
-    var ll = TextUtils.labelLarge(context);
-    var lm = TextUtils.labelMedium(context);
+    var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
+    var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+    var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'Nunito');
+    var bm = TextUtils.bodyMedium(context).copyWith(fontFamily: 'Nunito');
+    var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
+    var lm = TextUtils.labelMedium(context).copyWith(fontFamily: 'Nunito');
 
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => ProjectsViewmodel(),
@@ -25,8 +25,9 @@ class ProjectInfo extends StatelessWidget {
             body: Container(
               margin: const EdgeInsets.all(46),
               clipBehavior: Clip.hardEdge,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(16)),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: CustomScrollView(
                 controller: model.pageScrollController,
                 slivers: [
@@ -199,6 +200,41 @@ class ProjectInfo extends StatelessWidget {
     );
   }
 
+  particleBg() {
+    double cardPadding = 32;
+    return Builder(builder: (context) {
+      var size = MediaQuery.of(context).size;
+      return Container(
+        color: Colors.red,
+        child: CircularParticle(
+          key: UniqueKey(),
+          awayRadius: 80,
+          numberOfParticles: 200,
+          speedOfParticles: 1,
+          height: 540,
+          width: size.width,
+          onTapAnimation: true,
+          particleColor: Colors.white.withAlpha(150),
+          awayAnimationDuration: const Duration(milliseconds: 600),
+          maxParticleSize: 8,
+          isRandSize: true,
+          isRandomColor: true,
+          randColorList: [
+            Colors.red.withAlpha(210),
+            Colors.white.withAlpha(210),
+            Colors.yellow.withAlpha(210),
+            Colors.green.withAlpha(210)
+          ],
+          awayAnimationCurve: Curves.easeInOutBack,
+          enableHover: true,
+          hoverColor: Colors.white,
+          hoverRadius: 90,
+          connectDots: false, //not recommended
+        ),
+      );
+    });
+  }
+
   Widget codeBar() {
     var blue = Colors.blueAccent;
     var red1 = Colors.redAccent[600];
@@ -302,8 +338,8 @@ class ProjectInfo extends StatelessWidget {
   Widget mainBody() {
     return Builder(
       builder: (context) {
-        var bs = TextUtils.bodySmall(context);
-        var ll = TextUtils.labelLarge(context);
+        var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+        var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
         var team = '';
         Widget spaceBtwRows = const SizedBox(height: 12);
         for (String i in data.teamMembers) {
@@ -392,8 +428,8 @@ class ProjectInfo extends StatelessWidget {
 
   Widget about(Widget spaceBtwRows) {
     return Builder(builder: (context) {
-      var bs = TextUtils.bodySmall(context);
-      var tm = TextUtils.titleMedium(context);
+      var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+      var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

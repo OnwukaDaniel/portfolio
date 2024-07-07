@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:portfolio/imports/common_imports.dart';
-import 'package:media_kit/media_kit.dart'; // Provides [Player], [Media], [Playlist] etc.
 import 'package:media_kit_video/media_kit_video.dart';
 
 class ProjectInfoVideoPlayer extends StatefulWidget {
@@ -40,7 +39,6 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-
     if (kIsWeb) return normalPlayer();
     if (Platform.isWindows) {
       return Hero(
@@ -55,7 +53,8 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
                 builder: (_, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(
-                      child: CircularProgressIndicator(color: AppColor.appColor),
+                      child:
+                          CircularProgressIndicator(color: AppColor.appColor),
                     );
                   }
                   if (snapshot.data == null) {
@@ -77,10 +76,14 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
                           icon: StreamBuilder(
                             stream: mediaController.player.stream.playing,
                             builder: (BuildContext context, snapshot) {
-                              if (snapshot.data ?? false)
-                                return const Icon(Icons.play_arrow,
-                                    color: Colors.white);
-                              return const Icon(Icons.pause, color: Colors.white);
+                              if (snapshot.data ?? false) {
+                                return const Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.white,
+                                );
+                              }
+                              return const Icon(Icons.pause,
+                                  color: Colors.white);
                             },
                           ),
                         ),
@@ -96,18 +99,18 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
   }
 
   Widget normalPlayer() {
-    return Hero(
-      tag: widget.asset,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: SizedBox(width: w, height: h, child: VideoPlayer(controller!)),
-      ),
+    var videoWidget = ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: SizedBox(width: w, height: h, child: VideoPlayer(controller!)),
+    );
+    return GestureDetector(
+      //onDoubleTap: () => ProjectsUtil.dialog(context, videoWidget, widget.asset),
+      child: Hero(tag: widget.asset, child: videoWidget),
     );
   }
 
   Future<File> saveAssetToFile() async {
     var path = widget.asset;
-    var fileName = path.split('/').last;
     final byteData = await rootBundle.load(path);
 
     final file = File('${(await getTemporaryDirectory()).path}/$path');

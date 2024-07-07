@@ -40,7 +40,7 @@ class ProjectsRepo {
             file: 'Sentrified.dart',
             info: 'Estate keeper app',
             icon: 'assets/icons/dart.png',
-            image: 'assets/projects/sentrified.jpg',
+            image: 'assets/projects/sentrified.webp',
           ),
           SideBarInfo(
             file: 'TaskPadi.dart',
@@ -93,7 +93,7 @@ class ProjectsRepo {
             info:
                 'This is a e-commerce app I developed for a business enterprise "Cronet Solution"',
             icon: 'assets/icons/kotlin.png',
-            image: 'assets/projects/sentrified.jpg',
+            image: 'assets/projects/sentrified.webp',
           ),
           SideBarInfo(
             file: 'Note-IO.kt',

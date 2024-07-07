@@ -81,129 +81,106 @@ class _ProjectGridState extends State<ProjectGrid>
         crossAxisSpacing: 32,
         itemBuilder: (BuildContext context, int index) {
           var data = widget.model.sideBarInfoList.elementAt(index);
-          return ViewModelBuilder.nonReactive(
-            viewModelBuilder: () => ProjectsCardViewmodel(),
-            onViewModelReady: (_) => _.init(this),
-            builder: (context, model, _) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      const SizedBox(width: 4),
-                      Text(
-                        '// ${data.file.substring(0, data.file.indexOf('.'))}',
-                        style: ll.copyWith(color: Colors.blue[800]),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          ' Project ${index + 1}',
-                          maxLines: 1,
-                          style: ll.copyWith(color: ll.color!.withOpacity(.4)),
-                        ),
-                      ),
-                    ],
+                  const SizedBox(width: 4),
+                  Text(
+                    '// ${data.file.substring(0, data.file.indexOf('.'))}',
+                    style: ll.copyWith(color: Colors.blue[800]),
                   ),
-                  AnimatedBuilder(
-                    animation: model.boxShadowAnimation,
-                    builder: (context, _) {
-                      return MouseRegion(
-                        /*onEnter: (_) {
-                          model.controller.animateTo(1);
-                          model.sizeController.animateTo(1);
-                        },
-                        onExit: (_) {
-                          model.controller.animateTo(0);
-                          model.sizeController.animateTo(0);
-                        },*/
-                        child: Container(
-                          width: model.sizeAnimation.value * double.infinity,
-                          height: model.sizeAnimation.value * 200,
-                          margin: const EdgeInsets.all(8),
-                          clipBehavior: Clip.hardEdge,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor,
-                            borderRadius: BorderRadius.circular(12),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.white.withOpacity(0.2),
-                                offset: const Offset(2, 2),
-                                blurRadius: model.boxShadowAnimation.value,
-                                spreadRadius: 1,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                flex: 12,
-                                child: Stack(
-                                  children: [
-                                    Image.asset(
-                                      data.image,
-                                      width: double.infinity,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Container(
-                                      color: Colors.black.withOpacity(.5),
-                                    ),
-                                    Positioned(
-                                      right: 8,
-                                      top: 8,
-                                      child: Image.asset(
-                                        data.icon,
-                                        width: 20,
-                                        height: 20,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 12),
-                              Expanded(
-                                flex: 7,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    data.info,
-                                    maxLines:
-                                        (model.sizeAnimation.value * 2).round(),
-                                    style: ll.copyWith(
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: TextButton(
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        WidgetStateProperty.all(Colors.black),
-                                  ),
-                                  onPressed: () {
-                                    AppNavigate.justPush(
-                                      context,
-                                      ProjectInfo(data),
-                                    );
-                                  },
-                                  child: Text(
-                                    'View project',
-                                    style: ll.copyWith(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      ' Project ${index + 1}',
+                      maxLines: 1,
+                      style: ll.copyWith(color: ll.color!.withOpacity(.4)),
+                    ),
                   ),
                 ],
-              );
-            },
+              ),
+              Container(
+                width: double.infinity,
+                height: 200,
+                margin: const EdgeInsets.all(8),
+                clipBehavior: Clip.hardEdge,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white.withOpacity(0.2),
+                      offset: const Offset(2, 2),
+                      spreadRadius: 1,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 12,
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            data.image,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                          Container(
+                            color: Colors.black.withOpacity(.5),
+                          ),
+                          Positioned(
+                            right: 8,
+                            top: 8,
+                            child: Image.asset(
+                              data.icon,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Expanded(
+                      flex: 7,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          data.info,
+                          maxLines: 2,
+                          style: ll.copyWith(
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                          WidgetStateProperty.all(Colors.black),
+                        ),
+                        onPressed: () {
+                          AppNavigate.justPush(
+                            context,
+                            ProjectInfo(data),
+                          );
+                        },
+                        child: Text(
+                          'View project',
+                          style: ll.copyWith(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           );
         },
       ),

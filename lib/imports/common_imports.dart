@@ -45,3 +45,6 @@ export 'package:portfolio/ui/projects/project_info_videoplayer.dart';
 export 'package:media_kit/media_kit.dart';
 export 'package:flutter/gestures.dart';
 export 'package:portfolio/utils.dart';
+export 'dart:ui' hide decodeImageFromList, TextStyle, ImageDecoderCallback, Gradient, Image, StrutStyle;
+export 'package:particles_flutter/particles_flutter.dart';
+export 'package:portfolio/ui/projects/util/projects_util.dart';
