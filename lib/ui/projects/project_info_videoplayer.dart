@@ -4,7 +4,7 @@ import 'dart:isolate';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/common_imports.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 
 class ProjectInfoVideoPlayer extends StatefulWidget {

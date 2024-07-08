@@ -1,4 +1,4 @@
-import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/common_imports.dart';
 
 class PathBar extends StatelessWidget {
   const PathBar({super.key});
@@ -30,15 +30,16 @@ class PathBar extends StatelessWidget {
                             style: ll,
                           ),
                         ),
-                        if(index != pathSet.length - 1) Padding(
-                          padding:
-                          const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                          child: Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            color: color.withOpacity(.8),
-                            size: 14,
+                        if (index != pathSet.length - 1)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 2),
+                            child: Icon(
+                              Icons.arrow_forward_ios_outlined,
+                              color: color.withOpacity(.8),
+                              size: 14,
+                            ),
                           ),
-                        ),
                       ],
                     ),
                     itemCount: pathSet.length,
@@ -48,6 +49,11 @@ class PathBar extends StatelessWidget {
             ),
           ),
         ),
+        if (getDeviceType(context) == DeviceType.mobile)
+          IconButton(
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: Icon(Icons.menu, color: ll.color),
+          )
       ],
     );
   }

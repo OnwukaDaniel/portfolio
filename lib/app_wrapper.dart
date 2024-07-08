@@ -1,8 +1,8 @@
 import 'package:portfolio/ui/views/footer.dart';
 
-import 'imports/common_imports.dart';
+import 'common_imports.dart';
 
-class AppWrapper extends StatelessWidget {
+class AppWrapper extends StatefulWidget {
   final Widget child;
   final bool showAppBar;
   final bool showBottomBar;
@@ -15,9 +15,34 @@ class AppWrapper extends StatelessWidget {
   });
 
   @override
+  State<AppWrapper> createState() => _AppWrapperState();
+}
+
+class _AppWrapperState extends State<AppWrapper>
+    with SingleTickerProviderStateMixin {
+  ValueNotifier<BgEnum?> appBgVn = ValueNotifier(BgEnum.gradient);
+
+  @override
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+
+    Widget appDrawer = Drawer(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      elevation: 2,
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              AppConstants.devName,
+              style: bs.copyWith(color: ll.color!.withOpacity(.6)),
+            )
+          ],
+        ),
+      ),
+    );
 
     List<PathEnum> actions = [
       PathEnum.home,
@@ -26,157 +51,182 @@ class AppWrapper extends StatelessWidget {
       PathEnum.portfolio,
       PathEnum.services,
     ];
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Stack(
-        children: [
-          Utils.particleBg(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
+    var bodyView = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(16),
+                topLeft: Radius.circular(16),
+              ),
+              child: Stack(
+                alignment: Alignment.center,
                 children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(16),
-                      topLeft: Radius.circular(16),
-                    ),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            const SizedBox(width: 16),
-                            InkWell(
-                              onTap: () {
-                                if (Navigator.canPop(context)) {
-                                  Navigator.pop(context);
-                                }
-                              },
-                              splashColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              child: const CircleAvatar(
-                                backgroundColor: Colors.red,
-                                radius: 6,
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            const CircleAvatar(
-                              backgroundColor: Colors.lightGreenAccent,
-                              radius: 6,
-                            ),
-                            const SizedBox(width: 6),
-                            const CircleAvatar(
-                                backgroundColor: Colors.green, radius: 6),
-                            const SizedBox(width: 16),
-                          ],
+                  Row(
+                    children: [
+                      const SizedBox(width: 16),
+                      InkWell(
+                        onTap: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
+                        },
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        child: const CircleAvatar(
+                          backgroundColor: Colors.red,
+                          radius: 6,
                         ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Onwuka Daniel - portfolio.dart (:app)',
-                            style: ll.copyWith(color: ll.color!.withOpacity(.8)),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(width: 6),
+                      const CircleAvatar(
+                        backgroundColor: Colors.lightGreenAccent,
+                        radius: 6,
+                      ),
+                      const SizedBox(width: 6),
+                      const CircleAvatar(
+                          backgroundColor: Colors.green, radius: 6),
+                      const SizedBox(width: 16),
+                    ],
                   ),
-                  const PathBar(),
-                  Container(height: .2, width: double.infinity, color: Colors.grey),
-                  if (showAppBar)
-                    Row(
-                      children: [
-                        const SizedBox(width: 16),
-                        Expanded(
-                          flex: 2,
-                          child: Text(
-                            AppConstants.devName,
-                            style: bs.copyWith(color: ll.color!.withOpacity(.6)),
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          flex: 5,
-                          child: SizedBox(
-                            height: 42.2,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              shrinkWrap: true,
-                              itemCount: actions.length,
-                              itemBuilder: (_, index) {
-                                return InkWell(
-                                  onTap: () {
-                                    AppNavigate.push(_, actions.elementAt(index));
-                                  },
-                                  child: Row(
-                                    children: [
-                                      if (index == 0)
-                                        Container(
-                                          height: 40.5,
-                                          width: .2,
-                                          color: Colors.grey,
-                                        ),
-                                      Column(
-                                        children: [
-                                          Container(
-                                            height: .2,
-                                            width:
-                                                (actions[index].name.length * 11) +
-                                                    16 * 2,
-                                            color: Colors.grey,
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(12),
-                                            child: Text(actions[index].name,
-                                                style: ll),
-                                          ),
-                                          ValueListenableBuilder(
-                                            valueListenable: AppNavigate.pathVn,
-                                            builder: (context, value, _) {
-                                              return Container(
-                                                height: 1,
-                                                width: (actions[index].name.length *
-                                                        11) +
-                                                    16 * 2,
-                                                color: actions[index] == value.last
-                                                    ? Colors.amberAccent
-                                                    : Colors.transparent,
-                                              );
-                                            },
-                                          ),
-                                        ],
-                                      ),
-                                      Container(
-                                        height: 40.5,
-                                        width: .5,
-                                        color: Colors.grey,
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Onwuka Daniel - portfolio.dart (:app)',
+                      style: ll.copyWith(color: ll.color!.withOpacity(.8)),
                     ),
-                  Container(
-                    height: .2,
-                    width: double.infinity,
-                    color: Colors.grey,
                   ),
                 ],
               ),
-              Expanded(child: child),
-            ],
-          ),
-        ],
-      ),
-      bottomNavigationBar: Wrap(
-        children: [
-          if(showBottomBar) const Footer(),
-        ],
-      ),
+            ),
+            const PathBar(),
+            Container(height: .2, width: double.infinity, color: Colors.grey),
+            if (widget.showAppBar)
+              Row(
+                children: [
+                  const SizedBox(width: 16),
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      AppConstants.devName,
+                      style: bs.copyWith(color: ll.color!.withOpacity(.6)),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    flex: 5,
+                    child: SizedBox(
+                      height: 42.2,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: actions.length,
+                        itemBuilder: (_, index) {
+                          return InkWell(
+                            onTap: () {
+                              AppNavigate.push(_, actions.elementAt(index));
+                            },
+                            child: Row(
+                              children: [
+                                if (index == 0)
+                                  Container(
+                                    height: 40.5,
+                                    width: .2,
+                                    color: Colors.grey,
+                                  ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      height: .2,
+                                      width: (actions[index].name.length * 11) +
+                                          16 * 2,
+                                      color: Colors.grey,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(12),
+                                      child:
+                                          Text(actions[index].name, style: ll),
+                                    ),
+                                    ValueListenableBuilder(
+                                      valueListenable: AppNavigate.pathVn,
+                                      builder: (context, value, _) {
+                                        return Container(
+                                          height: 1,
+                                          width: (actions[index].name.length *
+                                                  11) +
+                                              16 * 2,
+                                          color: actions[index] == value.last
+                                              ? Colors.amberAccent
+                                              : Colors.transparent,
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  height: 40.5,
+                                  width: .5,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            Container(
+              height: .2,
+              width: double.infinity,
+              color: Colors.grey,
+            ),
+          ],
+        ),
+        Expanded(child: widget.child),
+        if (widget.showBottomBar && getDeviceType(context) != DeviceType.mobile)
+          const Footer(),
+      ],
+    );
+
+    return ValueListenableBuilder(
+      valueListenable: appBgVn,
+      builder: (_, value, Widget? child) {
+        Widget newBody = const SizedBox();
+        switch (value) {
+          case null:
+            newBody = bodyView;
+            break;
+          case BgEnum.one:
+            newBody = Stack(children: [Utils.particleBg(), bodyView]);
+            break;
+          case BgEnum.two:
+            newBody = AnimatedBackground(
+              behaviour: RandomParticleBehaviour(
+                options: ParticleOptions(
+                  baseColor: ll.color!,
+                  spawnMinSpeed: 10,
+                  spawnMaxSpeed: 50,
+                ),
+              ),
+              vsync: this,
+              child: bodyView,
+            );
+            break;
+          case BgEnum.gradient:
+            newBody = AnimatedGradient(child: bodyView);
+            break;
+        }
+        return Scaffold(
+          drawer:
+              getDeviceType(context) == DeviceType.mobile ? appDrawer : null,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          body: newBody,
+        );
+      },
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/common_imports.dart';
 
 class ProjectsUtil {
   static dialog(BuildContext context, Widget widget, String asset) {

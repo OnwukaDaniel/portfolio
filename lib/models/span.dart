@@ -1,4 +1,4 @@
-import '../imports/common_imports.dart';
+import '../common_imports.dart';
 
 class Span{
   String txt;

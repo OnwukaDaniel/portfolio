@@ -1,4 +1,4 @@
-import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/common_imports.dart';
 
 class PersonalInfoList extends StackedHookView<AboutMeViewmodel> {
   const PersonalInfoList({super.key});

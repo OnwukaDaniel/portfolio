@@ -1,4 +1,4 @@
-import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/common_imports.dart';
 
 class ProjectInfo extends StatelessWidget {
   final SideBarInfo data;

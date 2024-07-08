@@ -1,4 +1,4 @@
-import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/common_imports.dart';
 
 Color backColor = const Color(0xFFFFFFFF);
 Color textOnBackColor = Colors.black87;
@@ -15,10 +15,10 @@ class HomepageView extends StatelessWidget {
     return ViewModelBuilder<HomepageViewModel>.nonReactive(
       viewModelBuilder: () => HomepageViewModel(),
       builder: (context, model, child) {
-        return AppWrapper(
+        return const AppWrapper(
           child: Scaffold(
             backgroundColor: Colors.transparent,
-            body: const Home(),
+            body: Home(),
           ),
         );
       },

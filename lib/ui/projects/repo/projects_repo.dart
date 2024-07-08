@@ -1,5 +1,5 @@
 import 'package:portfolio/enums/project_type.dart';
-import 'package:portfolio/imports/common_imports.dart';
+import 'package:portfolio/common_imports.dart';
 
 class ProjectsRepo {
   static List<SideBar> getProjects() {
