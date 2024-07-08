@@ -26,22 +26,35 @@ class _AppWrapperState extends State<AppWrapper>
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+    var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'JMH Typewriter');
 
-    Widget appDrawer = Drawer(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      elevation: 2,
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              AppConstants.devName,
-              style: bs.copyWith(color: ll.color!.withOpacity(.6)),
-            )
-          ],
-        ),
-      ),
+    Widget appDrawer = Builder(
+      builder: (context) {
+        return Drawer(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          elevation: 2,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                IconButton(
+                  onPressed: () => Scaffold.of(context).closeDrawer(),
+                  icon: Icon(Icons.close, color: ll.color),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 32),
+                  child: Text(
+                    'My portfolio',
+                    textAlign: TextAlign.center,
+                    style: tm.copyWith(color: tm.color!.withOpacity(.6)),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      }
     );
 
     List<PathEnum> actions = [

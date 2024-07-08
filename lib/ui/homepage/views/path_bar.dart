@@ -50,9 +50,16 @@ class PathBar extends StatelessWidget {
           ),
         ),
         if (getDeviceType(context) == DeviceType.mobile)
-          IconButton(
-            onPressed: () => Scaffold.of(context).openDrawer(),
-            icon: Icon(Icons.menu, color: ll.color),
+          StatefulBuilder(
+              builder: (context, setState) {
+              return IconButton(
+                onPressed: () => Scaffold.of(context).openDrawer(),
+                icon: Icon(
+                  Scaffold.of(context).isDrawerOpen? Icons.close: Icons.menu,
+                  color: ll.color,
+                ),
+              );
+            }
           )
       ],
     );
