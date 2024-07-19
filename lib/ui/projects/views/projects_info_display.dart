@@ -16,6 +16,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
         SizedBox(
           height: kToolbarHeight * .7,
           child: ListView.separated(
+            itemCount: model.sideBarInfoList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               var data = model.sideBarInfoList.elementAt(index);
@@ -48,7 +49,6 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                 color: Colors.grey,
               );
             },
-            itemCount: model.sideBarInfoList.length,
           ),
         ),
         Container(height: .2, width: size.width, color: Colors.grey),
@@ -72,25 +72,10 @@ class _ProjectGridState extends State<ProjectGrid>
   @override
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context);
-    int count = 0;
-    switch(getDeviceType(context)){
-      case DeviceType.desktop:
-        count = 2;
-        break;
-      case DeviceType.mobile:
-        count = 1;
-        break;
-      case DeviceType.largeDesktop:
-        count = 3;
-        break;
-    }
     return Padding(
       padding: const EdgeInsets.only(top: 64, right: 64, left: 64),
-      child: MasonryGridView.count(
+      child: ListView.builder(
         itemCount: widget.model.sideBarInfoList.length,
-        crossAxisCount: count,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 32,
         itemBuilder: (BuildContext context, int index) {
           var data = widget.model.sideBarInfoList.elementAt(index);
           return Column(

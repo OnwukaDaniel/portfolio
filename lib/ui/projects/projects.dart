@@ -27,7 +27,7 @@ class Projects extends StatelessWidget {
                 child: const Padding(
                   padding: EdgeInsets.all(12),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [ProjectSideBar()],
                   ),
                 ),
