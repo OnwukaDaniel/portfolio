@@ -1,6 +1,7 @@
+import 'dart:developer';
+
 import 'package:portfolio/common_imports.dart';
 import 'package:portfolio/ui/projects/project_info.dart';
-import 'package:portfolio/ui/projects/viewmodel/project_card_viewmodel.dart';
 
 class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
   const ProjectsInfoDisplay({super.key});
@@ -67,16 +68,22 @@ class ProjectGrid extends StatefulWidget {
   State<ProjectGrid> createState() => _ProjectGridState();
 }
 
-class _ProjectGridState extends State<ProjectGrid>
-    with TickerProviderStateMixin {
+class _ProjectGridState extends State<ProjectGrid> {
   @override
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context);
+    var size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(top: 64, right: 64, left: 64),
-      child: ListView.builder(
+      child: CarouselSlider.builder(
+        options: CarouselOptions(
+          viewportFraction: .8,
+          enlargeFactor: .3,
+          enlargeCenterPage: true,
+          scrollDirection: Axis.vertical,
+        ),
         itemCount: widget.model.sideBarInfoList.length,
-        itemBuilder: (BuildContext context, int index) {
+        itemBuilder: (_, int index, __) {
           var data = widget.model.sideBarInfoList.elementAt(index);
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,8 +106,7 @@ class _ProjectGridState extends State<ProjectGrid>
                 ],
               ),
               Container(
-                width: double.infinity,
-                height: 200,
+                height: size.height * .5,
                 margin: const EdgeInsets.all(8),
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
@@ -160,7 +166,7 @@ class _ProjectGridState extends State<ProjectGrid>
                       child: TextButton(
                         style: ButtonStyle(
                           backgroundColor:
-                          WidgetStateProperty.all(Colors.black),
+                              WidgetStateProperty.all(Colors.black),
                         ),
                         onPressed: () {
                           AppNavigate.justPush(

@@ -25,6 +25,7 @@ dependencies:
   particles_flutter: ^0.1.4
   animated_background: ^2.0.0
   animated_gradient: ^0.0.3
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

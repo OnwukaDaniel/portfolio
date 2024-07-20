@@ -51,3 +51,4 @@ export 'package:portfolio/ui/projects/util/projects_util.dart';
 export 'package:animated_background/animated_background.dart';
 export 'package:portfolio/enums/bg_enum.dart';
 export 'package:animated_gradient/animated_gradient.dart';
+export 'package:carousel_slider/carousel_slider.dart';
