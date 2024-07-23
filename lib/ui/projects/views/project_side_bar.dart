@@ -31,22 +31,25 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
           itemCount: model.sideBarInfoList.length,
           itemBuilder: (_, index) {
             var data = model.sideBarInfoList.elementAt(index);
-            return Row(
-              children: [
-                Checkbox(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+            return InkWell(
+              onTap: ()=> _jump(model, index),
+              child: Row(
+                children: [
+                  Checkbox(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    value: model.carouselIndex == index,
+                    onChanged: (value) => _jump(model, index),
                   ),
-                  value: model.carouselIndex == index,
-                  onChanged: (value) => _jump(model, index),
-                ),
-                const SizedBox(width: 16),
-                Image.asset(data.icon, width: 18, height: 18),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(data.project?.name ?? '', style: ll, maxLines: 1),
-                )
-              ],
+                  const SizedBox(width: 16),
+                  Image.asset(data.icon, width: 18, height: 18),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(data.project?.name ?? '', style: ll, maxLines: 1),
+                  )
+                ],
+              ),
             );
           },
         ),

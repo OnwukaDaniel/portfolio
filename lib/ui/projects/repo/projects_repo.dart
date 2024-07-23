@@ -35,37 +35,35 @@ class ProjectsRepo {
                 'Monitor and regulate your food and calories intake. Analyse meal and get insight',
             icon: 'assets/icons/dart.png',
             image: 'assets/projects/snacc_food.jpg',
+            project: ProjectsEnum.snaccFood,
           ),
           SideBarInfo(
             file: 'Sentrified.dart',
             info: 'Estate keeper app',
             icon: 'assets/icons/dart.png',
             image: 'assets/projects/sentrified.webp',
+            project: ProjectsEnum.sentrified,
           ),
           SideBarInfo(
             file: 'TaskPadi.dart',
             info: 'This app was developed to offer service to customers',
             icon: 'assets/icons/dart.png',
             image: 'assets/projects/task_padi.webp',
+            project: ProjectsEnum.taskPadi,
           ),
           SideBarInfo(
             file: 'Sportifan.dart',
             info: 'Play and Record cricket game',
             icon: 'assets/icons/dart.png',
             image: 'assets/projects/snacc_food.jpg',
+            project: ProjectsEnum.sportifan,
           ),
           SideBarInfo(
             file: 'Altfit.dart',
             info: 'Fitness app to guild, provide exercise and monitor fitness',
             icon: 'assets/icons/dart.png',
             image: 'assets/projects/snacc_food.jpg',
-          ),
-          //A crypto price tracking app,
-          SideBarInfo(
-            file: 'CryptoTrage.dart',
-            info: 'A crypto price tracking app with arbitrage opportunities',
-            icon: 'assets/icons/dart.png',
-            image: 'assets/projects/snacc_food.jpg',
+            project: ProjectsEnum.altFit,
           ),
         ],
         show: false,
@@ -75,18 +73,12 @@ class ProjectsRepo {
         icon: 'assets/icons/folder1.png',
         files: [
           SideBarInfo(
-            file: 'HowFar.kt',
-            info:
-                'Super app. Create connection with family and friends, co-workers. Browse video content, chat, video and audio call and earn creating content ',
-            icon: 'assets/icons/kotlin.png',
-            image: 'assets/icons/kotlin.png',
-          ),
-          SideBarInfo(
             file: 'ABB-Blind-Dating.kt',
             info:
                 'In korean language. Connect and meet people who are willing to date.',
             icon: 'assets/icons/kotlin.png',
             image: 'assets/display/abb_blind_dating.png',
+            project: ProjectsEnum.abbBlindDating,
           ),
           SideBarInfo(
             file: 'Cronet Solution.kt',
@@ -94,6 +86,7 @@ class ProjectsRepo {
                 'This is a e-commerce app I developed for a business enterprise "Cronet Solution"',
             icon: 'assets/icons/kotlin.png',
             image: 'assets/projects/sentrified.webp',
+            project: ProjectsEnum.cronetSolution,
           ),
           SideBarInfo(
             file: 'Note-IO.kt',
@@ -101,6 +94,7 @@ class ProjectsRepo {
                 'Keep notes in a simplified way. Organize your day and create tasks and alarms. ',
             icon: 'assets/icons/kotlin.png',
             image: 'assets/display/note_io.png',
+            project: ProjectsEnum.notes,
           ),
         ],
         show: false,
