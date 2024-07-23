@@ -3,10 +3,13 @@ import 'package:portfolio/common_imports.dart';
 
 class ProjectsViewmodel extends AboutMeViewmodel {
   ScrollController pageScrollController = ScrollController();
+  CarouselController carouselController = CarouselController();
   double scrollOffset = 0;
   bool showAll = false;
   List<SideBar> sideBarList = [];
   int topOfSilverBar = 0;
+  int _carouselIndex = 0;
+  int get carouselIndex => _carouselIndex;
 
   @override
   init() {
@@ -21,6 +24,11 @@ class ProjectsViewmodel extends AboutMeViewmodel {
       sideBarList[index].show = input;
       notifyListeners();
     } catch (e) {}
+  }
+
+  setCarouselIndex(int index) {
+    _carouselIndex = index;
+    notifyListeners();
   }
 
   setProject(List<SideBarInfo> input) {

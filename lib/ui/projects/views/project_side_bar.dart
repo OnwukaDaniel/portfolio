@@ -1,3 +1,4 @@
+import 'package:flutter/scheduler.dart';
 import 'package:portfolio/common_imports.dart';
 
 class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
@@ -36,9 +37,8 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  value: false,
-                  //model.sideBarInfoList.contains(data.files.first),
-                  onChanged: (value) => 0, //model.setProject(data.files),
+                  value: model.carouselIndex == index,
+                  onChanged: (value) => _jump(model, index),
                 ),
                 const SizedBox(width: 16),
                 Image.asset(data.icon, width: 18, height: 18),
@@ -52,5 +52,15 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
         ),
       ],
     );
+  }
+
+  void _jump(ProjectsViewmodel model, int index) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      model.carouselController.animateToPage(
+        index,
+        duration: const Duration(seconds: 1),
+        curve: Curves.bounceIn,
+      );
+    });
   }
 }
