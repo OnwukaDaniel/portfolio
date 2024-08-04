@@ -1,6 +1,5 @@
 import 'package:flutter/scheduler.dart';
 import 'package:portfolio/ui/views/footer.dart';
-
 import 'common_imports.dart';
 
 class AppWrapper extends StatefulWidget {
@@ -29,8 +28,8 @@ class _AppWrapperState extends State<AppWrapper>
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var bl = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
-    bool showQuickLinks = false;
-    bool showTools = true;
+    bool showQuickLinks = true;
+    bool showTools = false;
     List<PathEnum> actions = [
       PathEnum.home,
       PathEnum.aboutMe,
@@ -190,122 +189,151 @@ class _AppWrapperState extends State<AppWrapper>
         elevation: 2,
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: ListView(
+          child: Column(
             children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: Footer.themeIcon(),
-              ),
-              Center(
-                child: Text(
-                  'Daniel Onwuka',
-                  textAlign: TextAlign.center,
-                  style: tm.copyWith(color: tm.color!),
-                ),
-              ),
-              Center(
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  margin: const EdgeInsets.all(32),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(38),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.blue.withOpacity(0.5),
-                        spreadRadius: 10,
-                        blurRadius: 20,
-                      ),
-                    ],
-                  ),
-                  clipBehavior: Clip.hardEdge,
-                  child: Image.asset('assets/me/me3.png'),
-                ),
-              ),
-              StatefulBuilder(builder: (context, setState) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Expanded(
+                child: ListView(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        setState(() => showQuickLinks = !showQuickLinks);
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Quick links',
-                            textAlign: TextAlign.center,
-                            style: bl.copyWith(color: tm.color!),
-                          ),
-                          const Spacer(),
-                          Icon(showQuickLinks
-                              ? Icons.keyboard_arrow_down_outlined
-                              : Icons.keyboard_arrow_up_outlined)
-                        ],
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Footer.themeIcon(),
+                    ),
+                    Center(
+                      child: Text(
+                        'Daniel Onwuka',
+                        textAlign: TextAlign.center,
+                        style: tm.copyWith(color: tm.color!),
                       ),
                     ),
-                    if (showQuickLinks) ...[
-                      _tile('Home', () {
-                        Scaffold.of(context).closeDrawer();
-                        AppNavigate.push(context, PathEnum.home);
-                      }),
-                      _tile('About me', () {
-                        Scaffold.of(context).closeDrawer();
-                        AppNavigate.push(context, PathEnum.aboutMe);
-                      }),
-                      _tile('Contact', () {
-                        Scaffold.of(context).closeDrawer();
-                        AppNavigate.push(context, PathEnum.contactUs);
-                      }),
-                      _tile('Projects', () {
-                        Scaffold.of(context).closeDrawer();
-                        AppNavigate.push(context, PathEnum.portfolio);
-                      }),
-                      _tile('Services', () {
-                        Scaffold.of(context).closeDrawer();
-                        AppNavigate.push(context, PathEnum.services);
-                      }),
-                    ],
-                  ],
-                );
-              }),
-              32.h,
-              StatefulBuilder(builder: (context, setState) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        setState(() => showTools = !showTools);
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Technologies and Tools',
-                            textAlign: TextAlign.center,
-                            style: bl.copyWith(
-                                color: tm.color!, fontWeight: FontWeight.w900),
-                          ),
-                          const Spacer(),
-                          Icon(showTools
-                              ? Icons.keyboard_arrow_down_outlined
-                              : Icons.keyboard_arrow_up_outlined)
-                        ],
+                    Center(
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        margin: const EdgeInsets.all(32),
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(38),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.blue.withOpacity(0.5),
+                              spreadRadius: 10,
+                              blurRadius: 20,
+                            ),
+                          ],
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: Image.asset('assets/me/me3.png'),
                       ),
                     ),
-                    if (showTools) ...[
-                      _dev('Flutter', .9, '', Colors.yellowAccent),
-                      _dev('MVVM (Clean Architecture', .95, '', Colors.lime),
-                      _dev('Stacked', .9, '', Colors.amber),
-                      _dev('Provider', .8, '', Colors.deepOrange),
-                      _dev('Bloc', .6, '', Colors.deepOrangeAccent),
-                      _dev('Riverpod', .65, '', Colors.orange[900]!),
-                    ],
+                    StatefulBuilder(builder: (context, setState) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              setState(() => showQuickLinks = !showQuickLinks);
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Quick links',
+                                  textAlign: TextAlign.center,
+                                  style: bl.copyWith(color: tm.color!),
+                                ),
+                                const Spacer(),
+                                Icon(showQuickLinks
+                                    ? Icons.keyboard_arrow_down_outlined
+                                    : Icons.keyboard_arrow_up_outlined)
+                              ],
+                            ),
+                          ),
+                          if (showQuickLinks) ...[
+                            _tile('Home', () {
+                              Scaffold.of(context).closeDrawer();
+                              AppNavigate.push(context, PathEnum.home);
+                            }, Icons.home_outlined),
+                            _tile('About me', () {
+                              Scaffold.of(context).closeDrawer();
+                              AppNavigate.push(context, PathEnum.aboutMe);
+                            }, Icons.account_circle_outlined),
+                            _tile('Contact', () {
+                              Scaffold.of(context).closeDrawer();
+                              AppNavigate.push(context, PathEnum.contactUs);
+                            }, Icons.my_library_books),
+                            _tile('Projects', () {
+                              Scaffold.of(context).closeDrawer();
+                              AppNavigate.push(context, PathEnum.portfolio);
+                            }, Icons.phonelink_rounded),
+                            _tile('Services', () {
+                              Scaffold.of(context).closeDrawer();
+                              AppNavigate.push(context, PathEnum.services);
+                            }, Icons.add_chart),
+                          ],
+                          if (!showQuickLinks)
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 12,
+                              ),
+                              child: Text(
+                                'Home, About me, Contact, Project... ',
+                                style: bs.copyWith(color: bs.color!.withOpacity(.5)),
+                              ),
+                            )
+                        ],
+                      );
+                    }),
+                    32.h,
+                    StatefulBuilder(builder: (context, setState) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              setState(() => showTools = !showTools);
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Technologies and Tools',
+                                  textAlign: TextAlign.center,
+                                  style: bl.copyWith(
+                                      color: tm.color!, fontWeight: FontWeight.w900),
+                                ),
+                                const Spacer(),
+                                Icon(showTools
+                                    ? Icons.keyboard_arrow_down_outlined
+                                    : Icons.keyboard_arrow_up_outlined)
+                              ],
+                            ),
+                          ),
+                          if (showTools) ...[
+                            _dev('Flutter', .9, '', Colors.yellowAccent),
+                            _dev('MVVM (Clean Architecture', .95, '', Colors.lime),
+                            _dev('Stacked', .9, '', Colors.amber),
+                            _dev('Provider', .8, '', Colors.deepOrange),
+                            _dev('Bloc', .7, '', Colors.deepOrangeAccent),
+                            _dev('Riverpod', .65, '', Colors.orange[900]!),
+                          ],
+                          if (!showTools)
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 12,
+                              ),
+                              child: Text(
+                                'Dart, Kotlin, Python, Java... ',
+                                style: bs.copyWith(color: bs.color!.withOpacity(.5)),
+                              ),
+                            )
+                        ],
+                      );
+                    }),
+                    32.h,
                   ],
-                );
-              }),
-              32.h,
+                ),
+              ),
+
             ],
           ),
         ),
@@ -383,7 +411,7 @@ class _AppWrapperState extends State<AppWrapper>
     });
   }
 
-  _tile(String txt, Function()? onTap) {
+  _tile(String txt, Function()? onTap, IconData icon) {
     return Builder(builder: (context) {
       var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
       return InkWell(
@@ -392,10 +420,13 @@ class _AppWrapperState extends State<AppWrapper>
           padding: const EdgeInsets.all(10),
           child: Row(
             children: [
-              Text(
-                txt,
-                textAlign: TextAlign.center,
-                style: bs.copyWith(color: Colors.blue),
+              Icon(icon, color: bs.color),
+              8.w,
+              Text(txt, textAlign: TextAlign.center, style: bs),
+              const Spacer(),
+              Icon(
+                Icons.keyboard_arrow_right_outlined,
+                color: bs.color!.withOpacity(.4),
               ),
             ],
           ),

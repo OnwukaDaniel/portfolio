@@ -119,7 +119,7 @@ class Footer extends StatelessWidget {
             },
             icon: value == AppTheme.darkTheme
                 ? Image.asset('assets/icons/sun.png', width: 30, height: 30)
-                : Image.asset('assets/icons/crescent_moon.png', width: 26, height: 26, color: Colors.white,),
+                : Image.asset('assets/icons/crescent_moon.png', width: 26, height: 26),
           );
         },
       );

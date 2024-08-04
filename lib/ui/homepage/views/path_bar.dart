@@ -55,7 +55,7 @@ class PathBar extends StatelessWidget {
               return IconButton(
                 onPressed: () => Scaffold.of(context).openDrawer(),
                 icon: Icon(
-                  Scaffold.of(context).isDrawerOpen? Icons.close: Icons.menu,
+                  Icons.menu,
                   color: ll.color,
                 ),
               );
