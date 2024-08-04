@@ -1,3 +1,4 @@
+import 'package:flutter/scheduler.dart';
 import 'package:portfolio/ui/views/footer.dart';
 
 import 'common_imports.dart';
@@ -20,13 +21,19 @@ class AppWrapper extends StatefulWidget {
 
 class _AppWrapperState extends State<AppWrapper>
     with SingleTickerProviderStateMixin {
-  ValueNotifier<BgEnum?> appBgVn = ValueNotifier(BgEnum.gradient);
+  ValueNotifier<BgEnum?> appBgVn = ValueNotifier(BgEnum.two);
 
   @override
   Widget build(BuildContext context) {
     var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'JMH Typewriter');
+
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      if(DateTime.now().month == DateTime.december) {
+        appBgVn = ValueNotifier(BgEnum.two);
+      }
+    });
 
     Widget appDrawer = Builder(
       builder: (context) {
