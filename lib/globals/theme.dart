@@ -28,7 +28,8 @@ class AppTheme {
       iconTheme: IconThemeData(color: Colors.white),
     ),
     dividerColor: const Color(0xfff0f0f0),
-    cardColor: const Color(0xFFD5D5D5),
+    cardColor: const Color(0xff9f9f9f),
+    cardTheme: const CardTheme(color: Color(0xFF0E0E0E)),
     fontFamily: 'FiraCode',
     buttonTheme: ButtonThemeData(
       buttonColor: AppColor.appColor,
@@ -47,7 +48,6 @@ class AppTheme {
         onSurface: Colors.white,
       ),
     ),
-    cardTheme: const CardTheme(color: Colors.white60),
     textTheme: TextTheme(
       titleLarge: TextStyle(
         color: Colors.white,
@@ -122,8 +122,8 @@ class AppTheme {
       ),
     ),
     dividerColor: Colors.white,
-    cardColor: const Color(0xff444343),
-    cardTheme: const CardTheme(color: Color(0xff444343)),
+    cardColor: const Color(0xFFE7E7E7),
+    cardTheme: const CardTheme(color: Color(0xfff5f5f5)),
     textTheme: TextTheme(
       titleLarge: TextStyle(
         color: Colors.black,
