@@ -6,6 +6,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
   @override
   Widget builder(BuildContext context, model) {
     var ll = TextUtils.labelLarge(context);
+    var bl = TextUtils.bodyLarge(context);
     var desktop = getDeviceType(context) == DeviceType.desktop;
 
     return Column(
@@ -31,7 +32,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
           itemBuilder: (_, index) {
             var data = model.sideBarInfoList.elementAt(index);
             return InkWell(
-              onTap: ()=> model.jump(index),
+              onTap: () => model.jump(index),
               child: Row(
                 children: [
                   Checkbox(
@@ -45,7 +46,21 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
                   Image.asset(data.icon, width: 18, height: 18),
                   const SizedBox(width: 8),
                   Expanded(
-                    child: Text(data.project?.name ?? '', style: ll, maxLines: 1),
+                    child: Text(
+                      data.project?.name ?? '',
+                      style: ll.copyWith(
+                        fontSize: model.carouselIndex == index
+                            ? bl.fontSize
+                            : ll.fontSize,
+                        color: model.carouselIndex == index
+                            ? ll.color
+                            : ll.color!.withOpacity(.7),
+                        fontWeight: model.carouselIndex == index
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                      ),
+                      maxLines: 1,
+                    ),
                   )
                 ],
               ),

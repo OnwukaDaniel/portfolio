@@ -24,7 +24,17 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                 child: Row(
                   children: [
                     const SizedBox(width: 16),
-                    Text(data.file, style: ll.copyWith(color: textColor)),
+                    Text(
+                      data.file,
+                      style: ll.copyWith(
+                        color: model.carouselIndex == index
+                            ? ll.color
+                            : textColor,
+                        fontWeight: model.carouselIndex == index
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                      ),
+                    ),
                     const SizedBox(width: 8),
                     InkWell(
                       onTap: () => model.removePersonalInfo(data),
@@ -82,13 +92,15 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                             child: Text(
                               ' Project ${index + 1}',
                               maxLines: 1,
-                              style: ll.copyWith(color: ll.color!.withOpacity(.4)),
+                              style:
+                                  ll.copyWith(color: ll.color!.withOpacity(.4)),
                             ),
                           ),
                         ],
                       ),
                       InkWell(
-                        onTap: () => AppNavigate.justPush(context, ProjectInfo(data)),
+                        onTap: () =>
+                            AppNavigate.justPush(context, ProjectInfo(data)),
                         child: Container(
                           margin: const EdgeInsets.all(8),
                           clipBehavior: Clip.hardEdge,
@@ -112,9 +124,11 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                                     data.image,
                                     width: double.infinity,
                                     fit: BoxFit.cover,
-                                    height: (constraints.maxHeight * .9) - kToolbarHeight * 3,
+                                    height: (constraints.maxHeight * .9) -
+                                        kToolbarHeight * 3,
                                   ),
-                                  Container(color: Colors.black.withOpacity(.5)),
+                                  Container(
+                                      color: Colors.black.withOpacity(.5)),
                                   Positioned(
                                     right: 8,
                                     top: 8,
@@ -142,7 +156,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                                 child: TextButton(
                                   style: ButtonStyle(
                                     backgroundColor:
-                                    WidgetStateProperty.all(Colors.black),
+                                        WidgetStateProperty.all(Colors.black),
                                   ),
                                   onPressed: () {
                                     AppNavigate.justPush(
