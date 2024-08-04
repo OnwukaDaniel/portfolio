@@ -83,7 +83,6 @@ class ProjectsViewmodel extends AboutMeViewmodel {
     pageScrollController.addListener((){
       scrollOffset = pageScrollController.offset;
       notifyListeners();
-      log('Stretched ********** ${pageScrollController.offset}');
     });
   }
 }

@@ -2,6 +2,7 @@ import 'package:portfolio/enums/project_type.dart';
 import 'package:portfolio/common_imports.dart';
 
 class ProjectsRepo {
+  static String dartIcon = 'assets/icons/dart.png';
   static List<SideBar> getProjects() {
     return [
       SideBar(
@@ -12,7 +13,7 @@ class ProjectsRepo {
             file: 'PowerPlug.dart',
             info:
                 'Facilitate electricity bill payments across all electricity providers in Nigeria, including BEDC, KAEDO, KADO, IBDC, JED, AEDC, EKEDC, IKEDC, and PHEDC.',
-            icon: 'assets/icons/dart.png',
+            icon: dartIcon,
             appIcon: 'assets/icons/powerplug.png',
             about: 'Purchase of electricity units with different payment methods: card, bank transfer and wallet.\n- Purchase of airtime, data, internet and cable tv.\n- Enhanced Features: Enables users make any purchase with just one click.',
             project: ProjectsEnum.powerPlug,
@@ -32,36 +33,43 @@ class ProjectsRepo {
           SideBarInfo(
             file: 'Snacc Food.dart',
             info:
-                'Monitor and regulate your food and calories intake. Analyse meal and get insight',
-            icon: 'assets/icons/dart.png',
-            image: 'assets/projects/snacc_food.jpg',
+                'Monitor and regulate your food and calories intake. Analyse meal and get insight.',
+            about: "Welcome to Snacc Food, your ultimate companion for managing your dietary habits and achieving your nutrition goals. Our app is designed to help you monitor and regulate your food and calorie intake effortlessly. Whether you're looking to lose weight, gain muscle, or simply maintain a healthy lifestyle, Food and Calorie Tracker provides all the tools you need to succeed.",
+            appIcon: 'assets/icons/snacc.png',
             project: ProjectsEnum.snaccFood,
+            teamMembers: ['Dhruv Shetty'],
+            date: DateTime(2024, 8, 6),
+            icon: dartIcon,
+            type: ProjectType.mobile,
+            technology: 'Flutter',
+            client: 'NYC SnaccFood',
+            image: 'assets/projects/snacc_food.jpg',
           ),
           SideBarInfo(
             file: 'Sentrified.dart',
             info: 'Estate keeper app',
-            icon: 'assets/icons/dart.png',
+            icon: dartIcon,
             image: 'assets/projects/sentrified.webp',
             project: ProjectsEnum.sentrified,
           ),
           SideBarInfo(
             file: 'TaskPadi.dart',
             info: 'This app was developed to offer service to customers',
-            icon: 'assets/icons/dart.png',
+            icon: dartIcon,
             image: 'assets/projects/task_padi.webp',
             project: ProjectsEnum.taskPadi,
           ),
           SideBarInfo(
             file: 'Sportifan.dart',
             info: 'Play and Record cricket game',
-            icon: 'assets/icons/dart.png',
+            icon: dartIcon,
             image: 'assets/projects/snacc_food.jpg',
             project: ProjectsEnum.sportifan,
           ),
           SideBarInfo(
             file: 'Altfit.dart',
             info: 'Fitness app to guild, provide exercise and monitor fitness',
-            icon: 'assets/icons/dart.png',
+            icon: dartIcon,
             image: 'assets/projects/snacc_food.jpg',
             project: ProjectsEnum.altFit,
           ),
