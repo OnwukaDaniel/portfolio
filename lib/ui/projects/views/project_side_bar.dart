@@ -1,4 +1,3 @@
-import 'package:flutter/scheduler.dart';
 import 'package:portfolio/common_imports.dart';
 
 class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
@@ -32,7 +31,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
           itemBuilder: (_, index) {
             var data = model.sideBarInfoList.elementAt(index);
             return InkWell(
-              onTap: ()=> _jump(model, index),
+              onTap: ()=> model.jump(index),
               child: Row(
                 children: [
                   Checkbox(
@@ -40,7 +39,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     value: model.carouselIndex == index,
-                    onChanged: (value) => _jump(model, index),
+                    onChanged: (value) => model.jump(index),
                   ),
                   const SizedBox(width: 16),
                   Image.asset(data.icon, width: 18, height: 18),
@@ -55,15 +54,5 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
         ),
       ],
     );
-  }
-
-  void _jump(ProjectsViewmodel model, int index) {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      model.carouselController.animateToPage(
-        index,
-        duration: const Duration(seconds: 1),
-        curve: Curves.bounceIn,
-      );
-    });
   }
 }

@@ -20,7 +20,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
             itemBuilder: (_, index) {
               var data = model.sideBarInfoList.elementAt(index);
               return InkWell(
-                onTap: () => model.setDisplayPersonalInfo(data),
+                onTap: () => model.jump(index),
                 child: Row(
                   children: [
                     const SizedBox(width: 16),

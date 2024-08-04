@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:flutter/scheduler.dart';
 import 'package:portfolio/common_imports.dart';
 
 class ProjectsViewmodel extends AboutMeViewmodel {
@@ -24,6 +25,16 @@ class ProjectsViewmodel extends AboutMeViewmodel {
       sideBarList[index].show = input;
       notifyListeners();
     } catch (e) {}
+  }
+
+  void jump(int index) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      carouselController.animateToPage(
+        index,
+        duration: const Duration(seconds: 1),
+        curve: Curves.bounceIn,
+      );
+    });
   }
 
   setCarouselIndex(int index) {
