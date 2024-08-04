@@ -57,7 +57,9 @@ class PowerPlugInfo extends StatelessWidget {
               ? double.infinity
               : 0.75 * size.width,
           padding: EdgeInsets.symmetric(
-              vertical: cardPadding, horizontal: cardPadding * 5),
+            vertical: cardPadding,
+            horizontal: cardPadding * 5,
+          ),
           margin: const EdgeInsets.symmetric(vertical: 16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),

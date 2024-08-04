@@ -69,23 +69,7 @@ class Footer extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 const SizedBox(width: 8),
-                ValueListenableBuilder(
-                  valueListenable: appThemeVn,
-                  builder: (context, value, _) {
-                    return IconButton(
-                      onPressed: () {
-                        if (value == AppTheme.darkTheme) {
-                          appThemeVn.value = AppTheme.lightTheme;
-                        } else {
-                          appThemeVn.value = AppTheme.darkTheme;
-                        }
-                      },
-                      icon: value == AppTheme.darkTheme
-                          ? Image.asset('assets/icons/sun.png', width: 30, height: 30)
-                          : Image.asset('assets/icons/crescent_moon.png', width: 26, height: 26, color: Colors.white,),
-                    );
-                  },
-                ),
+                themeIcon(),
                 const SizedBox(width: 8),
                 Container(
                   height: kToolbarHeight,
@@ -119,6 +103,26 @@ class Footer extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  static Widget themeIcon() {
+    return ValueListenableBuilder(
+        valueListenable: appThemeVn,
+        builder: (context, value, _) {
+          return IconButton(
+            onPressed: () {
+              if (value == AppTheme.darkTheme) {
+                appThemeVn.value = AppTheme.lightTheme;
+              } else {
+                appThemeVn.value = AppTheme.darkTheme;
+              }
+            },
+            icon: value == AppTheme.darkTheme
+                ? Image.asset('assets/icons/sun.png', width: 30, height: 30)
+                : Image.asset('assets/icons/crescent_moon.png', width: 26, height: 26, color: Colors.white,),
+          );
+        },
+      );
   }
 
   static launchWeb(String link) async {
