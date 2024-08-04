@@ -12,8 +12,6 @@ class ProjectInfo extends StatelessWidget {
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'Nunito');
     var bm = TextUtils.bodyMedium(context).copyWith(fontFamily: 'Nunito');
-    var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
-    var lm = TextUtils.labelMedium(context).copyWith(fontFamily: 'Nunito');
 
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => ProjectsViewmodel(),
@@ -72,6 +70,7 @@ class ProjectInfo extends StatelessWidget {
                                       maxLines: 5,
                                       textAlign: TextAlign.center,
                                       style: bl.copyWith(
+                                      color: Colors.white,
                                         fontSize: 20,
                                         overflow: TextOverflow.ellipsis,
                                       ),
