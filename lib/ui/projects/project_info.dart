@@ -408,7 +408,7 @@ class ProjectInfo extends StatelessWidget {
             style: tm.copyWith(fontWeight: FontWeight.bold),
           ),
           spaceBtwRows,
-          Text(data.info, style: bs),
+          Text(data.about, style: bs),
           const SizedBox(height: 8),
           Row(
             children: [

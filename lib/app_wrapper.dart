@@ -333,7 +333,6 @@ class _AppWrapperState extends State<AppWrapper>
                   ],
                 ),
               ),
-
             ],
           ),
         ),
@@ -391,9 +390,7 @@ class _AppWrapperState extends State<AppWrapper>
             10.h,
             Row(
               children: [
-                SizedBox(
-                  height: 12,
-                  width: size.width / 1.7,
+                Expanded(
                   child: LinearProgressIndicator(
                     value: progress,
                     backgroundColor: bs.color,

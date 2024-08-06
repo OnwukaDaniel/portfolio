@@ -105,7 +105,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                           margin: const EdgeInsets.all(8),
                           clipBehavior: Clip.hardEdge,
                           decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor,
+                            color: ll.color,
                             borderRadius: BorderRadius.circular(12),
                             boxShadow: [
                               BoxShadow(
@@ -148,6 +148,8 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                                   maxLines: 2,
                                   style: ll.copyWith(
                                     overflow: TextOverflow.ellipsis,
+                                    fontWeight: FontWeight.bold,
+                                    color: Theme.of(context).scaffoldBackgroundColor,
                                   ),
                                 ),
                               ),
