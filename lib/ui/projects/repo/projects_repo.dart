@@ -34,7 +34,7 @@ class ProjectsRepo {
             file: 'Snacc Food.dart',
             info:
                 'Monitor and regulate your food and calories intake. Analyse meal and get insight.',
-            about: "Welcome to Snacc Food, your ultimate companion for managing your dietary habits and achieving your nutrition goals. Our app is designed to help you monitor and regulate your food and calorie intake effortlessly. Whether you're looking to lose weight, gain muscle, or simply maintain a healthy lifestyle, Food and Calorie Tracker provides all the tools you need to succeed.",
+            about: "Welcome to Snacc Food, your ultimate companion for managing your dietary habits and achieving your nutrition goals. \n\nSnaccFood is designed to help you monitor and regulate your food and calorie intake effortlessly. Whether you're looking to lose weight, gain muscle, or simply maintain a healthy lifestyle, Food and Calorie Tracker provides all the tools you need to succeed.",
             appIcon: 'assets/icons/snacc.png',
             project: ProjectsEnum.snaccFood,
             teamMembers: ['Dhruv Shetty'],

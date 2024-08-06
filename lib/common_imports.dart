@@ -54,3 +54,6 @@ export 'package:animated_gradient/animated_gradient.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:portfolio/util/extras.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';
+export 'package:portfolio/ui/projects/info_view/snacc_food_info.dart';
+export 'package:portfolio/ui/projects/views/display_image.dart';
+export 'package:portfolio/ui/projects/views/project_display_samples.dart';

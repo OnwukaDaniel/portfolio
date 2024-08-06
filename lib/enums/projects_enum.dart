@@ -11,8 +11,4 @@ enum ProjectsEnum{
 
   const ProjectsEnum(this.name);
   final String name;
-
-  static type(){
-    
-  }
 }

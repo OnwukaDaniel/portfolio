@@ -188,6 +188,18 @@ class ProjectInfo extends StatelessWidget {
                             const SizedBox(height: 16),
                             if (data.project == ProjectsEnum.powerPlug)
                               const PowerPlugInfo(),
+                            switch(data.project) {
+                              ProjectsEnum.powerPlug => const PowerPlugInfo(),
+                              ProjectsEnum.snaccFood => const SnaccFoodInfo(),
+                              ProjectsEnum.sentrified => 0.h,
+                              ProjectsEnum.taskPadi => 0.h,
+                              ProjectsEnum.sportifan => 0.h,
+                              ProjectsEnum.altFit => 0.h,
+                              ProjectsEnum.abbBlindDating => 0.h,
+                              ProjectsEnum.cronetSolution => 0.h,
+                              ProjectsEnum.notes => 0.h,
+                              null => 0.h,
+                            }
                           ],
                         ),
                       ),

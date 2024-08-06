@@ -1,16 +1,15 @@
 import 'package:portfolio/common_imports.dart';
 
-class PowerPlugInfo extends StatelessWidget {
-  const PowerPlugInfo({super.key});
+class SnaccFoodInfo extends StatelessWidget {
+  const SnaccFoodInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     var tm = TextUtils.titleMedium(context);
     List<Widget> assets = [
-      const ProjectInfoVideoPlayer(
-          'assets/power_plug/screen-20240702-121523.mp4'),
-      const DisplayImage('assets/power_plug/Screenshot_20240614-051401.jpg'),
-      const DisplayImage('assets/power_plug/Screenshot_20240703-113456.jpg'),
+      const DisplayImage('assets/mocks/snacc8.png'),
+      const DisplayImage('assets/mocks/snacc10.png'),
+      const DisplayImage('assets/mocks/snacc9.png'),
     ];
     List<Widget> electricityAssets = [
       if (getDeviceType(context) == DeviceType.desktop)
@@ -45,29 +44,29 @@ class PowerPlugInfo extends StatelessWidget {
 
     return Column(
       children: [
-        Text('HOMEPAGE', style: tm.copyWith(fontWeight: FontWeight.bold)),
         ProjectDisplaySamples(
-          Colors.red,
+          Colors.green.withOpacity(.8),
           view(context, assets),
-          'HOMEPAGE',
+          'Others',
         ),
         const SizedBox(height: kTextTabBarHeight),
         ProjectDisplaySamples(
-          Colors.red,
+          Colors.green.withOpacity(.8),
           view(context, electricityAssets),
-          'BUY ELECTRICITY',
+          'Others',
         ),
         const SizedBox(height: kTextTabBarHeight * 3),
+        Text('BUY AIRTIME', style: tm.copyWith(fontWeight: FontWeight.bold)),
         ProjectDisplaySamples(
-          Colors.red,
+          Colors.green.withOpacity(.8),
           view(context, airtimeAssets),
-          'BUY AIRTIME',
+          'Others',
         ),
         const SizedBox(height: kTextTabBarHeight * 3),
         ProjectDisplaySamples(
-          Colors.red,
+          Colors.green.withOpacity(.8),
           view(context, otherAssets),
-          'OTHERS',
+          'Others',
         ),
       ],
     );
@@ -88,7 +87,7 @@ class PowerPlugInfo extends StatelessWidget {
         mainAxisSpacing: 16,
         itemCount: assets.length,
         itemBuilder: (BuildContext context, int index) {
-          return assets[index];
+          return Center(child: assets[index]);
         },
       ),
     );
