@@ -12,6 +12,7 @@ class ProjectInfo extends StatelessWidget {
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'Nunito');
     var bm = TextUtils.bodyMedium(context).copyWith(fontFamily: 'Nunito');
+    double height = getDeviceType(context) == DeviceType.mobile? 200: size.height * .35;
 
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => ProjectsViewmodel(),
@@ -25,13 +26,14 @@ class ProjectInfo extends StatelessWidget {
               slivers: [
                 SliverAppBar(
                   automaticallyImplyLeading: false,
-                  expandedHeight: size.height * .25,
+                  expandedHeight: height,
                   foregroundColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
                   pinned: true,
                   flexibleSpace: LayoutBuilder(
                     builder: (_, BoxConstraints constraints) {
                       var top = constraints.biggest.height;
+
                       return FlexibleSpaceBar(
                         title: AnimatedOpacity(
                           duration: const Duration(milliseconds: 300),
@@ -75,10 +77,12 @@ class ProjectInfo extends StatelessWidget {
                           ),
                         ),
                         background: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: [
                             Image.asset(
                               data.image,
                               width: double.infinity,
+                              height: height,
                               fit: BoxFit.cover,
                             ),
                             Container(
@@ -98,6 +102,7 @@ class ProjectInfo extends StatelessWidget {
                             ),
                             const SizedBox(height: 12),
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Expanded(
                                   flex: 7,
@@ -108,19 +113,20 @@ class ProjectInfo extends StatelessWidget {
                                       const Spacer(flex: 2),
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 46),
+                                            const EdgeInsets.only(left: 16),
                                         child: Text(
                                           data.file.substring(
                                               0, data.file.indexOf('.')),
                                           maxLines: 5,
                                           textAlign: TextAlign.center,
-                                          style: bl.copyWith(
+                                          style: tm.copyWith(
                                             overflow: TextOverflow.ellipsis,
+                                            fontWeight: FontWeight.w900,
                                             color: Colors.white,
                                           ),
                                         ),
                                       ),
-                                      const Spacer(flex: 1),
+                                      (context.h * 0.025).h,
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(left: 16),
@@ -133,7 +139,7 @@ class ProjectInfo extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      const Spacer(flex: 1),
+                                      (context.h * 0.05).h,
                                     ],
                                   ),
                                 ),
