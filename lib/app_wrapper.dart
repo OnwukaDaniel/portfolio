@@ -173,7 +173,7 @@ class _AppWrapperState extends State<AppWrapper>
           ],
         ),
         Expanded(child: widget.child),
-        if (widget.showBottomBar && getDeviceType(context) != DeviceType.mobile)
+        if (widget.showBottomBar && context.device != DeviceType.mobile)
           const Footer(),
       ],
     );
@@ -368,8 +368,7 @@ class _AppWrapperState extends State<AppWrapper>
             break;
         }
         return Scaffold(
-          drawer:
-              getDeviceType(context) == DeviceType.mobile ? appDrawer : null,
+          drawer: context.device == DeviceType.mobile ? appDrawer : null,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: newBody,
         );
@@ -380,7 +379,6 @@ class _AppWrapperState extends State<AppWrapper>
   Widget _dev(String name, double progress, String icon, Color c) {
     return Builder(builder: (context) {
       var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
-      var size = MediaQuery.of(context).size;
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         child: Column(

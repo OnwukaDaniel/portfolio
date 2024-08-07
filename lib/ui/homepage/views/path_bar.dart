@@ -49,7 +49,7 @@ class PathBar extends StatelessWidget {
             ),
           ),
         ),
-        if (getDeviceType(context) == DeviceType.mobile)
+        if (context.device == DeviceType.mobile)
           StatefulBuilder(
               builder: (context, setState) {
               return IconButton(

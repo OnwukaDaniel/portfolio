@@ -12,33 +12,33 @@ class SnaccFoodInfo extends StatelessWidget {
       const DisplayImage('assets/mocks/snacc9.png'),
     ];
     List<Widget> electricityAssets = [
-      if (getDeviceType(context) == DeviceType.desktop)
+      if (context.device == DeviceType.desktop)
         const SizedBox(width: 64),
       const ProjectInfoVideoPlayer(
           'assets/power_plug/screen-20240703-215403.mp4'),
       const DisplayImage('assets/power_plug/Screenshot_20240614-051626.jpg'),
       const DisplayImage('assets/power_plug/Screenshot_20240703-173725.jpg'),
-      if (getDeviceType(context) == DeviceType.desktop)
+      if (context.device == DeviceType.desktop)
         const SizedBox(width: 64),
     ];
     List<Widget> airtimeAssets = [
-      if (getDeviceType(context) == DeviceType.desktop)
+      if (context.device == DeviceType.desktop)
         const SizedBox(width: 64),
       const ProjectInfoVideoPlayer('assets/power_plug/buy_airtime.mp4'),
       const DisplayImage('assets/power_plug/buy_airtime1.jpg'),
       const DisplayImage('assets/power_plug/buy_airtime2.jpg'),
       const DisplayImage('assets/power_plug/buy_airtime3.jpg'),
-      if (getDeviceType(context) == DeviceType.desktop)
+      if (context.device == DeviceType.desktop)
         const SizedBox(width: 64),
     ];
     List<Widget> otherAssets = [
-      if (getDeviceType(context) == DeviceType.desktop)
+      if (context.device == DeviceType.desktop)
         const SizedBox(width: 64),
       const DisplayImage('assets/power_plug/rewards_page.jpg'),
       const DisplayImage('assets/power_plug/history_page.jpg'),
       const DisplayImage('assets/power_plug/security_page.jpg'),
       const DisplayImage('assets/power_plug/notification_ppage.jpg'),
-      if (getDeviceType(context) == DeviceType.desktop)
+      if (context.device == DeviceType.desktop)
         const SizedBox(width: 64),
     ];
 
@@ -73,7 +73,7 @@ class SnaccFoodInfo extends StatelessWidget {
   }
 
   Widget view(BuildContext context, List<Widget> assets) {
-    if (getDeviceType(context) == DeviceType.mobile) {
+    if (context.device == DeviceType.mobile) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: assets,

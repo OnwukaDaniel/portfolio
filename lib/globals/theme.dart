@@ -121,7 +121,7 @@ class AppTheme {
         onSurface: Colors.white,
       ),
     ),
-    dividerColor: Colors.white,
+    dividerColor: Colors.grey,
     cardColor: const Color(0xFFE7E7E7),
     cardTheme: const CardTheme(color: Color(0xfff5f5f5)),
     textTheme: TextTheme(

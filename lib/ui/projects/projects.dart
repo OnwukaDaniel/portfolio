@@ -13,7 +13,7 @@ class Projects extends StatelessWidget {
       viewModelBuilder: () => ProjectsViewmodel(),
       onViewModelReady: (_) => _.init(),
       builder: (_, model, __) {
-        var desktop = getDeviceType(context) == DeviceType.desktop;
+        var desktop = context.device == DeviceType.desktop;
         return AppWrapper(
           child: Row(
             children: [
@@ -22,7 +22,7 @@ class Projects extends StatelessWidget {
                 width: .2,
                 color: Colors.grey,
               ),
-              if(getDeviceType(context) != DeviceType.mobile)Expanded(
+              if(context.device != DeviceType.mobile)Expanded(
                 flex: desktop ? 5 : 4,
                 child: const Padding(
                   padding: EdgeInsets.all(12),

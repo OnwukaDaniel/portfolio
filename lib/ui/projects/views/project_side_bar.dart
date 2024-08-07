@@ -7,7 +7,7 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
   Widget builder(BuildContext context, model) {
     var ll = TextUtils.labelLarge(context);
     var bl = TextUtils.bodyLarge(context);
-    var desktop = getDeviceType(context) == DeviceType.desktop;
+    var desktop = context.device == DeviceType.desktop;
 
     return Column(
       children: [

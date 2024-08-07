@@ -23,7 +23,7 @@ class ProjectDisplaySamples extends StatelessWidget {
       children: [
         Text(title, style: tm.copyWith(fontWeight: FontWeight.bold)),
         Container(
-          width: getDeviceType(context) == DeviceType.mobile
+          width: context.device == DeviceType.mobile
               ? double.infinity
               : 0.75 * size.width,
           padding: EdgeInsets.symmetric(

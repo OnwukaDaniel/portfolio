@@ -25,6 +25,9 @@ class SideBarInfo {
   String about;
   String technology;
   ProjectsEnum? project;
+  String rolesAndResponsibility;
+  String technologiesAndTools;
+  String keyFeatures;
   DateTime? date;
   String client;
   String playLink;
@@ -38,6 +41,9 @@ class SideBarInfo {
     this.appIcon = '',
     this.about = '',
     this.icon = '',
+    this.rolesAndResponsibility = '',
+    this.technologiesAndTools = '',
+    this.keyFeatures = '',
     this.type,
     this.project,
     this.technology ='',

@@ -11,8 +11,8 @@ class Home extends StatelessWidget {
       children: [
         SizedBox(
           height: size.height - (kToolbarHeight * 2),
-          child: getDeviceType(context) == DeviceType.desktop ||
-                  getDeviceType(context) == DeviceType.largeDesktop
+          child: context.device == DeviceType.desktop ||
+                 context.device == DeviceType.largeDesktop
               ? SizedBox(
                   height: 360,
                   child: Center(
@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                     const SizedBox(height: 16),
                     Center(child: _shortBio()),
                     const SizedBox(height: 16),
-                    if (getDeviceType(context) == DeviceType.mobile)
+                    if (context.device == DeviceType.mobile)
                       Center(
                         child: SizedBox(
                           height: 360,
@@ -49,7 +49,7 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
-                    if (getDeviceType(context) == DeviceType.desktop) Center(child: _game()),
+                    if (context.device == DeviceType.desktop) Center(child: _game()),
                     const SizedBox(height: 16),
                   ],
                 ),

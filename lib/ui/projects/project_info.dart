@@ -12,7 +12,8 @@ class ProjectInfo extends StatelessWidget {
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'Nunito');
     var bm = TextUtils.bodyMedium(context).copyWith(fontFamily: 'Nunito');
-    double height = getDeviceType(context) == DeviceType.mobile? 200: size.height * .35;
+    double height =
+        context.device == DeviceType.mobile ? 200 : size.height * .35;
 
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => ProjectsViewmodel(),
@@ -100,7 +101,7 @@ class ProjectInfo extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 12),
+                            11.h,
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
@@ -170,11 +171,6 @@ class ProjectInfo extends StatelessWidget {
                         padding: const EdgeInsets.all(16),
                         child: Column(
                           children: [
-                            Text(
-                              'Details',
-                              style: tm.copyWith(fontWeight: FontWeight.w900),
-                            ),
-                            const SizedBox(height: 16),
                             Row(
                               children: [
                                 Expanded(
@@ -188,12 +184,19 @@ class ProjectInfo extends StatelessWidget {
                                 const Spacer(flex: 2),
                               ],
                             ),
-                            const SizedBox(height: 16),
-                            mainBody(),
-                            const SizedBox(height: 16),
+                            16.h,
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(flex: 20, child: about()),
+                                16.w,
+                                mainBody(),
+                              ],
+                            ),
+                            16.h,
                             if (data.project == ProjectsEnum.powerPlug)
                               const PowerPlugInfo(),
-                            switch(data.project) {
+                            switch (data.project) {
                               ProjectsEnum.powerPlug => const PowerPlugInfo(),
                               ProjectsEnum.snaccFood => const SnaccFoodInfo(),
                               ProjectsEnum.sentrified => 0.h,
@@ -204,7 +207,7 @@ class ProjectInfo extends StatelessWidget {
                               ProjectsEnum.cronetSolution => 0.h,
                               ProjectsEnum.notes => 0.h,
                               null => 0.h,
-                            }
+                            },
                           ],
                         ),
                       ),
@@ -217,6 +220,355 @@ class ProjectInfo extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget mainBody() {
+    bool showView = true;
+
+    return StatefulBuilder(builder: (context, setState) {
+      var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+      var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'Nunito');
+      var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
+
+      return Expanded(
+        flex: showView ? 10 : 1,
+        child: Builder(
+          builder: (context) {
+            var date = data.date ?? DateTime.now();
+            var day =
+                date.day.toString().length == 1 ? '0${date.day}' : date.day;
+            var month = date.month.toString().length == 1
+                ? '0${date.month}'
+                : date.month;
+            var year = date.year;
+
+            var team = '';
+            for (String i in data.teamMembers) {
+              team += ' $i,';
+            }
+            if (team.isNotEmpty) {
+              team = team.trim().substring(0, team.length - 1);
+            }
+
+            Map<String, String> json = {
+              'Project Type: ': data.type?.name ?? '',
+              'Technology: ': data.technology,
+              'Language: ': data.file.split('.').last.toUpperCase(),
+              'Team: ': team,
+              'Client: ': data.client,
+              'Year: ': '$day $month $year'
+            };
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (showView)
+                  InkWell(
+                    onTap: () => setState(() => showView = !showView),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Text(
+                            'More Info',
+                            style: tm.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                12.h,
+                if (showView)
+                  ListView.separated(
+                    itemCount: json.keys.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      var key = json.keys.toList()[index];
+                      var value = json.values.toList()[index];
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: context.cardThemeColor,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: context.cardThemeColor,
+                              ),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    key,
+                                    style: bs.copyWith(
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Builder(builder: (_) {
+                              var splits = value.split(',');
+                              String text = value;
+                              if (splits.length > 1) {
+                                text = splits.fold('', (prev, e) {
+                                  return '${prev.trim()}\n${e.isNotEmpty ? '* ${e.trim()}' : ''}';
+                                });
+                              }
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                child:
+                                    Text(text, style: bl.copyWith(height: 2,
+                                      fontWeight: FontWeight.w900,
+                                    )),
+                              );
+                            }),
+                          ],
+                        ),
+                      );
+                    },
+                    separatorBuilder: (_, __) {
+                      return Divider(color: context.dividerColor);
+                    },
+                  ),
+                if (!showView)
+                  InkWell(
+                    onTap: () => setState(() => showView = !showView),
+                    child: SizedBox(
+                      child: RotatedBox(
+                        quarterTurns: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Click to See more',
+                                style: tm.copyWith(fontWeight: FontWeight.bold),
+                              ),
+                              16.w,
+                              Icon(Icons.compare_arrows_outlined, color: bs.color,)
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+              ],
+            );
+          },
+        ),
+      );
+    });
+  }
+
+  Widget about() {
+    Widget spaceBtwRows = 12.h;
+    return Builder(builder: (context) {
+      var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+      var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              'About',
+              style: tm.copyWith(fontWeight: FontWeight.bold),
+            ),
+          ),
+          spaceBtwRows,
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: context.cardThemeColor,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(data.about, style: bs.copyWith(height: 2)),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    if (data.appleLink.isNotEmpty) ...[
+                      TextButton(
+                        onPressed: () => Utils.launchWeb(data.appleLink),
+                        child: Row(
+                          children: [
+                            Text('Get it on ', style: bs),
+                            const SizedBox(width: 4),
+                            Image.asset(
+                              'assets/icons/apple.png',
+                              color: bs.color,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                    const SizedBox(width: 12),
+                    if (data.playLink.isNotEmpty) ...[
+                      TextButton(
+                        onPressed: () => Utils.launch(data.playLink),
+                        child: Row(
+                          children: [
+                            Text('Get it on ', style: bs),
+                            const SizedBox(width: 4),
+                            Image.asset(
+                              'assets/icons/playstore.webp',
+                              width: 20,
+                              height: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                    const SizedBox(width: 12),
+                    if (data.downloadLink.isNotEmpty) ...[
+                      TextButton(
+                        onPressed: () => Utils.launchWeb(data.downloadLink),
+                        child: Row(
+                          children: [
+                            Text('Download apk ', style: bs),
+                            const SizedBox(width: 12),
+                            Icon(Icons.download_outlined, color: bs.color),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ],
+            ),
+          ),
+          spaceBtwRows,
+          if (data.rolesAndResponsibility.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Roles and Responsibility',
+                style: tm.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+          if (data.rolesAndResponsibility.isNotEmpty) spaceBtwRows,
+          if (data.rolesAndResponsibility.isNotEmpty)
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.cardThemeColor,
+              ),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Builder(builder: (_) {
+                        var splits = data.rolesAndResponsibility.split(',');
+                        String text = data.rolesAndResponsibility;
+                        if (splits.length > 1) {
+                          text = splits.fold('', (prev, e) {
+                            return '${prev.trim()}\n${e.isNotEmpty ? '* ${e.trim()}' : ''}';
+                          });
+                        }
+                        return Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(text, style: bs.copyWith(height: 2)),
+                        );
+                      }),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          spaceBtwRows,
+          if (data.technologiesAndTools.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Technology and Tools',
+                style: tm.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+          if (data.technologiesAndTools.isNotEmpty) spaceBtwRows,
+          if (data.technologiesAndTools.isNotEmpty)
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.cardThemeColor,
+              ),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Builder(builder: (_) {
+                        var splits = data.technologiesAndTools.split(',');
+                        String text = data.technologiesAndTools;
+                        if (splits.length > 1) {
+                          text = splits.fold('', (prev, e) {
+                            return '${prev.trim()}\n${e.isNotEmpty ? '* ${e.trim()}' : ''}';
+                          });
+                        }
+                        return Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(text, style: bs.copyWith(height: 2)),
+                        );
+                      }),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          spaceBtwRows,
+          if (data.keyFeatures.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Key Features',
+                style: tm.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+          if (data.keyFeatures.isNotEmpty) spaceBtwRows,
+          if (data.keyFeatures.isNotEmpty)
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.cardThemeColor,
+              ),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Builder(builder: (_) {
+                        var splits = data.keyFeatures.split(',');
+                        String text = data.keyFeatures;
+                        if (splits.length > 1) {
+                          text = splits.fold('', (prev, e) {
+                            return '${prev.trim()}\n${e.isNotEmpty ? '* ${e.trim()}' : ''}';
+                          });
+                        }
+                        return Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(text, style: bs.copyWith(height: 2)),
+                        );
+                      }),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+        ],
+      );
+    });
   }
 
   Widget codeBar() {
@@ -317,158 +669,5 @@ class ProjectInfo extends StatelessWidget {
 
     Iterable<Match> matches = regex.allMatches(input);
     return matches.map((match) => match.group(0)!).toList();
-  }
-
-  Widget mainBody() {
-    return Builder(
-      builder: (context) {
-        var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
-        var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
-        var date = data.date ?? DateTime.now();
-        var day = date.day.toString().length == 1
-            ? '0${date.day}'
-            : date.day;
-        var month = date.month.toString().length == 1
-            ? '0${date.month}'
-            : date.month;
-        var year = date.year;
-
-        var team = '';
-        Widget spaceBtwRows = const SizedBox(height: 12);
-        for (String i in data.teamMembers) {
-          team += ' $i,';
-        }
-        if (team.isNotEmpty) team = team.trim().substring(0, team.length - 1);
-
-        Map<String, String> json = {'Name: ': data.project?.name ?? '',
-        'Type: ': data.type?.name ?? '',
-        'Technology: ': data.technology,
-        'Language: ': data.file.split('.').last.toUpperCase(),
-        'Team: ': team,
-        'Client: ': data.client,
-          'Year: ' : '$day $month $year'
-        };
-
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (getDeviceType(context) == DeviceType.desktop ||
-                      getDeviceType(context) == DeviceType.largeDesktop)
-                    Expanded(flex: 4, child: about(spaceBtwRows)),
-                  const SizedBox(height: 8),
-                  Expanded(
-                    flex: 4,
-                    child: SizedBox(
-                      height: json.keys.length * 40,
-                      child: MasonryGridView.count(
-                        crossAxisCount: 4,
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                        itemCount: json.keys.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          var key = json.keys.toList()[index];
-                          var value = json.values.toList()[index];
-                          return Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Column(
-                              children: [
-                                Text(key, style: bs),
-                                32.h,
-                                Text(value, style: bs),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              if (getDeviceType(context) == DeviceType.mobile)
-                about(spaceBtwRows),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  Widget about(Widget spaceBtwRows) {
-    return Builder(builder: (context) {
-      var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
-      var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'About',
-            style: tm.copyWith(fontWeight: FontWeight.bold),
-          ),
-          spaceBtwRows,
-          Text(data.about, style: bs),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              if (data.appleLink.isNotEmpty) ...[
-                TextButton(
-                  onPressed: () => Utils.launchWeb(data.appleLink),
-                  child: Row(
-                    children: [
-                      Text('Get it on ', style: bs),
-                      const SizedBox(width: 4),
-                      Image.asset(
-                        'assets/icons/apple.png',
-                        color: bs.color,
-                        width: 20,
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-              const SizedBox(width: 12),
-              if (data.playLink.isNotEmpty) ...[
-                TextButton(
-                  onPressed: () => Utils.launch(data.playLink),
-                  child: Row(
-                    children: [
-                      Text('Get it on ', style: bs),
-                      const SizedBox(width: 4),
-                      Image.asset(
-                        'assets/icons/playstore.webp',
-                        width: 20,
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-              const SizedBox(width: 12),
-              if (data.downloadLink.isNotEmpty) ...[
-                TextButton(
-                  onPressed: () => Utils.launchWeb(data.downloadLink),
-                  child: Row(
-                    children: [
-                      Text('Download apk ', style: bs),
-                      const SizedBox(width: 12),
-                      Icon(Icons.download_outlined, color: bs.color),
-                    ],
-                  ),
-                ),
-              ],
-            ],
-          ),
-        ],
-      );
-    });
   }
 }
