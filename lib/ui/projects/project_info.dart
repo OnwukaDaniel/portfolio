@@ -194,8 +194,6 @@ class ProjectInfo extends StatelessWidget {
                               ],
                             ),
                             16.h,
-                            if (data.project == ProjectsEnum.powerPlug)
-                              const PowerPlugInfo(),
                             switch (data.project) {
                               ProjectsEnum.powerPlug => const PowerPlugInfo(),
                               ProjectsEnum.snaccFood => const SnaccFoodInfo(),

@@ -45,7 +45,6 @@ class PowerPlugInfo extends StatelessWidget {
 
     return Column(
       children: [
-        Text('HOMEPAGE', style: tm.copyWith(fontWeight: FontWeight.bold)),
         ProjectDisplaySamples(
           Colors.red,
           view(context, assets),
