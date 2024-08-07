@@ -23,3 +23,13 @@ extension AppThemeData on BuildContext{
   Color get dividerColor => Theme.of(this).dividerColor;
   Color get hintColor => Theme.of(this).hintColor;
 }
+
+extension GetDeviceType on BuildContext {
+  DeviceType get device {
+    var shortestSide = MediaQuery.of(this).size.shortestSide;
+    var width = MediaQuery.of(this).size.width;
+    if (shortestSide < 600) return DeviceType.mobile;
+    if (width > 1000) return DeviceType.largeDesktop;
+    return DeviceType.desktop;
+  }
+}
