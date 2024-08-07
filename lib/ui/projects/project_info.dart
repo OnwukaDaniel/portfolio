@@ -230,7 +230,7 @@ class ProjectInfo extends StatelessWidget {
       var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'Nunito');
       var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
 
-      return Expanded(
+      return context.device != DeviceType.mobile? Expanded(
         flex: showView ? 10 : 1,
         child: Builder(
           builder: (context) {
@@ -361,7 +361,7 @@ class ProjectInfo extends StatelessWidget {
             );
           },
         ),
-      );
+      ): 0.h;
     });
   }
 
