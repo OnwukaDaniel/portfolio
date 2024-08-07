@@ -1,5 +1,4 @@
-import 'package:portfolio/enums/project_type.dart';
-import 'package:portfolio/enums/projects_enum.dart';
+import 'package:portfolio/common_imports.dart';
 
 class SideBar {
   String displayName;
@@ -31,6 +30,7 @@ class SideBarInfo {
   DateTime? date;
   String client;
   String playLink;
+  List<ProjectAssets> projectAssets;
   String appleLink;
   String downloadLink;
   List<String> teamMembers;
@@ -50,6 +50,7 @@ class SideBarInfo {
     this.date,
     this.client = '',
     this.image = '',
+    this.projectAssets = const [],
     this.playLink = '',
     this.appleLink = '',
     this.downloadLink = '',
