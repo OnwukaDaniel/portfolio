@@ -170,10 +170,9 @@ class ProjectInfo extends StatelessWidget {
                         padding: const EdgeInsets.all(16),
                         child: Column(
                           children: [
-                            const SizedBox(height: 16),
                             Text(
                               'Details',
-                              style: bl.copyWith(fontWeight: FontWeight.w900),
+                              style: tm.copyWith(fontWeight: FontWeight.w900),
                             ),
                             const SizedBox(height: 16),
                             Row(
@@ -325,12 +324,30 @@ class ProjectInfo extends StatelessWidget {
       builder: (context) {
         var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
         var ll = TextUtils.labelLarge(context).copyWith(fontFamily: 'Nunito');
+        var date = data.date ?? DateTime.now();
+        var day = date.day.toString().length == 1
+            ? '0${date.day}'
+            : date.day;
+        var month = date.month.toString().length == 1
+            ? '0${date.month}'
+            : date.month;
+        var year = date.year;
+
         var team = '';
         Widget spaceBtwRows = const SizedBox(height: 12);
         for (String i in data.teamMembers) {
           team += ' $i,';
         }
         if (team.isNotEmpty) team = team.trim().substring(0, team.length - 1);
+
+        Map<String, String> json = {'Name: ': data.project?.name ?? '',
+        'Type: ': data.type?.name ?? '',
+        'Technology: ': data.technology,
+        'Language: ': data.file.split('.').last.toUpperCase(),
+        'Team: ': team,
+        'Client: ': data.client,
+          'Year: ' : '$day $month $year'
+        };
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -341,68 +358,39 @@ class ProjectInfo extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Spacer(),
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name:', style: bs),
-                        spaceBtwRows,
-                        Text('Type:', style: bs),
-                        spaceBtwRows,
-                        Text('Technology:', style: bs),
-                        spaceBtwRows,
-                        Text('Language:', style: bs),
-                        spaceBtwRows,
-                        Text('Team:', style: bs),
-                        spaceBtwRows,
-                        Text('Client:', style: bs),
-                        spaceBtwRows,
-                        Text('Year:', style: bs),
-                        spaceBtwRows,
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Expanded(
-                    flex: 6,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(data.project?.name ?? '', style: bs),
-                        spaceBtwRows,
-                        Text(data.type?.name ?? '', style: bs),
-                        spaceBtwRows,
-                        Text(data.technology, style: bs),
-                        spaceBtwRows,
-                        Text(data.file.split('.').last.toUpperCase(),
-                            style: bs),
-                        spaceBtwRows,
-                        Text(team, style: bs),
-                        spaceBtwRows,
-                        Text(data.client, style: bs),
-                        spaceBtwRows,
-                        Builder(builder: (context) {
-                          var date = data.date ?? DateTime.now();
-                          var day = date.day.toString().length == 1
-                              ? '0${date.day}'
-                              : date.day;
-                          var month = date.month.toString().length == 1
-                              ? '0${date.month}'
-                              : date.month;
-                          var year = date.year;
-                          return Text('$day $month $year', style: bs);
-                        }),
-                        spaceBtwRows,
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 8),
                   if (getDeviceType(context) == DeviceType.desktop ||
                       getDeviceType(context) == DeviceType.largeDesktop)
                     Expanded(flex: 4, child: about(spaceBtwRows)),
-                  const Spacer(),
+                  const SizedBox(height: 8),
+                  Expanded(
+                    flex: 4,
+                    child: SizedBox(
+                      height: json.keys.length * 40,
+                      child: MasonryGridView.count(
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 16,
+                        mainAxisSpacing: 16,
+                        itemCount: json.keys.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          var key = json.keys.toList()[index];
+                          var value = json.values.toList()[index];
+                          return Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(key, style: bs),
+                                32.h,
+                                Text(value, style: bs),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                 ],
               ),
               if (getDeviceType(context) == DeviceType.mobile)
