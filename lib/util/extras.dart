@@ -14,3 +14,12 @@ extension ScreenDim on BuildContext{
   double get h => MediaQuery.of(this).size.height;
   double get w => MediaQuery.of(this).size.width;
 }
+
+extension AppThemeData on BuildContext{
+  Color get cardColor => Theme.of(this).cardColor;
+  Color? get cardThemeColor => Theme.of(this).cardTheme.color;
+  Color get bgColor => Theme.of(this).scaffoldBackgroundColor;
+  Color? get textColor => Theme.of(this).textTheme.bodySmall?.color;
+  Color get dividerColor => Theme.of(this).dividerColor;
+  Color get hintColor => Theme.of(this).hintColor;
+}
