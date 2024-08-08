@@ -134,9 +134,46 @@ class ProjectsRepo {
             file: 'Sentrified.dart',
             info: 'The Estate Management System is a Flutter-based app designed to streamline estate operations, providing residents with features such as access management via intelligent codes, voting on polls, payment receipt submission, complaint handling, and panic alerts. The app also caters to admin and security roles, ensuring efficient and secure management of estate activities.',
             about: 'The Estate Management System is an innovative Flutter-based application designed to enhance the efficiency and security of estate operations. Residents can seamlessly manage access, participate in polls, submit payment receipts, and raise complaints or panic alerts through the app. Admins benefit from streamlined estate management, while security personnel utilize intelligent codes to control access effectively. This comprehensive solution ensures a well-coordinated and secure environment for all estate members.',
+            appIcon: 'assets/icons/sentrified.png',
+            teamMembers: ['Marvellous Utai', 'Chibuike', 'Toheeb', 'Mr. Bolaji',],
+            date: DateTime(2024, 4, 15),
+            rolesAndResponsibility: 'Lead Frontend Developer',
+            technologiesAndTools:
+            'Flutter, Stacked, MVVM Clean Architecture, REST API',
+            keyFeatures: 'Access Management, Polling System, Payment Receipt Submission, Complaint Management, Panic Alerts',
             icon: dartIcon,
-            image: 'assets/projects/sentrified.webp',
+            type: ProjectType.mobile,
             project: ProjectsEnum.sentrified,
+            technology: 'Flutter',
+            client: 'Doc2Data',
+            image: 'assets/projects/sentrified.jpg',
+            projectAssets: [
+              ProjectAssets(
+                title: 'ONBOARDING',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/sentrified1.jpg',
+                  'assets/mocks/sentrified2.jpg',
+                  'assets/mocks/sentrified7.jpg',
+                ],
+              ),
+              ProjectAssets(
+                title: 'DASHBOARD and ACCESS',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/sentrified6.jpg',
+                  'assets/mocks/sentrified5.jpg',
+                  'assets/mocks/sentrified4.jpg',
+                ],
+              ),
+              ProjectAssets(
+                title: 'PANIC NOTIFICATION',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/sentrified3.jpg',
+                ],
+              ),
+            ],
           ),
           SideBarInfo(
             file: 'TaskPadi.dart',
