@@ -132,7 +132,8 @@ class ProjectsRepo {
           ),
           SideBarInfo(
             file: 'Sentrified.dart',
-            info: 'Estate keeper app',
+            info: 'The Estate Management System is a Flutter-based app designed to streamline estate operations, providing residents with features such as access management via intelligent codes, voting on polls, payment receipt submission, complaint handling, and panic alerts. The app also caters to admin and security roles, ensuring efficient and secure management of estate activities.',
+            about: 'The Estate Management System is an innovative Flutter-based application designed to enhance the efficiency and security of estate operations. Residents can seamlessly manage access, participate in polls, submit payment receipts, and raise complaints or panic alerts through the app. Admins benefit from streamlined estate management, while security personnel utilize intelligent codes to control access effectively. This comprehensive solution ensures a well-coordinated and secure environment for all estate members.',
             icon: dartIcon,
             image: 'assets/projects/sentrified.webp',
             project: ProjectsEnum.sentrified,
