@@ -176,18 +176,59 @@ class ProjectsRepo {
             ],
           ),
           SideBarInfo(
-            file: 'TaskPadi.dart',
-            info: 'This app was developed to offer service to customers',
-            icon: dartIcon,
-            image: 'assets/projects/task_padi.webp',
-            project: ProjectsEnum.taskPadi,
-          ),
-          SideBarInfo(
             file: 'Sportifan.dart',
-            info: 'Play and Record cricket game',
+            info: 'The Sportifan Playing and Umpiring App, developed with Flutter, consists of two separate applications: the User App and the Umpiring App. The User App allows users to create match schedules, form teams, and view match highlights and summaries, while the Umpiring App enables umpires to select venues, conduct tosses, configure run zones, manage gameplay, and record comprehensive game statistics.',
+            about: 'The Cricket Playing and Recording App is a versatile Flutter-based solution designed to enhance the organization and management of cricket matches. It comprises two distinct applications: the User App and the Umpiring App. The User App allows users to create match schedules, form teams, and view match highlights and summaries. The Umpiring App empowers umpires to select venues, conduct tosses, configure run zones, manage the actual gameplay, and record detailed game statistics, ensuring a seamless cricket experience for all participants.',
+            appIcon: 'assets/icons/sportifan.png',
+            teamMembers: ['Mayur Manu', 'Niranjan-Dorage', 'Nandish N S',],
+            date: DateTime(2024, 2, 15),
+            rolesAndResponsibility: 'Frontend Developer, Tester',
+            technologiesAndTools:
+            'Flutter, Stacked, MVVM Clean Architecture, Firebase, Youtube API',
+            keyFeatures: 'Create Match Schedule, Create Teams, View Match Highlights, View Match Summary, Select Venue to Play, Conduct Toss to Determine Heads or Tails, Configure Cricket Run Zones, Manage Actual Playing of the Match, Save All Game Data and Stats',
             icon: dartIcon,
-            image: 'assets/projects/snacc_food.jpg',
+            type: ProjectType.mobile,
             project: ProjectsEnum.sportifan,
+            technology: 'Flutter',
+            client: 'Sportifan',
+            image: 'assets/projects/sportifan.png',
+            projectAssets: [
+              ProjectAssets(
+                title: 'ONBOARDING - User App',
+                color: Colors.green,
+                links: [
+                  'assets/mocks/sportifan1.png',
+                  'assets/mocks/sportifan2.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'In-App',
+                color: Colors.green,
+                links: [
+                  'assets/mocks/sportifan3.png',
+                  'assets/mocks/sportifan4.png',
+                  'assets/mocks/sportifan6.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'PLAYING AND RECORDING MATCH',
+                color: Colors.green,
+                links: [
+                  'assets/mocks/sportifan10.png',
+                  'assets/mocks/sportifan9.png',
+                  'assets/mocks/sportifan8.png',
+                  'assets/mocks/sportifan7.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'INNING and MATCH SUMMARY',
+                color: Colors.green,
+                links: [
+                  'assets/mocks/sportifan11.png',
+                  'assets/mocks/sportifan12.png',
+                ],
+              ),
+            ],
           ),
           SideBarInfo(
             file: 'Altfit.dart',
