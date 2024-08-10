@@ -214,10 +214,10 @@ class ProjectsRepo {
                 title: 'PLAYING AND RECORDING MATCH',
                 color: Colors.green,
                 links: [
-                  'assets/mocks/sportifan10.png',
-                  'assets/mocks/sportifan9.png',
-                  'assets/mocks/sportifan8.png',
                   'assets/mocks/sportifan7.png',
+                  'assets/mocks/sportifan8.png',
+                  'assets/mocks/sportifan9.png',
+                  'assets/mocks/sportifan10.png',
                 ],
               ),
               ProjectAssets(
@@ -232,10 +232,77 @@ class ProjectsRepo {
           ),
           SideBarInfo(
             file: 'Altfit.dart',
-            info: 'Fitness app to guild, provide exercise and monitor fitness',
+            info: 'The Fitness App, developed with Flutter, provides users with instructional videos and workout guides for cardio, flexibility, and weight training sessions. It also allows users to track their fitness progress by keeping streaks, logging workout history, and monitoring calories burnt.',
+            about: 'The Fitness App is a comprehensive Flutter-based application designed to help users achieve their fitness goals through structured guidance and tracking. It offers instructional videos for various types of workouts, including cardio, flexibility, and weight training sessions. Users can maintain workout streaks, log their workout history, and monitor calories burnt to track their progress effectively. This app provides a robust platform for users to stay motivated and on track with their fitness journey.',
+            appIcon: 'assets/icons/altfit.png',
+            teamMembers: ['Mayur Manu', '+ 21 more',],
+            date: DateTime(2024, 3, 15),
+            rolesAndResponsibility: 'Frontend Developer',
+            technologiesAndTools:
+            'Flutter, Stacked, MVVM Clean Architecture, Amplify, AWS',
+            keyFeatures: 'Access to instructional videos for various workouts, Cardio, Flexibility, Weight Training, Keep streaks, Monitor calories burnt, Log workout history',
             icon: dartIcon,
-            image: 'assets/projects/snacc_food.jpg',
+            type: ProjectType.mobile,
             project: ProjectsEnum.altFit,
+            technology: 'Flutter',
+            client: 'Altfit',
+            image: 'assets/projects/altfit.png',
+            projectAssets: [
+              ProjectAssets(
+                title: 'ONBOARDING',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/altfit4.png',
+                  'assets/mocks/altfit3.png',
+                  'assets/mocks/altfit18.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'CREATE WORKOUT PROFILE',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/altfit1.png',
+                  'assets/mocks/altfit2.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'In-App',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/altfit5.png',
+                  'assets/mocks/altfit10.png',
+                  'assets/mocks/altfit9.png',
+                  'assets/mocks/altfit11.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'WEIGHT TRAINING SESSION',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/altfit7.png',
+                  'assets/mocks/altfit8.png',
+                  'assets/mocks/altfit17.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'CARDIO TRAINING',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/altfit12.png',
+                  'assets/mocks/altfit13.png',
+                  'assets/mocks/altfit14.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'FLEXIBILITY TRAINING',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/altfit16.png',
+                  'assets/mocks/altfit15.png',
+                  'assets/mocks/altfit17.png',
+                ],
+              ),
+            ],
           ),
         ],
         show: false,
