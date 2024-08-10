@@ -2,6 +2,7 @@ import 'package:portfolio/common_imports.dart';
 
 class ProjectsRepo {
   static String dartIcon = 'assets/icons/dart.png';
+  static String kotlinIcon = 'assets/icons/kotlin.png';
 
   static List<SideBar> getProjects() {
     return [
@@ -315,7 +316,11 @@ class ProjectsRepo {
             file: 'ABB-Blind-Dating.kt',
             info:
                 'In korean language. Connect and meet people who are willing to date.',
-            icon: 'assets/icons/kotlin.png',
+            appIcon: 'assets/icons/abb_dating.png',
+            teamMembers: ['Solo project'],
+            date: DateTime(2022, 6, 22),
+            rolesAndResponsibility: 'Frontend Developer',
+            icon: kotlinIcon,
             image: 'assets/display/abb_blind_dating.png',
             project: ProjectsEnum.abbBlindDating,
           ),
