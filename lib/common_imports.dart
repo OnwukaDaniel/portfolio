@@ -58,3 +58,4 @@ export 'package:portfolio/ui/projects/views/display_image.dart';
 export 'package:portfolio/ui/projects/views/project_display_samples.dart';
 export 'package:portfolio/enums/project_type.dart';
 export 'package:portfolio/models/project_assets.dart';
+export 'package:portfolio/ui/home/viewmodel/snake_game_viewmodel.dart';

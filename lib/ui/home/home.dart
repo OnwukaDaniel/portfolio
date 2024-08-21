@@ -1,4 +1,5 @@
 import 'package:portfolio/common_imports.dart';
+import 'package:portfolio/ui/home/snake_game.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -12,7 +13,7 @@ class Home extends StatelessWidget {
         SizedBox(
           height: size.height - (kToolbarHeight * 2),
           child: context.device == DeviceType.desktop ||
-                 context.device == DeviceType.largeDesktop
+                  context.device == DeviceType.largeDesktop
               ? SizedBox(
                   height: 360,
                   child: Center(
@@ -30,7 +31,7 @@ class Home extends StatelessWidget {
                   ),
                 )
               : ListView(
-            shrinkWrap: true,
+                  shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     const SizedBox(height: 16),
@@ -49,7 +50,8 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
-                    if (context.device == DeviceType.desktop) Center(child: _game()),
+                    if (context.device == DeviceType.desktop)
+                      Center(child: _game()),
                     const SizedBox(height: 16),
                   ],
                 ),
@@ -157,21 +159,29 @@ class Home extends StatelessWidget {
                       'assets/display/snake_game.png',
                       height: size.height * .4,
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: const WidgetStatePropertyAll(
+                            Color(0xFFFEA55F),
+                          ),
+                          shape: WidgetStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                          ),
+                        ),
+                        onPressed: () => AppNavigate.justPush(
+                          context,
+                          const SnakeGame(),
+                        ),
+                        child: Text(
+                          'Stat-game',
+                          style: ll.copyWith(color: Colors.black),
+                        ),
                       ),
-                      margin: const EdgeInsets.all(32),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFEA55F),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Text(
-                        'Stat-game',
-                        style: ll.copyWith(color: Colors.black),
-                      ),
-                    )
+                    ),
                   ],
                 ),
                 const SizedBox(width: 12),
