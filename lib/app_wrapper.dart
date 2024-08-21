@@ -42,6 +42,7 @@ class _AppWrapperState extends State<AppWrapper>
       children: [
         Column(
           children: [
+            if(context.device == DeviceType.mobile) kToolbarHeight.h,
             ClipRRect(
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(16),

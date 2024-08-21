@@ -532,23 +532,25 @@ class ProjectInfo extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Builder(builder: (_) {
-                        var splits = data.keyFeatures.split(',');
-                        String text = data.keyFeatures;
-                        if (splits.length > 1) {
-                          text = splits.fold('', (prev, e) {
-                            return '${prev.trim()}\n${e.isNotEmpty ? '* ${e.trim()}' : ''}';
-                          });
-                        }
-                        return Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Text(text, style: bs.copyWith(height: 2)),
-                        );
-                      }),
-                    ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Builder(builder: (_) {
+                          var splits = data.keyFeatures.split(',');
+                          String text = data.keyFeatures;
+                          if (splits.length > 1) {
+                            text = splits.fold('', (prev, e) {
+                              return '${prev.trim()}\n${e.isNotEmpty ? '* ${e.trim()}' : ''}';
+                            });
+                          }
+                          return Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Text(text, style: bs.copyWith(height: 2)),
+                          );
+                        }),
+                      ],
+                    ),
                   ),
                 ],
               ),

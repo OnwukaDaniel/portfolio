@@ -4,7 +4,7 @@ import 'package:portfolio/common_imports.dart';
 
 class ProjectsViewmodel extends AboutMeViewmodel {
   ScrollController pageScrollController = ScrollController();
-  CarouselController carouselController = CarouselController();
+  CarouselSliderController carouselController = CarouselSliderController();
   double scrollOffset = 0;
   bool showAll = false;
   List<SideBar> sideBarList = [];

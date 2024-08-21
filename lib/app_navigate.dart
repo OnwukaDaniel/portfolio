@@ -26,7 +26,7 @@ class AppNavigate {
   static push(BuildContext context, PathEnum path, {dynamic data}) {
     var paths = _navigationPath;
     var screen = PageFromPath.getPage(path, data);
-    if (paths.contains(path)) {
+    /*if (paths.contains(path)) {
       if (paths.last != path) {
         var navigateIndex = paths.toList().indexOf(path);
         var newPath = paths.toList().sublist(0, navigateIndex + 1).toSet();
@@ -38,7 +38,7 @@ class AppNavigate {
       } else {
         return;
       }
-    }
+    }*/
     Navigator.push(context, CupertinoPageRoute(builder: (_) => screen));
     addToPath(path);
   }

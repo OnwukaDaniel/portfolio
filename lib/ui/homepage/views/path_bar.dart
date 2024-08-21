@@ -9,7 +9,7 @@ class PathBar extends StatelessWidget {
     var ll = TextUtils.labelLarge(context);
     return Row(
       children: [
-        Expanded(
+        /*Expanded(
           child: SizedBox(
             height: 30,
             child: Padding(
@@ -48,19 +48,25 @@ class PathBar extends StatelessWidget {
               ),
             ),
           ),
+        ),*/
+        if(Navigator.canPop(context))IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back,
+            color: ll.color,
+          ),
         ),
+        const Spacer(),
         if (context.device == DeviceType.mobile)
-          StatefulBuilder(
-              builder: (context, setState) {
-              return IconButton(
-                onPressed: () => Scaffold.of(context).openDrawer(),
-                icon: Icon(
-                  Icons.menu,
-                  color: ll.color,
-                ),
-              );
-            }
-          )
+          StatefulBuilder(builder: (context, setState) {
+            return IconButton(
+              onPressed: () => Scaffold.of(context).openDrawer(),
+              icon: Icon(
+                Icons.menu,
+                color: ll.color,
+              ),
+            );
+          })
       ],
     );
   }
