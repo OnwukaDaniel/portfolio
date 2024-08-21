@@ -314,32 +314,57 @@ class ProjectsRepo {
         files: [
           SideBarInfo(
             file: 'ABB-Blind-Dating.kt',
-            info:
-                'In korean language. Connect and meet people who are willing to date.',
+            info: 'ABB Blind-Dating App, built with Kotlin, allows users to sign up, create profiles, and connect with others through a swipe-based interface and in-app chat powered by Firebase. It features email verification for security and offers a fully translated experience in Korean.',
+            about: "ABB Blind-Dating is a Kotlin-based platform designed to help users connect with potential matches through a swipe-based interface and secure in-app chat powered by Firebase. Users can easily sign up, create profiles, and verify their accounts via email to ensure a safe and authentic experience. The app is fully translated into Korean, making it accessible to a broader audience. With its intuitive design and robust features, the app provides a seamless and engaging dating experience.",
             appIcon: 'assets/icons/abb_dating.png',
             teamMembers: ['Solo project'],
             date: DateTime(2022, 6, 22),
             rolesAndResponsibility: 'Frontend Developer',
+            technologiesAndTools: 'Firebase RealtimeDB, Firebase Storage, Firebase Auth',
+            keyFeatures: 'User Sign-Up and Profile Creation, Swipe to Like or Dislike Profiles, In-App Chat Powered by Firebase, Email Verification for Security, Full App Translation to Korean',
             icon: kotlinIcon,
-            image: 'assets/display/abb_blind_dating.png',
             project: ProjectsEnum.abbBlindDating,
+            technology: 'Android (Kotlin)',
+            client: 'Korean Client',
+            image: 'assets/display/abb_blind_dating.png',
+            projectAssets: [
+              ProjectAssets(
+                title: 'SIGN IN and SIGN UP',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/abb7.png',
+                  'assets/mocks/abb8.png',
+                  'assets/mocks/abb9.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'HOME and DISCOVER',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/abb1.png',
+                  'assets/mocks/abb2.png',
+                  'assets/mocks/abb3.png',
+                ],
+              ),
+              ProjectAssets(
+                title: 'Chat',
+                color: Colors.blue,
+                links: [
+                  'assets/mocks/abb6.png',
+                  'assets/mocks/abb4.png',
+                  'assets/mocks/abb10.png',
+                ],
+              ),
+            ],
           ),
-          SideBarInfo(
-            file: 'Cronet Solution.kt',
-            info:
-                'This is a e-commerce app I developed for a business enterprise "Cronet Solution"',
-            icon: 'assets/icons/kotlin.png',
-            image: 'assets/projects/sentrified.webp',
-            project: ProjectsEnum.cronetSolution,
-          ),
-          SideBarInfo(
+          /*SideBarInfo(
             file: 'Note-IO.kt',
             info:
                 'Keep notes in a simplified way. Organize your day and create tasks and alarms. ',
             icon: 'assets/icons/kotlin.png',
             image: 'assets/display/note_io.png',
             project: ProjectsEnum.notes,
-          ),
+          ),*/
         ],
         show: false,
       ),
