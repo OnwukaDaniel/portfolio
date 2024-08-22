@@ -8,7 +8,7 @@ class GamePaint extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     for(GameObject g in gameObject) {
       final paint = Paint()
-        ..color = g.c
+        ..color = g.color
         ..style = PaintingStyle.fill;
 
       var rect = Rect.fromLTWH(g.size.width * g.w, g.size.height * g.h, g.w, g.h);

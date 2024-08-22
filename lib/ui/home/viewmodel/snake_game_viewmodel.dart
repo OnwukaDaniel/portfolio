@@ -13,7 +13,7 @@ class SnakeGameViewModel extends BaseViewModel {
     this.dim = dim;
     gameObjects = [];
     for(double c in List.generate(dim, (_)=> _.toDouble())) {
-      for (double r in List.generate(dim, (_)=> _.toDouble())){
+      for (double r in List.generate(dim, (_)=> (_).toDouble())){
         var obj = GameObject(size: Size(r, c));
         gameObjects.add(obj);
       }
@@ -25,16 +25,17 @@ class SnakeGameViewModel extends BaseViewModel {
   _initSnake({int length = 5}) {
     var numbers = List.generate(length, (_)=> _.toDouble());
     for(double i in numbers){
-      var size = Size(dim / 2, (dim - 2)  + i);
-      'Snake ****** ${size.width} ****** ${size.height}'.log;
-      snakeData.add(GameObject(size: size, c: snakeColor));
-      updateCellColor(size.width.round(), size.height.round(), snakeColor);
+      var size = Size((dim - 5) + i, dim / 2);
+      snakeData.add(GameObject(size: size, color: snakeColor));
+      'Snake ****** ${size}'.log;
+      updateCellColor(size.width.truncate(), size.height.truncate(), snakeColor);
     }
   }
 
   void updateCellColor(int row, int col, Color newColor) {
-    int index = (row * dim) + col;  // Calculate the index based on row and column
-    gameObjects[index].c = newColor;
+    //int index = (row * dim) + col; // Calculate the index based on row and column
+    int index = ((row - 1) * dim) + col;
+    gameObjects[index].color = newColor;
     notifyListeners();
   }
 
