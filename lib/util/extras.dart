@@ -33,3 +33,7 @@ extension GetDeviceType on BuildContext {
     return DeviceType.desktop;
   }
 }
+
+extension Logger on String{
+  void get log => debugPrint(this);
+}

@@ -5,15 +5,31 @@ class SnakeGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
+    var smallestSide = size.width <= size.height ? size.width : size.height;
+    // Space for controls.
+    if(smallestSide == size.height) smallestSide = smallestSide - kToolbarHeight * 3;
+
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => SnakeGameViewModel(),
+      onViewModelReady: (_) => _.createGameObject(smallestSide.round()),
       builder: (context, model, _) {
         return Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(Icons.arrow_back, color: bs.color),
+            ),
           ),
-          body: Container(),
+          body: Center(
+            child: CustomPaint(
+              size: Size(size.width - 32, size.height - kToolbarHeight),
+              painter: GamePaint(model.gameObjects),
+            ),
+          ),
           bottomNavigationBar: Wrap(
             alignment: WrapAlignment.end,
             children: [
@@ -22,35 +38,32 @@ class SnakeGame extends StatelessWidget {
                 children: [
                   16.h,
                   TextButton(
-                    onPressed: () {},
-                    child: const Icon(
-                      Icons.arrow_drop_up,
-                      color: Colors.white,
-                    ),
+                    style: arrowStyle(),
+                    onPressed: () => model.up(),
+                    child: const Icon(Icons.arrow_drop_up, color: Colors.white),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.arrow_left,
-                          color: Colors.white,
-                        ),
+                        style: arrowStyle(),
+                        onPressed: () => model.left(),
+                        child:
+                            const Icon(Icons.arrow_left, color: Colors.white),
                       ),
+                      4.w,
                       TextButton(
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Colors.white,
-                        ),
+                        style: arrowStyle(),
+                        onPressed: () => model.down(),
+                        child: const Icon(Icons.arrow_drop_down,
+                            color: Colors.white),
                       ),
+                      4.w,
                       TextButton(
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.arrow_right,
-                          color: Colors.white,
-                        ),
+                        style: arrowStyle(),
+                        onPressed: () => model.right(),
+                        child:
+                            const Icon(Icons.arrow_right, color: Colors.white),
                       ),
                     ],
                   ),
@@ -61,6 +74,12 @@ class SnakeGame extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  ButtonStyle arrowStyle() {
+    return const ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(AppColor.appColor),
     );
   }
 }
