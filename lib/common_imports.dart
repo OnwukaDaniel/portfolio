@@ -61,3 +61,4 @@ export 'package:portfolio/models/project_assets.dart';
 export 'package:portfolio/ui/home/viewmodel/snake_game_viewmodel.dart';
 export 'package:portfolio/paints/game_paint.dart';
 export 'package:portfolio/models/game_object.dart';
+export 'package:portfolio/enums/snake_direction.dart';

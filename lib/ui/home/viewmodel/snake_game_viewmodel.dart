@@ -2,13 +2,16 @@ import 'package:portfolio/common_imports.dart';
 
 class SnakeGameViewModel extends BaseViewModel {
   int dim = 0;
+  SnakeDirection snakeDirection = SnakeDirection.none;
   final crossSection = 10;
   Color snakeColor = Colors.black;
   List<GameObject> gameObjects= [];
   List<GameObject> snakeData = [];
   var snakeLength = 5;
+  Size get _head => snakeData.isEmpty? const Size(0, 0) : snakeData.last.size;
 
   void createGameObject(int shape) {
+    _movementLoop();
     var dim = (shape / crossSection).round() - 3; //2 for padding
     this.dim = dim;
     gameObjects = [];
@@ -24,10 +27,9 @@ class SnakeGameViewModel extends BaseViewModel {
 
   _initSnake({int length = 5}) {
     var numbers = List.generate(length, (_)=> _.toDouble());
-    for(double i in numbers){
-      var size = Size((dim - 5) + i, dim / 2);
+    for(double i in numbers) {
+      var size = Size((dim - snakeLength) + i, dim / 2);
       snakeData.add(GameObject(size: size, color: snakeColor));
-      'Snake ****** ${size}'.log;
       updateCellColor(size.width.truncate(), size.height.truncate(), snakeColor);
     }
   }
@@ -41,9 +43,49 @@ class SnakeGameViewModel extends BaseViewModel {
 
 
   up() {
-    updateCellColor(10, 10, Colors.black);
+    _move(SnakeDirection.up);
+    var obj = GameObject(size: Size(_head.width - 1, _head.height));
+    if(_checkGameOver()) return;
+    snakeData.add(obj);
+    var trail = snakeData.firstOrNull;
+    if(trail != null) snakeData.remove(trail);
+    updatePainter();
   }
+
   down() {}
   right() {}
   left() {}
+
+  int _index(int row, int col) => ((row - 1) * dim) + col;
+
+  bool _checkGameOver() {
+    if(_head.height > dim || _head.height < 0) return true;
+    if(_head.width > dim || _head.width < 0) return true;
+    return false;
+  }
+
+  _movementLoop() async {
+    while(snakeDirection != SnakeDirection.none) {
+      await Future.delayed(const Duration(seconds: 1));
+      notifyListeners();
+    }
+  }
+
+  _move(SnakeDirection direction) {
+    /// Start loop if not moving yet
+    if(snakeDirection == SnakeDirection.none && direction != SnakeDirection.none) {
+      snakeDirection = direction;
+      //_movementLoop();
+    } else {
+      snakeDirection = direction;
+    }
+  }
+
+  updatePainter() {
+    for(GameObject obj in snakeData) {
+      var index = _index(obj.size.width.truncate(), obj.size.height.truncate());
+      gameObjects[index] = obj;
+    }
+    notifyListeners();
+  }
 }
