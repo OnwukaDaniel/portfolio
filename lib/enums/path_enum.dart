@@ -1,4 +1,5 @@
 import 'package:portfolio/common_imports.dart';
+import 'package:portfolio/ui/contact/contact.dart';
 import 'package:portfolio/ui/projects/project_info.dart';
 
 enum PathEnum{
@@ -25,7 +26,7 @@ class PageFromPath{
       case PathEnum.portfolio:
         return const Projects();
       case PathEnum.contactUs:
-        return const HomepageView();
+        return const Contact();
       case PathEnum.projectInfo:
         return ProjectInfo(data as SideBarInfo);
       default:

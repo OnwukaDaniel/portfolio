@@ -85,6 +85,7 @@ class AppTheme {
         fontFamily: fontFamily,
       ),
     ),
+    hintColor: Colors.grey,
   );
 
   static final ThemeData lightTheme = ThemeData(
@@ -161,5 +162,6 @@ class AppTheme {
         fontFamily: fontFamily,
       ),
     ),
+    hintColor: Colors.grey,
   );
 }

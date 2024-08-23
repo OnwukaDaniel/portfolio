@@ -1,11 +1,30 @@
 import 'package:portfolio/common_imports.dart';
 
-class Utils{
+class Utils {
   static launchWeb(String link) async {
     var data = Uri.parse(link);
     var url = Uri(scheme: data.scheme, host: data.host, path: data.path);
     await launchUrl(url, mode: LaunchMode.inAppBrowserView);
     return;
+  }
+
+  static launchMail(String mail) async {
+    var url = Uri(
+      scheme: 'mailto',
+      path: mail,
+      query: _encodeQueryParameters(<String, String>{
+        'subject': 'Hello Daniel',
+      }),
+    );
+    await launchUrl(url);
+    return;
+  }
+
+  static String _encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
   }
 
   static launch(String link) {
@@ -45,5 +64,19 @@ class Utils{
         ),
       );
     });
+  }
+
+  static Color hintColor(context) {
+    return Theme.of(context).hintColor;
+  }
+
+  static Color cardColor(context) {
+    return Theme.of(context).cardColor;
+  }
+
+  static launchPhone(String phoneNumber) async {
+    final Uri phoneUri = Uri(scheme: 'tel', path: phoneNumber);
+
+    await launchUrl(phoneUri);
   }
 }
