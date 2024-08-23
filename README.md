@@ -1,4 +1,4 @@
 # portfolio
 
 My Portfolio project
-In progress
+In deployment
