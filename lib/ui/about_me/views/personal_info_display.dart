@@ -60,15 +60,47 @@ class PersonalInfoDisplay extends StackedHookView<AboutMeViewmodel> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  text,
-                  style: ll.copyWith(color: ll.color!.withOpacity(.5)),
-                ),
+                child: textView(context, text),
               ),
             ],
           ),
         ),
       ],
     );
+  }
+
+  Widget textView(BuildContext context, String text) {
+    var ll = TextUtils.labelLarge(context);
+    var bs = TextUtils.bodySmall(context);
+    List<String> underscores = [];
+    List<String> bolds = [];
+    RegExp regExp = RegExp(r'(_[a-zA-Z0-9\s]+_)|(\*[a-zA-Z0-9\s]+\*)');
+
+    Iterable<Match> matches = regExp.allMatches(text);
+    for (var match in matches) {
+      if (match.group(1) != null) {
+        underscores.add(match.group(1)??'');
+      } else if (match.group(2) != null) {
+        underscores.add(match.group(2)??'');
+      }
+    }
+    List<InlineSpan> spans = [];
+    for (String txt in text.trim().split("*")) {
+      var hasSpecial = text.contains('*${txt.trim()}*');
+      var hasItalic = text.contains('*${txt.trim()}*');
+      TextStyle style = ll;
+      if(hasSpecial) {
+        style = bs.copyWith(fontWeight: FontWeight.bold);
+      }
+      var span = TextSpan(
+        text: txt,
+        style: hasSpecial
+            ? bs.copyWith(fontWeight: FontWeight.bold)
+            : ll.copyWith(height: 2),
+      );
+      spans.add(span);
+    }
+
+    return RichText(text: TextSpan(children: spans));
   }
 }
