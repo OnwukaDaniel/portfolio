@@ -1,12 +1,11 @@
 import 'package:portfolio/common_imports.dart';
 
 class Projects extends StatelessWidget {
+  static const String id = 'Projects';
   const Projects({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var bs = TextUtils.bodySmall(context);
-    var ll = TextUtils.labelLarge(context);
     var size = MediaQuery.of(context).size;
 
     return ViewModelBuilder.nonReactive(
@@ -15,6 +14,7 @@ class Projects extends StatelessWidget {
       builder: (_, model, __) {
         var desktop = context.device == DeviceType.desktop;
         return AppWrapper(
+          id: id,
           child: Row(
             children: [
               Container(

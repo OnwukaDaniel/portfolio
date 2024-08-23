@@ -20,6 +20,7 @@ class ProjectInfo extends StatelessWidget {
       onViewModelReady: (_) => _.silverBarStretched(),
       builder: (context, model, _) {
         return AppWrapper(
+          id: 'ProjectInfo',
           showAppBar: false,
           child: Scaffold(
             body: CustomScrollView(

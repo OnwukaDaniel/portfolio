@@ -2,61 +2,65 @@ import 'package:portfolio/common_imports.dart';
 import 'package:portfolio/ui/home/snake_game.dart';
 
 class Home extends StatelessWidget {
+  static const String id = 'Home';
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    return ListView(
-      children: [
-        SizedBox(
-          height: size.height - (kToolbarHeight * 2),
-          child: context.device == DeviceType.desktop ||
-                  context.device == DeviceType.largeDesktop
-              ? SizedBox(
-                  height: 360,
-                  child: Center(
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      children: [
-                        const SizedBox(width: 16),
-                        _shortBio(),
-                        const SizedBox(width: 64),
-                        _game(),
-                        const SizedBox(width: 16),
-                      ],
+    return AppWrapper(
+      id: id,
+      child: ListView(
+        children: [
+          SizedBox(
+            height: size.height - (kToolbarHeight * 2),
+            child: context.device == DeviceType.desktop ||
+                    context.device == DeviceType.largeDesktop
+                ? SizedBox(
+                    height: 360,
+                    child: Center(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        children: [
+                          const SizedBox(width: 16),
+                          _shortBio(),
+                          const SizedBox(width: 64),
+                          _game(),
+                          const SizedBox(width: 16),
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              : ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    const SizedBox(height: 16),
-                    Center(child: _shortBio()),
-                    const SizedBox(height: 16),
-                    if (context.device == DeviceType.mobile)
-                      Center(
-                        child: SizedBox(
-                          height: 360,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            children: [
-                              _game(),
-                            ],
+                  )
+                : ListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      const SizedBox(height: 16),
+                      Center(child: _shortBio()),
+                      const SizedBox(height: 16),
+                      if (context.device == DeviceType.mobile)
+                        Center(
+                          child: SizedBox(
+                            height: 360,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              children: [
+                                _game(),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    if (context.device == DeviceType.desktop)
-                      Center(child: _game()),
-                    const SizedBox(height: 16),
-                  ],
-                ),
-        ),
-      ],
+                      if (context.device == DeviceType.desktop)
+                        Center(child: _game()),
+                      const SizedBox(height: 16),
+                    ],
+                  ),
+          ),
+        ],
+      ),
     );
   }
 

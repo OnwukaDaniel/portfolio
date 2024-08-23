@@ -4,12 +4,14 @@ import 'common_imports.dart';
 
 class AppWrapper extends StatefulWidget {
   final Widget child;
+  final String id;
   final bool showAppBar;
   final bool showBottomBar;
 
   const AppWrapper({
     super.key,
     required this.child,
+    required this.id,
     this.showAppBar = true,
     this.showBottomBar = true,
   });
@@ -113,6 +115,8 @@ class _AppWrapperState extends State<AppWrapper>
                         itemBuilder: (_, index) {
                           return InkWell(
                             onTap: () {
+                              var page = actions.elementAt(index).id;
+                              if(widget.id == page) return;
                               AppNavigate.push(_, actions.elementAt(index));
                             },
                             child: Row(

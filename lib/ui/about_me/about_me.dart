@@ -1,12 +1,11 @@
 import 'package:portfolio/common_imports.dart';
 
 class AboutMe extends StatelessWidget {
+  static const String id = 'AboutMe';
   const AboutMe({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var bs = TextUtils.bodySmall(context);
-    var ll = TextUtils.labelLarge(context);
     var size = MediaQuery.of(context).size;
 
     return ViewModelBuilder.nonReactive(
@@ -14,6 +13,7 @@ class AboutMe extends StatelessWidget {
       onViewModelReady: (_) => _.init(),
       builder: (context, model, _) {
         return AppWrapper(
+          id: id,
           child: Row(
             children: [
               Container(

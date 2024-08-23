@@ -4,22 +4,19 @@ Color backColor = const Color(0xFFFFFFFF);
 Color textOnBackColor = Colors.black87;
 
 class HomepageView extends StatelessWidget {
+  static const String id = 'HomepageView';
   const HomepageView({super.key});
 
   @override
   Widget build(BuildContext context) {
     AppNavigate.addToPath(PathEnum.home);
-    var ll = TextUtils.labelLarge(context);
-    var bs = TextUtils.bodySmall(context); 
 
     return ViewModelBuilder<HomepageViewModel>.nonReactive(
       viewModelBuilder: () => HomepageViewModel(),
       builder: (context, model, child) {
-        return const AppWrapper(
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Home(),
-          ),
+        return const Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Home(),
         );
       },
     );

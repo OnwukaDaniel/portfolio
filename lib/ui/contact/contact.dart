@@ -1,20 +1,19 @@
 import 'package:portfolio/common_imports.dart';
 
 class Contact extends StatelessWidget {
+  static const String id = 'Contact';
   const Contact({super.key});
 
   @override
   Widget build(BuildContext context) {
     var bs = TextUtils.bodySmall(context);
-    var bl = TextUtils.bodyLarge(context);
-    var ll = TextUtils.labelLarge(context);
-    var size = MediaQuery.of(context).size;
 
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => ContactViewmodel(),
       onViewModelReady: (_) => _.init(),
       builder: (context, model, _) {
         return AppWrapper(
+          id: id,
           child: Row(
             children: [
               verticalDivider,
