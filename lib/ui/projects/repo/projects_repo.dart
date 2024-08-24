@@ -34,7 +34,7 @@ class ProjectsRepo {
             type: ProjectType.mobile,
             technology: 'Flutter',
             client: 'Hesplat Technologies',
-            image: 'assets/projects/power_plug_bulb.png',
+            image: 'assets/projects/power_plug_bulb.webp',
             playLink:
                 'https://play.google.com/store/apps/details?id=ng.powerplug.power_plug',
             appleLink:
@@ -86,7 +86,7 @@ class ProjectsRepo {
                 'Monitor and regulate your food and calories intake. Analyse meal and get insight.',
             about:
                 "Welcome to Snacc Food, your ultimate companion for managing your dietary habits and achieving your nutrition goals. \n\nSnaccFood is designed to help you monitor and regulate your food and calorie intake effortlessly. Whether you're looking to lose weight, gain muscle, or simply maintain a healthy lifestyle, Food and Calorie Tracker provides all the tools you need to succeed.",
-            appIcon: 'assets/icons/snacc.png',
+            appIcon: 'assets/icons/snacc.webp',
             project: ProjectsEnum.snaccFood,
             teamMembers: ['Dhruv Shetty'],
             date: DateTime(2024, 8, 6),
@@ -106,9 +106,9 @@ class ProjectsRepo {
                 title: 'ONBOARDING',
                 color: Colors.green,
                 links: [
-                  'assets/mocks/snacc8.png',
-                  'assets/mocks/snacc10.png',
-                  'assets/mocks/snacc9.png',
+                  'assets/mocks/snacc8.webp',
+                  'assets/mocks/snacc10.webp',
+                  'assets/mocks/snacc9.webp',
                 ],
               ),
               ProjectAssets(
@@ -116,7 +116,7 @@ class ProjectsRepo {
                 color: Colors.green,
                 links: [
                   'assets/mocks/snacc1.png',
-                  'assets/mocks/snacc2.png',
+                  'assets/mocks/snacc2.webp',
                   'assets/mocks/snacc7.png',
                 ],
               ),
@@ -154,8 +154,8 @@ class ProjectsRepo {
                 color: Colors.blue,
                 links: [
                   'assets/mocks/sentrified1.jpg',
-                  'assets/mocks/sentrified2.jpg',
-                  'assets/mocks/sentrified7.jpg',
+                  'assets/mocks/sentrified2.webp',
+                  'assets/mocks/sentrified7.webp',
                 ],
               ),
               ProjectAssets(
@@ -192,23 +192,23 @@ class ProjectsRepo {
             project: ProjectsEnum.sportifan,
             technology: 'Flutter',
             client: 'Sportifan',
-            image: 'assets/projects/sportifan.png',
+            image: 'assets/projects/sportifan.webp',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING - User App',
                 color: Colors.green,
                 links: [
-                  'assets/mocks/sportifan1.png',
-                  'assets/mocks/sportifan2.png',
+                  'assets/mocks/sportifan1.webp',
+                  'assets/mocks/sportifan2.webp',
                 ],
               ),
               ProjectAssets(
                 title: 'In-App',
                 color: Colors.green,
                 links: [
-                  'assets/mocks/sportifan3.png',
+                  'assets/mocks/sportifan3.webp',
                   'assets/mocks/sportifan4.png',
-                  'assets/mocks/sportifan6.png',
+                  'assets/mocks/sportifan6.webp',
                 ],
               ),
               ProjectAssets(
@@ -235,7 +235,7 @@ class ProjectsRepo {
             file: 'Altfit.dart',
             info: 'The Fitness App, developed with Flutter, provides users with instructional videos and workout guides for cardio, flexibility, and weight training sessions. It also allows users to track their fitness progress by keeping streaks, logging workout history, and monitoring calories burnt.',
             about: 'The Fitness App is a comprehensive Flutter-based application designed to help users achieve their fitness goals through structured guidance and tracking. It offers instructional videos for various types of workouts, including cardio, flexibility, and weight training sessions. Users can maintain workout streaks, log their workout history, and monitor calories burnt to track their progress effectively. This app provides a robust platform for users to stay motivated and on track with their fitness journey.',
-            appIcon: 'assets/icons/altfit.png',
+            appIcon: 'assets/icons/altfit.webp',
             teamMembers: ['Mayur Manu', '+ 21 more',],
             date: DateTime(2024, 3, 15),
             rolesAndResponsibility: 'Frontend Developer',
@@ -247,23 +247,23 @@ class ProjectsRepo {
             project: ProjectsEnum.altFit,
             technology: 'Flutter',
             client: 'Altfit',
-            image: 'assets/projects/altfit.png',
+            image: 'assets/projects/altfit.webp',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',
                 color: Colors.blue,
                 links: [
-                  'assets/mocks/altfit4.png',
-                  'assets/mocks/altfit3.png',
-                  'assets/mocks/altfit18.png',
+                  'assets/mocks/altfit4.webp',
+                  'assets/mocks/altfit3.webp',
+                  'assets/mocks/altfit18.webp',
                 ],
               ),
               ProjectAssets(
                 title: 'CREATE WORKOUT PROFILE',
                 color: Colors.blue,
                 links: [
-                  'assets/mocks/altfit1.png',
-                  'assets/mocks/altfit2.png',
+                  'assets/mocks/altfit1.webp',
+                  'assets/mocks/altfit2.webp',
                 ],
               ),
               ProjectAssets(
@@ -332,7 +332,7 @@ class ProjectsRepo {
                 title: 'SIGN IN and SIGN UP',
                 color: Colors.blue,
                 links: [
-                  'assets/mocks/abb7.png',
+                  'assets/mocks/abb7.webp',
                   'assets/mocks/abb8.png',
                   'assets/mocks/abb9.png',
                 ],
@@ -341,18 +341,18 @@ class ProjectsRepo {
                 title: 'HOME and DISCOVER',
                 color: Colors.blue,
                 links: [
-                  'assets/mocks/abb1.png',
-                  'assets/mocks/abb2.png',
-                  'assets/mocks/abb3.png',
+                  'assets/mocks/abb1.webp',
+                  'assets/mocks/abb2.webp',
+                  'assets/mocks/abb3.webp',
                 ],
               ),
               ProjectAssets(
                 title: 'Chat',
                 color: Colors.blue,
                 links: [
-                  'assets/mocks/abb6.png',
-                  'assets/mocks/abb4.png',
-                  'assets/mocks/abb10.png',
+                  'assets/mocks/abb6.webp',
+                  'assets/mocks/abb4.webp',
+                  'assets/mocks/abb10.webp',
                 ],
               ),
             ],

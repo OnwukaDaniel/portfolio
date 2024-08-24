@@ -226,7 +226,7 @@ class _AppWrapperState extends State<AppWrapper>
                           ],
                         ),
                         clipBehavior: Clip.hardEdge,
-                        child: Image.asset('assets/me/me3.png'),
+                        child: Image.asset('assets/me/me3.webp'),
                       ),
                     ),
                     StatefulBuilder(builder: (context, setState) {
