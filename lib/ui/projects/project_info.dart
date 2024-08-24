@@ -11,7 +11,6 @@ class ProjectInfo extends StatelessWidget {
     var tm = TextUtils.titleMedium(context).copyWith(fontFamily: 'Nunito');
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'Nunito');
-    var bm = TextUtils.bodyMedium(context).copyWith(fontFamily: 'Nunito');
     double height =
         context.device == DeviceType.mobile ? 200 : size.height * .35;
 
