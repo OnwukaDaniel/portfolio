@@ -37,7 +37,6 @@ class _AppWrapperState extends State<AppWrapper>
       PathEnum.aboutMe,
       PathEnum.contactUs,
       PathEnum.portfolio,
-      PathEnum.services,
     ];
     var bodyView = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -269,10 +268,6 @@ class _AppWrapperState extends State<AppWrapper>
                               Scaffold.of(context).closeDrawer();
                               AppNavigate.push(context, PathEnum.portfolio);
                             }, Icons.phonelink_rounded),
-                            _tile('Services', () {
-                              Scaffold.of(context).closeDrawer();
-                              AppNavigate.push(context, PathEnum.services);
-                            }, Icons.add_chart),
                           ],
                           if (!showQuickLinks)
                             Padding(

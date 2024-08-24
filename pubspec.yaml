@@ -54,9 +54,6 @@ flutter:
         - asset: fonts/nunito/Nunito-Regular.ttf
         - asset: fonts/nunito/Nunito-Italic.ttf
           style: italic
-    - family: JMH Typewriter
-      fonts:
-        - asset: fonts/typewritter/JMH Typewriter.ttf
     - family: SourceCode
       fonts:
         - asset: fonts/source-code/SourceCodePro-Regular.ttf

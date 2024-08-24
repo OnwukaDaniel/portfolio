@@ -9,7 +9,7 @@ class Contact extends StatelessWidget {
     var bs = TextUtils.bodySmall(context);
 
     return ViewModelBuilder.reactive(
-      viewModelBuilder: () => ContactViewmodel(),
+      viewModelBuilder: () => ContactViewmodel(context),
       onViewModelReady: (_) => _.init(),
       builder: (context, model, _) {
         return AppWrapper(
@@ -78,7 +78,7 @@ class Contact extends StatelessWidget {
                           ),
                           18.h,
                           TextButton(
-                            onPressed: () {},
+                            onPressed: ()=> model.sendMessage(),
                             style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(Utils.cardColor(context),),
                             ),
