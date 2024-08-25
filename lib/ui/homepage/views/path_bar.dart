@@ -5,7 +5,6 @@ class PathBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = ColorUtils.textColor(context);
     var ll = TextUtils.labelLarge(context);
     return Row(
       children: [

@@ -15,7 +15,7 @@ class DisplayImage extends StatelessWidget {
       height: h,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        child: Image.asset(image, fit: BoxFit.cover, width: w, height: h),
+        child: Image.network(image, fit: BoxFit.cover, width: w, height: h),
       ),
     );
 
@@ -31,7 +31,7 @@ class DisplayImage extends StatelessWidget {
               child: InkWell(
                 onTap: () => ProjectsUtil.dialog(context, widget, image),
                 child:
-                    Image.asset(image, fit: BoxFit.cover, width: w, height: h),
+                    Image.network(image, fit: BoxFit.cover, width: w, height: h),
               ),
             ),
           ),
