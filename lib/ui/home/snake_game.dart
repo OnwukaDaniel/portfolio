@@ -9,7 +9,8 @@ class SnakeGame extends StatelessWidget {
     var bs = TextUtils.bodySmall(context).copyWith(fontFamily: 'Nunito');
     var smallestSide = size.width <= size.height ? size.width : size.height;
     // Space for controls.
-    if(smallestSide == size.height) smallestSide = smallestSide - kToolbarHeight * 3;
+    if (smallestSide == size.height)
+      smallestSide = smallestSide - kToolbarHeight * 3;
 
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => SnakeGameViewModel(),
@@ -24,12 +25,23 @@ class SnakeGame extends StatelessWidget {
               icon: Icon(Icons.arrow_back, color: bs.color),
             ),
           ),
-          body: Center(
-            child: CustomPaint(
-              size: Size(size.width - 32, size.height - kToolbarHeight),
-              painter: GamePaint(model.gameObjects),
-            ),
-          ),
+          body: 0 == 0
+              ? Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(46),
+                  child: Text(
+                      'Game is in development. It will be updated once ready',
+                      textAlign: TextAlign.center,
+                      style: bs.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                ),
+              )
+              : Center(
+                  child: CustomPaint(
+                    size: Size(size.width - 32, size.height - kToolbarHeight),
+                    painter: GamePaint(model.gameObjects),
+                  ),
+                ),
           bottomNavigationBar: Wrap(
             alignment: WrapAlignment.end,
             children: [
