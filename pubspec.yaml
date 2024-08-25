@@ -41,11 +41,8 @@ flutter:
 
   assets:
     - assets/me/
-    - assets/mocks/
     - assets/icons/
     - assets/display/
-    - assets/power_plug/
-    - assets/projects/
 
   fonts:
     - family: Nunito

@@ -27,7 +27,7 @@ class _ProjectInfoVideoPlayerState extends State<ProjectInfoVideoPlayer> {
   @override
   void initState() {
     super.initState();
-    controller = VideoPlayerController.asset(widget.asset);
+    controller = VideoPlayerController.networkUrl(Uri.parse(widget.asset));
     controller!.initialize().then((_) => controller!.play());
   }
 
