@@ -42,7 +42,7 @@ class ProjectInfo extends StatelessWidget {
                           child: Stack(
                             alignment: Alignment.topLeft,
                             children: [
-                              Image.asset(
+                              Image.network(
                                 data.image,
                                 width: double.infinity,
                                 height: 200,
@@ -80,7 +80,7 @@ class ProjectInfo extends StatelessWidget {
                         background: Stack(
                           alignment: Alignment.bottomCenter,
                           children: [
-                            Image.asset(
+                            Image.network(
                               data.image,
                               width: double.infinity,
                               height: height,
