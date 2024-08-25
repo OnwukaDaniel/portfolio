@@ -120,7 +120,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                             children: [
                               Stack(
                                 children: [
-                                  Image.asset(
+                                  Image.network(
                                     data.image,
                                     width: double.infinity,
                                     fit: BoxFit.cover,

@@ -326,7 +326,7 @@ class ProjectsRepo {
             project: ProjectsEnum.abbBlindDating,
             technology: 'Android (Kotlin)',
             client: 'Korean Client',
-            image: 'assets/mocks/abb1.webp',
+            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fabb1.webp?alt=media&token=dabde2d4-5fea-4b70-bd24-8a94cea3eeeb',
             projectAssets: [
               ProjectAssets(
                 title: 'SIGN IN and SIGN UP',
