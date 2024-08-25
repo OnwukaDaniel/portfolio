@@ -49,7 +49,7 @@ class PathBar extends StatelessWidget {
             ),
           ),
         ),*/
-        if(Navigator.canPop(context))IconButton(
+        if(Navigator.canPop(context)) IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back,
