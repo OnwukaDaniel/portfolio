@@ -112,7 +112,7 @@ class Contact extends StatelessWidget {
                           18.h,
                           Center(
                             child: TextButton(
-                              onPressed: ()=> model.sendMessage(),
+                              onPressed: ()=> model.sendMessage(context),
                               style: ButtonStyle(
                                 backgroundColor: WidgetStatePropertyAll(Utils.cardColor(context),),
                               ),

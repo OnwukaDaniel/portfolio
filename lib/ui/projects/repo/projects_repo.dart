@@ -147,7 +147,7 @@ class ProjectsRepo {
             project: ProjectsEnum.sentrified,
             technology: 'Flutter',
             client: 'Doc2Data',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsentrified.webp?alt=media&token=d40b6704-a604-4f78-a46c-eab1304a18fb',
+            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2FSentified%20logo.png?alt=media&token=8fc976e0-1338-484d-b266-3c9c3797379b',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',

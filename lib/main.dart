@@ -14,15 +14,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: appThemeVn,
-        builder: (context, value, _) {
-          return MaterialApp(
+      valueListenable: appThemeVn,
+      builder: (context, value, _) {
+        return OverlaySupport.global(
+          child: MaterialApp(
             title: 'My Portfolio',
             debugShowCheckedModeBanner: false,
             theme: value,
             home: const HomepageView(),
-          );
-        }
+          ),
+        );
+      },
     );
   }
 }

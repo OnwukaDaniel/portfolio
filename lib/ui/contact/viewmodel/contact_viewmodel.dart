@@ -1,3 +1,4 @@
+import 'package:portfolio/app_message.dart';
 import 'package:portfolio/common_imports.dart';
 
 class ContactViewmodel extends HomepageViewModel {
@@ -26,10 +27,20 @@ class ContactViewmodel extends HomepageViewModel {
     });
   }
 
-  sendMessage() {
+  sendMessage(BuildContext context) async {
     if (name.isEmpty) return alert('Name can\'t be empty');
     if (email.isEmpty) return alert('Email can\'t be empty');
     if (message.isEmpty) return alert('Message can\'t be empty');
+    var msg = 'From: Your portfolio.\nHello ${AppConstants.devName}! I am $name. Message: $message';
+
+    var phone = AppConstants.phone;
+    final Uri whatsappUri = Uri.parse('https://wa.me/$phone?text=$msg');
+    if (await canLaunchUrl(whatsappUri)) {
+      await launchUrl(whatsappUri);
+      AppMessage.showMessage('Message sent', color: Colors.green);
+    } else {
+      throw 'Could not launch $whatsappUri';
+    }
   }
 
   alert(String msg) {

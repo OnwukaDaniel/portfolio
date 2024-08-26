@@ -59,3 +59,4 @@ export 'package:portfolio/models/game_object.dart';
 export 'package:portfolio/enums/snake_direction.dart';
 export 'package:portfolio/ui/contact/viewmodel/contact_viewmodel.dart';
 export 'package:intl/intl.dart' hide TextDirection;
+export 'package:overlay_support/overlay_support.dart';
