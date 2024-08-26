@@ -32,7 +32,7 @@ class ProjectsViewmodel extends AboutMeViewmodel {
       carouselController.animateToPage(
         index,
         duration: const Duration(seconds: 1),
-        curve: Curves.bounceIn,
+        curve: Curves.easeIn,
       );
     });
   }
