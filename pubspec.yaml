@@ -56,3 +56,15 @@ flutter:
     - family: FiraCode
       fonts:
         - asset: fonts/fira-code/FiraCode.ttf
+    - family: OpenSans
+      fonts:
+        - asset: fonts/open-sans/OpenSans-Bold.ttf
+        - asset: fonts/open-sans/OpenSans-BoldItalic.ttf
+        - asset: fonts/open-sans/OpenSans-ExtraBold.ttf
+        - asset: fonts/open-sans/OpenSans-ExtraBoldItalic.ttf
+        - asset: fonts/open-sans/OpenSans-Italic.ttf
+        - asset: fonts/open-sans/OpenSans-Light.ttf
+        - asset: fonts/open-sans/OpenSans-LightItalic.ttf
+        - asset: fonts/open-sans/OpenSans-Medium.ttf
+        - asset: fonts/open-sans/OpenSans-MediumItalic.ttf
+        - asset: fonts/open-sans/OpenSans-Regular.ttf

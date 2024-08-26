@@ -59,8 +59,14 @@ class PersonalInfoDisplay extends StackedHookView<AboutMeViewmodel> {
                 color: Colors.grey,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: textView(context, text),
+                padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 8),
+                child: Row(
+                  children: [
+                    const Spacer(),
+                    Expanded(flex: 3,child: textView(context, text),),
+                    const Spacer(),
+                  ],
+                ),
               ),
             ],
           ),
@@ -70,16 +76,16 @@ class PersonalInfoDisplay extends StackedHookView<AboutMeViewmodel> {
   }
 
   Widget textView(BuildContext context, String text) {
-    var ll = TextUtils.labelLarge(context);
-    var bs = TextUtils.bodySmall(context);
+    var bm = TextUtils.bodyMedium(context).copyWith(fontFamily: 'OpenSans');
+    var bl = TextUtils.bodyLarge(context).copyWith(fontFamily: 'OpenSans');
     List<InlineSpan> spans = [];
     for (String txt in text.trim().split("*")) {
       var hasSpecial = text.contains('*${txt.trim()}*');
       var span = TextSpan(
         text: txt,
         style: hasSpecial
-            ? bs.copyWith(fontWeight: FontWeight.bold)
-            : ll.copyWith(height: 2),
+            ? bl.copyWith(fontWeight: FontWeight.bold)
+            : bm.copyWith(height: 2),
       );
       spans.add(span);
     }
