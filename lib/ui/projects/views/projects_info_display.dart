@@ -36,10 +36,10 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    InkWell(
-                      onTap: () => model.removePersonalInfo(data),
-                      child: Icon(Icons.close, color: textColor, size: 14),
-                    ),
+                    // InkWell(
+                    //   onTap: () => model.removePersonalInfo(data),
+                    //   child: Icon(Icons.close, color: textColor, size: 14),
+                    // ),
                     const SizedBox(width: 16),
                     if (index == model.sideBarInfoList.length - 1)
                       Container(
