@@ -29,62 +29,97 @@ class Contact extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          8.h,
-                          Text(
-                            '_name',
-                            style: bs.copyWith(color: Utils.hintColor(context)),
+                          Row(
+                            children: [
+                              const Spacer(),
+                              Expanded(
+                                flex: 2,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    8.h,
+                                    Text(
+                                      '_name',
+                                      style: bs.copyWith(color: Utils.hintColor(context)),
+                                    ),
+                                    8.h,
+                                    TextFormField(
+                                      controller: model.nameController,
+                                      style: bs,
+                                      onChanged: (_) => model.notifyListeners(),
+                                      decoration: inputDecoration(context),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Spacer(),
+                            ],
                           ),
-                          8.h,
-                          SizedBox(
-                            width: 200,
-                            child: TextFormField(
-                              controller: model.nameController,
-                              style: bs,
-                              onChanged: (_) => model.notifyListeners(),
-                              decoration: inputDecoration(context),
-                            ),
+                          Row(
+                            children: [
+                              const Spacer(),
+                              Expanded(
+                                flex: 2,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    16.h,
+                                    Text(
+                                      '_email',
+                                      style: bs.copyWith(color: Utils.hintColor(context)),
+                                    ),
+                                    8.h,
+                                    TextFormField(
+                                      controller: model.emailController,
+                                      style: bs,
+                                      onChanged: (_) => model.notifyListeners(),
+                                      decoration: inputDecoration(context),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Spacer(),
+                            ],
                           ),
-                          16.h,
-                          Text(
-                            '_email',
-                            style: bs.copyWith(color: Utils.hintColor(context)),
-                          ),
-                          8.h,
-                          SizedBox(
-                            width: 200,
-                            child: TextFormField(
-                              controller: model.emailController,
-                              style: bs,
-                              onChanged: (_) => model.notifyListeners(),
-                              decoration: inputDecoration(context),
-                            ),
-                          ),
-                          16.h,
-                          Text(
-                            '_message',
-                            style: bs.copyWith(color: Utils.hintColor(context)),
-                          ),
-                          8.h,
-                          SizedBox(
-                            width: 200,
-                            child: TextFormField(
-                              controller: model.messageController,
-                              onChanged: (_) => model.notifyListeners(),
-                              maxLines: 20,
-                              minLines: 5,
-                              style: bs,
-                              decoration: inputDecoration(context),
-                            ),
+                          Row(
+                            children: [
+                              const Spacer(),
+                              Expanded(
+                                flex: 2,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    16.h,
+                                    Text(
+                                      '_message',
+                                      style: bs.copyWith(color: Utils.hintColor(context)),
+                                    ),
+                                    8.h,
+                                    TextFormField(
+                                      controller: model.messageController,
+                                      onChanged: (_) => model.notifyListeners(),
+                                      maxLines: 20,
+                                      minLines: 5,
+                                      style: bs,
+                                      decoration: inputDecoration(context),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Spacer(),
+                            ],
                           ),
                           18.h,
-                          TextButton(
-                            onPressed: ()=> model.sendMessage(),
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStatePropertyAll(Utils.cardColor(context),),
-                            ),
-                            child: Text(
-                              'Send message',
-                              style: bs,
+                          Center(
+                            child: TextButton(
+                              onPressed: ()=> model.sendMessage(),
+                              style: ButtonStyle(
+                                backgroundColor: WidgetStatePropertyAll(Utils.cardColor(context),),
+                              ),
+                              child: Text(
+                                'Send message',
+                                style: bs,
+                              ),
                             ),
                           ),
                         ],
@@ -94,7 +129,7 @@ class Contact extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 8,
+                flex: 5,
                 child: Padding(
                   padding: const EdgeInsets.all(18),
                   child: SingleChildScrollView(
@@ -136,12 +171,11 @@ class Contact extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.arrow_drop_down, color: bs.color),
                     6.w,
                     Expanded(
                       child: Text(
                         'Contacts',
-                        style: ll,
+                        style: bs,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -196,12 +230,11 @@ class Contact extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Icon(Icons.arrow_drop_down, color: bs.color),
                       6.w,
                       Expanded(
                         child: Text(
                           'Find me also in',
-                          style: ll,
+                          style: bs,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
