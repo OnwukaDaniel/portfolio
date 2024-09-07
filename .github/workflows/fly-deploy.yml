@@ -30,6 +30,11 @@ jobs:
       # Step 5: Set up Flyctl
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
+      - name: Check Fly API Token
+        run: echo $FLY_API_TOKEN
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
       # Step 6: Deploy to Fly.io
       - name: Deploy to Fly.io
         run: flyctl deploy --remote-only
