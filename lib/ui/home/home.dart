@@ -3,6 +3,7 @@ import 'package:portfolio/ui/home/snake_game.dart';
 
 class Home extends StatelessWidget {
   static const String id = 'Home';
+  static const String path = '/Home';
   const Home({super.key});
 
   @override

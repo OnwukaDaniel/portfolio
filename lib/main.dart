@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
             title: 'My Portfolio',
             debugShowCheckedModeBanner: false,
             theme: value,
-            home: const HomepageView(),
+            home: const Home(),
           ),
         );
       },

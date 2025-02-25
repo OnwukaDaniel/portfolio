@@ -1,7 +1,7 @@
 import 'package:portfolio/app_message.dart';
 import 'package:portfolio/common_imports.dart';
 
-class ContactViewmodel extends HomepageViewModel {
+class ContactViewmodel extends BaseViewModel {
   BuildContext context;
   ContactViewmodel(this.context);
 

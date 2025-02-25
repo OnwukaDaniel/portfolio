@@ -2,6 +2,7 @@ import 'package:portfolio/common_imports.dart';
 
 class AboutMe extends StatelessWidget {
   static const String id = 'AboutMe';
+  static const String path = '/AboutMe';
   const AboutMe({super.key});
 
   @override

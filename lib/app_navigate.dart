@@ -16,11 +16,11 @@ class AppNavigate {
   static Set<PathEnum> get navigationPath => _navigationPath;
 
   static justPush(BuildContext context, Widget page){
-    Navigator.push(context, CupertinoPageRoute(builder: (_) => page));
+    Navigator.push(context, MaterialPageRoute(builder: (_) => page));
   }
 
   static replace(BuildContext context, Widget page){
-    Navigator.pushReplacement(context, CupertinoPageRoute(builder: (_) => page));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => page));
   }
 
   static push(BuildContext context, PathEnum path, {dynamic data}) {
@@ -38,18 +38,6 @@ class AppNavigate {
         return;
       }
     }*/
-    Navigator.push(context, CupertinoPageRoute(builder: (_) => screen));
-    addToPath(path);
-  }
-
-  static addToPath(PathEnum path) {
-    _navigationPath.add(path);
-    pathVn.value = _navigationPath;
-  }
-
-  static resetPath(Set<PathEnum> path) {
-    _navigationPath.clear();
-    _navigationPath.addAll(path);
-    pathVn.value = _navigationPath;
+    Navigator.push(context, MaterialPageRoute(builder: (_) => screen));
   }
 }

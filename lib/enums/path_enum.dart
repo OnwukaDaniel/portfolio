@@ -1,14 +1,14 @@
 import 'package:portfolio/common_imports.dart';
-import 'package:portfolio/ui/contact/contact.dart';
 
 enum PathEnum{
-  home("_home", Home(), Home.id),
-  aboutMe("_about-me", AboutMe(), AboutMe.id),
-  portfolio("_portfolio", Projects(), Projects.id),
-  contactUs("_contact-us", Contact(), Contact.id);
+  home("_home", Home(), Home.id, Home.path),
+  aboutMe("_about-me", AboutMe(), AboutMe.id, AboutMe.path),
+  portfolio("_portfolio", Projects(), Projects.id, Projects.path),
+  contactUs("_contact-us", Contact(), Contact.id, Contact.path);
 
-  const PathEnum(this.name, this.page, this.id);
+  const PathEnum(this.name, this.page, this.id, this.path);
   final String name;
   final String id;
   final Widget page;
+  final String path;
 }

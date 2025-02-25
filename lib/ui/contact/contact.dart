@@ -2,6 +2,7 @@ import 'package:portfolio/common_imports.dart';
 
 class Contact extends StatelessWidget {
   static const String id = 'Contact';
+  static const String path = '/Contact';
   const Contact({super.key});
 
   @override

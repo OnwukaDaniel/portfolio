@@ -4,6 +4,7 @@ class AppMessage {
   static showMessage(
     String msg, {
     Color color = Colors.red,
+    Color textColor = Colors.white,
     NotificationPosition position = NotificationPosition.bottom,
     Duration duration = const Duration(seconds: 5),
   }) {
@@ -14,10 +15,7 @@ class AppMessage {
       Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text(
-            msg,
-            style: const TextStyle(color: Colors.white),
-          ),
+          child: Text(msg, style: TextStyle(color: textColor)),
         ),
       ),
       position: position,

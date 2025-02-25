@@ -43,7 +43,7 @@ class _AppWrapperState extends State<AppWrapper>
       children: [
         Column(
           children: [
-            if(context.device == DeviceType.mobile) kToolbarHeight.h,
+            if (context.device == DeviceType.mobile) kToolbarHeight.h,
             ClipRRect(
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(16),
@@ -79,11 +79,11 @@ class _AppWrapperState extends State<AppWrapper>
                         shrinkWrap: true,
                         itemCount: actions.length,
                         itemBuilder: (_, index) {
+                          var page = actions.elementAt(index).id;
                           return InkWell(
                             onTap: () {
-                              var page = actions.elementAt(index).id;
-                              if(widget.id == page) return;
-                              AppNavigate.push(_, actions.elementAt(index));
+                              if (widget.id == page) return;
+
                             },
                             child: Row(
                               children: [
@@ -106,19 +106,13 @@ class _AppWrapperState extends State<AppWrapper>
                                       child:
                                           Text(actions[index].name, style: ll),
                                     ),
-                                    ValueListenableBuilder(
-                                      valueListenable: AppNavigate.pathVn,
-                                      builder: (context, value, _) {
-                                        return Container(
-                                          height: 1,
-                                          width: (actions[index].name.length *
-                                                  11) +
-                                              16 * 2,
-                                          color: actions[index] == value.last
-                                              ? Colors.amberAccent
-                                              : Colors.transparent,
-                                        );
-                                      },
+                                    Container(
+                                      height: 1,
+                                      width: (actions[index].name.length * 11) +
+                                          16 * 2,
+                                      color: actions[index] == actions.elementAt(index)
+                                          ? Colors.amberAccent
+                                          : Colors.transparent,
                                     ),
                                   ],
                                 ),
@@ -244,7 +238,8 @@ class _AppWrapperState extends State<AppWrapper>
                               ),
                               child: Text(
                                 'Home, About me, Contact, Project... ',
-                                style: bs.copyWith(color: bs.color!.withOpacity(.5)),
+                                style: bs.copyWith(
+                                    color: bs.color!.withOpacity(.5)),
                               ),
                             )
                         ],
@@ -265,7 +260,8 @@ class _AppWrapperState extends State<AppWrapper>
                                   'Technologies and Tools',
                                   textAlign: TextAlign.center,
                                   style: bl.copyWith(
-                                      color: tm.color!, fontWeight: FontWeight.w900),
+                                      color: tm.color!,
+                                      fontWeight: FontWeight.w900),
                                 ),
                                 const Spacer(),
                                 Icon(showTools
@@ -276,7 +272,8 @@ class _AppWrapperState extends State<AppWrapper>
                           ),
                           if (showTools) ...[
                             _dev('Flutter', .9, '', Colors.yellowAccent),
-                            _dev('MVVM (Clean Architecture', .95, '', Colors.lime),
+                            _dev('MVVM (Clean Architecture', .95, '',
+                                Colors.lime),
                             _dev('Stacked', .9, '', Colors.amber),
                             _dev('Provider', .8, '', Colors.deepOrange),
                             _dev('Bloc', .7, '', Colors.deepOrangeAccent),
@@ -290,7 +287,8 @@ class _AppWrapperState extends State<AppWrapper>
                               ),
                               child: Text(
                                 'Dart, Kotlin, Python, Java... ',
-                                style: bs.copyWith(color: bs.color!.withOpacity(.5)),
+                                style: bs.copyWith(
+                                    color: bs.color!.withOpacity(.5)),
                               ),
                             )
                         ],

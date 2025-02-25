@@ -1,6 +1,6 @@
 import 'package:portfolio/common_imports.dart';
 
-class AboutMeViewmodel extends HomepageViewModel {
+class AboutMeViewmodel extends BaseViewModel {
   SideBarInfo displayPersonalInfo = SideBarInfo();
   Set<SideBarInfo> sideBarInfoList = {};
   var personalInfo = AboutMeRepo.getPersonalInfo();
