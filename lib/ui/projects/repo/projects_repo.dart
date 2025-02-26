@@ -28,8 +28,7 @@ class ProjectsRepo {
             project: ProjectsEnum.nbrly,
             teamMembers: ['Adnan Mohan', 'Nandish'],
             date: DateTime(2024, 10, 1),
-            rolesAndResponsibility:
-                'Frontend Developer',
+            rolesAndResponsibility: 'Frontend Developer',
             technologiesAndTools:
                 'Flutter, Stacked, MVVM Clean Architecture, Map, Geolocation, Firebase Firestore, Firebase Storabe, Firebase Authentication, Bloc, Push Notification',
             keyFeatures:
@@ -40,9 +39,9 @@ class ProjectsRepo {
             image:
                 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fnbrly_display.png?alt=media&token=2bc5961f-c620-4047-a48e-8e41172b2883',
             playLink:
-                'https://play.google.com/store/apps/details?id=ng.powerplug.power_plug',
+                'https://play.google.com/store/apps/details?id=com.pyramiddeveloper.nbrly&pcampaignid=web_share',
             appleLink:
-                'https://apps.apple.com/ng/app/powerplug-pay-electricity/id6443731074',
+                'https://apps.apple.com/ng/app/nbrly/id6737793831',
             projectAssets: [
               ProjectAssets(
                 title: 'HOMEPAGE',
