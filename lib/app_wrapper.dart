@@ -111,7 +111,8 @@ class _AppWrapperState extends State<AppWrapper>
                                       builder: (context, path, _) {
                                         return Container(
                                           height: 1,
-                                          width: (actions[index].name.length * 11) +
+                                          width: (actions[index].name.length *
+                                                  11) +
                                               16 * 2,
                                           color: actions[index].id == path.id
                                               ? Colors.amberAccent
@@ -293,7 +294,8 @@ class _AppWrapperState extends State<AppWrapper>
                               child: Text(
                                 'Dart, Kotlin, Python, Java... ',
                                 style: bs.copyWith(
-                                    color: bs.color!.withOpacity(.5)),
+                                  color: bs.color!.withOpacity(.5),
+                                ),
                               ),
                             )
                         ],
@@ -324,10 +326,10 @@ class _AppWrapperState extends State<AppWrapper>
             newBody = AnimatedBackground(
               behaviour: RandomParticleBehaviour(
                 options: ParticleOptions(
-                  baseColor: ll.color!,
-                  spawnMinSpeed: 10,
-                  spawnMaxSpeed: 50,
-                ),
+                    baseColor: ll.color!,
+                    spawnMinSpeed: 1000,
+                    spawnMaxSpeed: 1000,
+                    particleCount: 10),
               ),
               vsync: this,
               child: bodyView,

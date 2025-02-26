@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/scheduler.dart';
 import 'package:portfolio/common_imports.dart';
 

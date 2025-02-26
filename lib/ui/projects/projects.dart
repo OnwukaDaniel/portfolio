@@ -21,8 +21,8 @@ class Projects extends StatelessWidget {
               width: .2,
               color: Colors.grey,
             ),
-            if(context.device != DeviceType.mobile)Expanded(
-              flex: desktop ? 5 : 4,
+            if(context.device != DeviceType.mobile) Expanded(
+              flex: desktop ? 3 : 4,
               child: const Padding(
                 padding: EdgeInsets.all(12),
                 child: Column(

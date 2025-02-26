@@ -43,25 +43,35 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
                     onChanged: (value) => model.jump(index),
                   ),
                   const SizedBox(width: 16),
-                  Image.asset(data.icon, width: 18, height: 18),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      data.project?.name ?? '',
-                      style: ll.copyWith(
-                        fontSize: model.carouselIndex == index
-                            ? bl.fontSize
-                            : ll.fontSize,
-                        color: model.carouselIndex == index
-                            ? ll.color
-                            : ll.color!.withOpacity(.7),
-                        fontWeight: model.carouselIndex == index
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                      ),
-                      maxLines: 1,
+                  if (context.device == DeviceType.desktop)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Image.asset(data.appIcon, width: 32, height: 32,
+                          errorBuilder: (_, __, ___) {
+                        return Icon(Icons.app_settings_alt, color: ll.color);
+                      }),
                     ),
-                  )
+                  if (context.device == DeviceType.largeDesktop) ...[
+                    Image.asset(data.icon, width: 18, height: 18),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        data.project?.name ?? '',
+                        style: ll.copyWith(
+                          fontSize: model.carouselIndex == index
+                              ? bl.fontSize
+                              : ll.fontSize,
+                          color: model.carouselIndex == index
+                              ? ll.color
+                              : ll.color!.withOpacity(.7),
+                          fontWeight: model.carouselIndex == index
+                              ? FontWeight.bold
+                              : FontWeight.normal,
+                        ),
+                        maxLines: 1,
+                      ),
+                    )
+                  ],
                 ],
               ),
             );

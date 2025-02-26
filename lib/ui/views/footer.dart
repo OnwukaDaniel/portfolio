@@ -19,86 +19,84 @@ class Footer extends StatelessWidget {
         ),
         SizedBox(
           height: kToolbarHeight,
-          child: Center(
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              children: [
-                const SizedBox(width: 16),
-                Center(
-                  child: Text(
-                    'Find me in:      ',
-                    style: ll.copyWith(color: ll.color!.withOpacity(.4)),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            children: [
+              const SizedBox(width: 16),
+              Center(
+                child: Text(
+                  'Find me in:      ',
+                  style: ll.copyWith(color: ll.color!.withOpacity(.4)),
+                ),
+              ),
+              Container(
+                height: kToolbarHeight,
+                width: .2,
+                color: Colors.grey,
+              ),
+              SizedBox(
+                height: kToolbarHeight,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: SocialsEnum.values.length,
+                  itemBuilder: (_, index) {
+                    var data = SocialsEnum.values[index];
+                    return InkWell(
+                      onTap: () => launchWeb(data.link),
+                      child: SizedBox(
+                        width: kToolbarHeight,
+                        height: kToolbarHeight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(18),
+                          child: Image.asset(data.image, width: 25, height: 25),
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (_, __) => Container(
+                    height: 40.5,
+                    width: .2,
+                    color: Colors.grey,
                   ),
                 ),
-                Container(
+              ),
+              Container(
+                height: kToolbarHeight,
+                width: .2,
+                color: Colors.grey,
+              ),
+              const SizedBox(width: 8),
+              themeIcon(),
+              const SizedBox(width: 8),
+              Container(
+                height: kToolbarHeight,
+                width: .2,
+                color: Colors.grey,
+              ),
+              InkWell(
+                onTap: () => launchWeb(AppConstants.github),
+                child: SizedBox(
                   height: kToolbarHeight,
-                  width: .2,
-                  color: Colors.grey,
-                ),
-                SizedBox(
-                  height: kToolbarHeight,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: SocialsEnum.values.length,
-                    itemBuilder: (_, index) {
-                      var data = SocialsEnum.values[index];
-                      return InkWell(
-                        onTap: () => launchWeb(data.link),
-                        child: SizedBox(
-                          width: kToolbarHeight,
-                          height: kToolbarHeight,
-                          child: Padding(
-                            padding: const EdgeInsets.all(18),
-                            child: Image.asset(data.image, width: 25, height: 25),
-                          ),
-                        ),
-                      );
-                    },
-                    separatorBuilder: (_, __) => Container(
-                      height: 40.5,
-                      width: .2,
-                      color: Colors.grey,
-                    ),
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 16),
+                      Text(
+                        '@OnwukaDaniel',
+                        style: ll.copyWith(color: ll.color!.withOpacity(.4)),
+                      ),
+                      Image.asset(
+                        'assets/icons/github.png',
+                        width: 32,
+                        height: 32,
+                      ),
+                      const SizedBox(width: 16),
+                    ],
                   ),
                 ),
-                Container(
-                  height: kToolbarHeight,
-                  width: .2,
-                  color: Colors.grey,
-                ),
-                const SizedBox(width: 8),
-                themeIcon(),
-                const SizedBox(width: 8),
-                Container(
-                  height: kToolbarHeight,
-                  width: .2,
-                  color: Colors.grey,
-                ),
-                InkWell(
-                  onTap: () => launchWeb(AppConstants.github),
-                  child: SizedBox(
-                    height: kToolbarHeight,
-                    child: Row(
-                      children: [
-                        const SizedBox(width: 16),
-                        Text(
-                          '@OnwukaDaniel',
-                          style: ll.copyWith(color: ll.color!.withOpacity(.4)),
-                        ),
-                        Image.asset(
-                          'assets/icons/github.png',
-                          width: 32,
-                          height: 32,
-                        ),
-                        const SizedBox(width: 16),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ],
