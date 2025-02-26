@@ -1,5 +1,3 @@
-# portfolio
-
 ## My Portfolio project
 
 ## 🛠️ Tech Stack
@@ -8,4 +6,4 @@
 - **Backend:** Firebase
 - **Hosting:** Fly.io
 
-🔗 **Live Now:** [workonwuka.fly.dev](https://workonwuka.fly.dev/) 
+🔗 **Live Now:** [website](https://workonwuka.fly.dev/)
