@@ -21,7 +21,12 @@ class MyApp extends StatelessWidget {
             title: 'My Portfolio',
             debugShowCheckedModeBanner: false,
             theme: value,
-            home: const Home(),
+            home: ValueListenableBuilder(
+              valueListenable: AppNavigate.homeBodyVn,
+              builder: (context, path, _) {
+                return AppWrapper(id: 'id', child: path.page);
+              }
+            ),
           ),
         );
       },

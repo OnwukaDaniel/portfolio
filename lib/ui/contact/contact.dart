@@ -13,136 +13,133 @@ class Contact extends StatelessWidget {
       viewModelBuilder: () => ContactViewmodel(context),
       onViewModelReady: (_) => _.init(),
       builder: (context, model, _) {
-        return AppWrapper(
-          id: id,
-          child: Row(
-            children: [
-              verticalDivider,
-              sideBar(),
-              verticalDivider,
-              Expanded(
-                flex: 8,
-                child: Padding(
-                  padding: const EdgeInsets.all(18),
-                  child: Center(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              const Spacer(),
-                              Expanded(
-                                flex: 2,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    8.h,
-                                    Text(
-                                      '_name',
-                                      style: bs.copyWith(color: Utils.hintColor(context)),
-                                    ),
-                                    8.h,
-                                    TextFormField(
-                                      controller: model.nameController,
-                                      style: bs,
-                                      onChanged: (_) => model.notifyListeners(),
-                                      decoration: inputDecoration(context),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              const Spacer(),
-                              Expanded(
-                                flex: 2,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    16.h,
-                                    Text(
-                                      '_email',
-                                      style: bs.copyWith(color: Utils.hintColor(context)),
-                                    ),
-                                    8.h,
-                                    TextFormField(
-                                      controller: model.emailController,
-                                      style: bs,
-                                      onChanged: (_) => model.notifyListeners(),
-                                      decoration: inputDecoration(context),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              const Spacer(),
-                              Expanded(
-                                flex: 2,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    16.h,
-                                    Text(
-                                      '_message',
-                                      style: bs.copyWith(color: Utils.hintColor(context)),
-                                    ),
-                                    8.h,
-                                    TextFormField(
-                                      controller: model.messageController,
-                                      onChanged: (_) => model.notifyListeners(),
-                                      maxLines: 20,
-                                      minLines: 5,
-                                      style: bs,
-                                      decoration: inputDecoration(context),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                          18.h,
-                          Center(
-                            child: TextButton(
-                              onPressed: ()=> model.sendMessage(context),
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStatePropertyAll(Utils.cardColor(context),),
-                              ),
-                              child: Text(
-                                'Send message',
-                                style: bs,
+        return Row(
+          children: [
+            verticalDivider,
+            sideBar(),
+            verticalDivider,
+            Expanded(
+              flex: 8,
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Center(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const Spacer(),
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  8.h,
+                                  Text(
+                                    '_name',
+                                    style: bs.copyWith(color: Utils.hintColor(context)),
+                                  ),
+                                  8.h,
+                                  TextFormField(
+                                    controller: model.nameController,
+                                    style: bs,
+                                    onChanged: (_) => model.notifyListeners(),
+                                    decoration: inputDecoration(context),
+                                  ),
+                                ],
                               ),
                             ),
+                            const Spacer(),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Spacer(),
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  16.h,
+                                  Text(
+                                    '_email',
+                                    style: bs.copyWith(color: Utils.hintColor(context)),
+                                  ),
+                                  8.h,
+                                  TextFormField(
+                                    controller: model.emailController,
+                                    style: bs,
+                                    onChanged: (_) => model.notifyListeners(),
+                                    decoration: inputDecoration(context),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Spacer(),
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  16.h,
+                                  Text(
+                                    '_message',
+                                    style: bs.copyWith(color: Utils.hintColor(context)),
+                                  ),
+                                  8.h,
+                                  TextFormField(
+                                    controller: model.messageController,
+                                    onChanged: (_) => model.notifyListeners(),
+                                    maxLines: 20,
+                                    minLines: 5,
+                                    style: bs,
+                                    decoration: inputDecoration(context),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                          ],
+                        ),
+                        18.h,
+                        Center(
+                          child: TextButton(
+                            onPressed: ()=> model.sendMessage(context),
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(Utils.cardColor(context),),
+                            ),
+                            child: Text(
+                              'Send message',
+                              style: bs,
+                            ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
-              Expanded(
-                flex: 5,
-                child: Padding(
-                  padding: const EdgeInsets.all(18),
-                  child: SingleChildScrollView(
-                    child: ContactCodeBar(
-                      text:
-                          "void main() {\n  final Map<String, String> message = {\n    'name': '${model.name}',\n    'email': '${model.email}',\n    'message': '${model.message}',\n    'date': '${DateFormat('EEE dd MMM').format(DateTime.now())}',\n  };\n  sendButtonClick(message);\n}\n\nvoid sendButtonClick(Map<String, String> message) {\n  sendForm(message);\n}\n\nvoid sendForm(Map<String, String> message) {\n  print('Form sent with message: \$message');\n}",
-                    ),
+            ),
+            Expanded(
+              flex: 5,
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: SingleChildScrollView(
+                  child: ContactCodeBar(
+                    text:
+                        "void main() {\n  final Map<String, String> message = {\n    'name': '${model.name}',\n    'email': '${model.email}',\n    'message': '${model.message}',\n    'date': '${DateFormat('EEE dd MMM').format(DateTime.now())}',\n  };\n  sendButtonClick(message);\n}\n\nvoid sendButtonClick(Map<String, String> message) {\n  sendForm(message);\n}\n\nvoid sendForm(Map<String, String> message) {\n  print('Form sent with message: \$message');\n}",
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );

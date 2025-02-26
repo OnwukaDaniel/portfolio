@@ -10,6 +10,7 @@ class AppNavigate {
   factory AppNavigate() => _instance;
 
   static ValueNotifier<Set<PathEnum>> pathVn = ValueNotifier({});
+  static ValueNotifier<PathEnum> homeBodyVn = ValueNotifier(PathEnum.home);
 
   static final Set<PathEnum> _navigationPath = {PathEnum.home};
 

@@ -79,11 +79,11 @@ class _AppWrapperState extends State<AppWrapper>
                         shrinkWrap: true,
                         itemCount: actions.length,
                         itemBuilder: (_, index) {
-                          var page = actions.elementAt(index).id;
+                          var page = actions.elementAt(index);
                           return InkWell(
                             onTap: () {
-                              if (widget.id == page) return;
-
+                              if (widget.id == page.id) return;
+                              AppNavigate.homeBodyVn.value = page;
                             },
                             child: Row(
                               children: [
@@ -106,13 +106,18 @@ class _AppWrapperState extends State<AppWrapper>
                                       child:
                                           Text(actions[index].name, style: ll),
                                     ),
-                                    Container(
-                                      height: 1,
-                                      width: (actions[index].name.length * 11) +
-                                          16 * 2,
-                                      color: actions[index] == actions.elementAt(index)
-                                          ? Colors.amberAccent
-                                          : Colors.transparent,
+                                    ValueListenableBuilder(
+                                      valueListenable: AppNavigate.homeBodyVn,
+                                      builder: (context, path, _) {
+                                        return Container(
+                                          height: 1,
+                                          width: (actions[index].name.length * 11) +
+                                              16 * 2,
+                                          color: actions[index].id == path.id
+                                              ? Colors.amberAccent
+                                              : Colors.transparent,
+                                        );
+                                      },
                                     ),
                                   ],
                                 ),

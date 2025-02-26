@@ -13,38 +13,35 @@ class AboutMe extends StatelessWidget {
       viewModelBuilder: () => AboutMeViewmodel(),
       onViewModelReady: (_) => _.init(),
       builder: (context, model, _) {
-        return AppWrapper(
-          id: id,
-          child: Row(
-            children: [
-              Container(
-                height: size.height,
-                width: .2,
-                color: Colors.grey,
-              ),
-              const Expanded(
-                flex: 3,
-                child: Padding(
-                  padding: EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      PersonalInfoList(),
-                    ],
-                  ),
+        return Row(
+          children: [
+            Container(
+              height: size.height,
+              width: .2,
+              color: Colors.grey,
+            ),
+            const Expanded(
+              flex: 3,
+              child: Padding(
+                padding: EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    PersonalInfoList(),
+                  ],
                 ),
               ),
-              Container(
-                height: size.height,
-                width: .2,
-                color: Colors.grey,
-              ),
-              const Expanded(
-                flex: 8,
-                child: PersonalInfoDisplay(),
-              ),
-            ],
-          ),
+            ),
+            Container(
+              height: size.height,
+              width: .2,
+              color: Colors.grey,
+            ),
+            const Expanded(
+              flex: 8,
+              child: PersonalInfoDisplay(),
+            ),
+          ],
         );
       },
     );
