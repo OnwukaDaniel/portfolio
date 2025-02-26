@@ -32,7 +32,11 @@ class ProjectsRepo {
             technologiesAndTools:
                 'Flutter, Stacked, MVVM Clean Architecture, Map, Geolocation, Firebase Firestore, Firebase Storabe, Firebase Authentication, Bloc, Push Notification',
             keyFeatures:
-                'In-App Wallet, Electricity purchase, Airtime and Data purchase, Cable and Internet Purchase, Intelligent Frequent Pay, Real Time Notification',
+                'Instant Connections – Only see people who are available right now and nearby., '
+                    'Real-Time Meetups – No planning ahead; just meet up immediately., '
+                    'Expiring Chats – Conversations disappear after an hour to encourage quick meetups., '
+                    'Friendship & Community Focus – Not a dating app; designed for socializing and making new friends., '
+                    'Simple & Casual – Ideal for spontaneous coffee or drink meetups, with each person covering their own tab.',
             type: ProjectType.mobile,
             technology: 'Flutter',
             client: 'Hesplat Technologies',
