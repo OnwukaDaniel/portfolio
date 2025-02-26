@@ -1,31 +1,45 @@
-name: Build and Deploy Flutter Web App
+name: Fly Deploy
 
 on:
   push:
     branches:
-      - master  # Change this to your main branch if necessary
+      - master
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: FLY_API_TOKEN
+    name: Build and Deploy Flutter Web App
     runs-on: ubuntu-latest
-
+    concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      # Step 1: Checkout the code
+      - uses: actions/checkout@v4
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      # Step 2: Set up Flutter
+      - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.24.0'  # Adjust the Flutter version if necessary
 
-      - name: Install dependencies
+      # Step 3: Install dependencies
+      - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name: Build Flutter Web App
+      # Step 4: Build Flutter Web App
+      - name: Build Flutter Web
         run: flutter build web --release
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
+      # Step 5: Set up Flyctl
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Check Fly API Token
+        run: echo $FLY_API_TOKEN
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+      # Step 6: Deploy to Fly.io
+      - name: Deploy to Fly.io
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
