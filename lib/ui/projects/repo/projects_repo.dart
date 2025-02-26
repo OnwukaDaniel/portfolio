@@ -225,7 +225,6 @@ class ProjectsRepo {
               'Marvellous Utai',
               'Chibuike',
               'Toheeb',
-              'Mr. Bolaji',
             ],
             date: DateTime(2024, 4, 15),
             rolesAndResponsibility: 'Lead Frontend Developer',
@@ -240,6 +239,10 @@ class ProjectsRepo {
             client: 'Doc2Data',
             image:
                 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2FSentified%20logo.png?alt=media&token=8fc976e0-1338-484d-b266-3c9c3797379b',
+            playLink:
+            'https://play.google.com/store/apps/details?id=net.docu2data.sentrified_app&pcampaignid=web_share',
+            appleLink:
+            'https://apps.apple.com/us/app/sentrified/id6503209899',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',
