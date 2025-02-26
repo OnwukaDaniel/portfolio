@@ -34,7 +34,7 @@ class ProjectsRepo {
             type: ProjectType.mobile,
             technology: 'Flutter',
             client: 'Hesplat Technologies',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fpower_plug_bulb.webp?alt=media&token=9428c95d-e2da-4f50-8a7f-6f7b57b43f09',
+            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fpower_plug_display.png?alt=media&token=a0b3675d-681f-4301-a47b-9c80eb9b877d',
             playLink:
                 'https://play.google.com/store/apps/details?id=ng.powerplug.power_plug',
             appleLink:

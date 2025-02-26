@@ -112,7 +112,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
       builder: (context, constraints) {
         var size = MediaQuery.of(context).size;
         var ll = TextUtils.labelLarge(context);
-        var textColor = ll.color!.withOpacity(.5);
+        var bl = TextUtils.bodyLarge(context);
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,8 +159,32 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                           data.image,
                           width: double.infinity,
                           fit: BoxFit.cover,
-                          height: (constraints.maxHeight * .9) -
-                              kToolbarHeight * 3,
+                          height:
+                              (constraints.maxHeight * .9) - kToolbarHeight * 3,
+                        ),
+                        Container(
+                          height:
+                              (constraints.maxHeight * .9) - kToolbarHeight * 3,
+                          width:
+                              (constraints.maxHeight * .9) - kToolbarHeight * 3,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              end: Alignment.bottomCenter,
+                              begin: Alignment.topCenter,
+                              colors: [
+                                Colors.black.withOpacity(.01),
+                                Colors.black.withOpacity(.01),
+                                Colors.black.withOpacity(.02),
+                                Colors.black.withOpacity(.1),
+                                Colors.black.withOpacity(.2),
+                                Colors.black.withOpacity(.2),
+                                Colors.black.withOpacity(.4),
+                                Colors.black.withOpacity(.5),
+                                Colors.black.withOpacity(.7),
+                                Colors.black.withOpacity(.8),
+                              ],
+                            ),
+                          ),
                         ),
                         Container(color: Colors.black.withOpacity(.5)),
                         Positioned(
@@ -170,6 +194,21 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                             data.icon,
                             width: 20,
                             height: 20,
+                          ),
+                        ),
+                        Positioned(
+                          left: 8,
+                          bottom: 8,
+                          child: Text(
+                            data.project?.name ?? '',
+                            maxLines: 2,
+                            style: bl.copyWith(
+                              fontFamily: 'OpenSans',
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.bold,
+                              fontSize: bl.fontSize! + 5,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],
