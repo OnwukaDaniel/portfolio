@@ -180,6 +180,10 @@ class ProjectsRepo {
             client: 'NYC SnaccFood',
             image:
                 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsnacc_display.png?alt=media&token=54a9c3a7-30d7-4b9e-98c5-24ba743d7a84',
+            playLink:
+            'https://play.google.com/store/apps/details?id=com.pyramid.snacc&pcampaignid=web_share',
+            appleLink:
+            'https://apps.apple.com/us/app/snacc-build-healthy-habits/id6478940556',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',
