@@ -100,7 +100,7 @@ class ProjectsRepo {
             type: ProjectType.mobile,
             technology: 'Flutter',
             client: 'NYC SnaccFood',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsnacc_food.jpg?alt=media&token=03e351b6-126d-489d-81e8-79250899508b',
+            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsnacc_display.png?alt=media&token=54a9c3a7-30d7-4b9e-98c5-24ba743d7a84',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',
