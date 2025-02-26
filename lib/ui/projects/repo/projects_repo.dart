@@ -11,6 +11,80 @@ class ProjectsRepo {
         icon: 'assets/icons/folder1.png',
         files: [
           SideBarInfo(
+            file: 'NBRLY.dart',
+            info: "NBRLY is for people who want to connect right now. Whether you're grabbing a coffee or a drink",
+            icon: dartIcon,
+            appIcon: 'assets/icons/nbrly_logo.webp',
+            about:
+                "NBRLY helps you find someone nearby to hang out with in real time. It's perfect for making friends, catching up with "
+                "new faces, or just enjoying a quick chat over a drink. NBRLY isn’t about planning ahead or scheduling meetups for "
+                "later—it's about living in the moment and meeting new people fast."
+                "\nHow NBRLY gets you connecting quickly."
+                "\nNBRLY makes it easy to go from chatting to meeting up in no time! Here’s how it works:"
+                "\nInstant connections: Only see people who are free right now and nearby. No waiting, no planning, just meet."
+                "\nQuick chats, quick meetups: Conversations expire after an hour to encourage in-person meetups ASAP."
+                "\nNot a dating app: NBRLY is about friendship and community—just good vibes and good drinks."
+                "\nKeep it simple: First meetups are great at a cafe or bar, and we suggest everyone cover their own tab",
+            project: ProjectsEnum.nbrly,
+            teamMembers: ['Adnan Mohan', 'Nandish'],
+            date: DateTime(2024, 10, 1),
+            rolesAndResponsibility:
+                'Frontend Developer',
+            technologiesAndTools:
+                'Flutter, Stacked, MVVM Clean Architecture, Map, Geolocation, Firebase Firestore, Firebase Storabe, Firebase Authentication, Bloc, Push Notification',
+            keyFeatures:
+                'In-App Wallet, Electricity purchase, Airtime and Data purchase, Cable and Internet Purchase, Intelligent Frequent Pay, Real Time Notification',
+            type: ProjectType.mobile,
+            technology: 'Flutter',
+            client: 'Hesplat Technologies',
+            image:
+                'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fnbrly_display.png?alt=media&token=2bc5961f-c620-4047-a48e-8e41172b2883',
+            playLink:
+                'https://play.google.com/store/apps/details?id=ng.powerplug.power_plug',
+            appleLink:
+                'https://apps.apple.com/ng/app/powerplug-pay-electricity/id6443731074',
+            projectAssets: [
+              ProjectAssets(
+                title: 'HOMEPAGE',
+                color: Colors.red,
+                links: [
+                  //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fscreen-20240702-121523.mp4?alt=media&token=424a304a-fa2a-4ec6-a9f0-b5bb038b29f0',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240614-051401.jpg?alt=media&token=739227cc-e95b-4692-bf14-c73815b438de',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240703-113456.jpg?alt=media&token=873eac6a-0966-4524-8e46-04a2d55b6ed0',
+                ],
+              ),
+              ProjectAssets(
+                title: 'BUY ELECTRICITY',
+                color: Colors.red,
+                links: [
+                  //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fscreen-20240703-215403.mp4?alt=media&token=3e783371-140e-4862-9383-17348c7a867d',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240614-051626.jpg?alt=media&token=3a22d153-ba26-4424-b57e-6623cab75c83',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240703-173725.jpg?alt=media&token=2c272cba-591f-4682-b9d7-a0aed6036a67',
+                ],
+              ),
+              ProjectAssets(
+                title: 'BUY AIRTIME',
+                color: Colors.red,
+                links: [
+                  //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime.mp4?alt=media&token=74e6f44b-5359-40c5-9152-279005044b47',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime1.jpg?alt=media&token=1bbce4b9-27d8-479e-a464-125e3bc73627',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime2.jpg?alt=media&token=d94461e1-fd47-4f78-b6ce-66dc1d2e4abf',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime3.jpg?alt=media&token=306b58e4-0a73-4ad5-8e05-3d4b6a7ddbf0',
+                ],
+              ),
+              ProjectAssets(
+                title: 'OTHERS',
+                color: Colors.red,
+                links: [
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Frewards_page.jpg?alt=media&token=0ff8dfb4-925e-4888-b8aa-9e79939a4cd8',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fhistory_page.jpg?alt=media&token=fbadf855-e3f3-4707-835d-1488ea7c6350',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fsecurity_page.jpg?alt=media&token=fa250c06-ccd1-43d9-88b1-672b60365287',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fnotification_ppage.jpg?alt=media&token=f72dc7b3-1336-43d6-be26-9b0b5724b3c6',
+                ],
+              ),
+            ],
+          ),
+          SideBarInfo(
             file: 'PowerPlug.dart',
             info:
                 'Facilitate electricity bill payments across all electricity providers in Nigeria, including BEDC, KAEDO, KADO, IBDC, JED, AEDC, EKEDC, IKEDC, and PHEDC.',
@@ -34,7 +108,8 @@ class ProjectsRepo {
             type: ProjectType.mobile,
             technology: 'Flutter',
             client: 'Hesplat Technologies',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fpower_plug_display.png?alt=media&token=a0b3675d-681f-4301-a47b-9c80eb9b877d',
+            image:
+                'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fpower_plug_display.png?alt=media&token=a0b3675d-681f-4301-a47b-9c80eb9b877d',
             playLink:
                 'https://play.google.com/store/apps/details?id=ng.powerplug.power_plug',
             appleLink:
@@ -100,7 +175,8 @@ class ProjectsRepo {
             type: ProjectType.mobile,
             technology: 'Flutter',
             client: 'NYC SnaccFood',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsnacc_display.png?alt=media&token=54a9c3a7-30d7-4b9e-98c5-24ba743d7a84',
+            image:
+                'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsnacc_display.png?alt=media&token=54a9c3a7-30d7-4b9e-98c5-24ba743d7a84',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',
@@ -133,21 +209,30 @@ class ProjectsRepo {
           ),
           SideBarInfo(
             file: 'Sentrified.dart',
-            info: 'The Estate Management System is a Flutter-based app designed to streamline estate operations, providing residents with features such as access management via intelligent codes, voting on polls, payment receipt submission, complaint handling, and panic alerts. The app also caters to admin and security roles, ensuring efficient and secure management of estate activities.',
-            about: 'The Estate Management System is an innovative Flutter-based application designed to enhance the efficiency and security of estate operations. Residents can seamlessly manage access, participate in polls, submit payment receipts, and raise complaints or panic alerts through the app. Admins benefit from streamlined estate management, while security personnel utilize intelligent codes to control access effectively. This comprehensive solution ensures a well-coordinated and secure environment for all estate members.',
+            info:
+                'The Estate Management System is a Flutter-based app designed to streamline estate operations, providing residents with features such as access management via intelligent codes, voting on polls, payment receipt submission, complaint handling, and panic alerts. The app also caters to admin and security roles, ensuring efficient and secure management of estate activities.',
+            about:
+                'The Estate Management System is an innovative Flutter-based application designed to enhance the efficiency and security of estate operations. Residents can seamlessly manage access, participate in polls, submit payment receipts, and raise complaints or panic alerts through the app. Admins benefit from streamlined estate management, while security personnel utilize intelligent codes to control access effectively. This comprehensive solution ensures a well-coordinated and secure environment for all estate members.',
             appIcon: 'assets/icons/sentrified.webp',
-            teamMembers: ['Marvellous Utai', 'Chibuike', 'Toheeb', 'Mr. Bolaji',],
+            teamMembers: [
+              'Marvellous Utai',
+              'Chibuike',
+              'Toheeb',
+              'Mr. Bolaji',
+            ],
             date: DateTime(2024, 4, 15),
             rolesAndResponsibility: 'Lead Frontend Developer',
             technologiesAndTools:
-            'Flutter, Stacked, MVVM Clean Architecture, REST API',
-            keyFeatures: 'Access Management, Polling System, Payment Receipt Submission, Complaint Management, Panic Alerts',
+                'Flutter, Stacked, MVVM Clean Architecture, REST API',
+            keyFeatures:
+                'Access Management, Polling System, Payment Receipt Submission, Complaint Management, Panic Alerts',
             icon: dartIcon,
             type: ProjectType.mobile,
             project: ProjectsEnum.sentrified,
             technology: 'Flutter',
             client: 'Doc2Data',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2FSentified%20logo.png?alt=media&token=8fc976e0-1338-484d-b266-3c9c3797379b',
+            image:
+                'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2FSentified%20logo.png?alt=media&token=8fc976e0-1338-484d-b266-3c9c3797379b',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',
@@ -178,21 +263,29 @@ class ProjectsRepo {
           ),
           SideBarInfo(
             file: 'Sportifan.dart',
-            info: 'The Sportifan Playing and Umpiring App, developed with Flutter, consists of two separate applications: the User App and the Umpiring App. The User App allows users to create match schedules, form teams, and view match highlights and summaries, while the Umpiring App enables umpires to select venues, conduct tosses, configure run zones, manage gameplay, and record comprehensive game statistics.',
-            about: 'The Cricket Playing and Recording App is a versatile Flutter-based solution designed to enhance the organization and management of cricket matches. It comprises two distinct applications: the User App and the Umpiring App. The User App allows users to create match schedules, form teams, and view match highlights and summaries. The Umpiring App empowers umpires to select venues, conduct tosses, configure run zones, manage the actual gameplay, and record detailed game statistics, ensuring a seamless cricket experience for all participants.',
+            info:
+                'The Sportifan Playing and Umpiring App, developed with Flutter, consists of two separate applications: the User App and the Umpiring App. The User App allows users to create match schedules, form teams, and view match highlights and summaries, while the Umpiring App enables umpires to select venues, conduct tosses, configure run zones, manage gameplay, and record comprehensive game statistics.',
+            about:
+                'The Cricket Playing and Recording App is a versatile Flutter-based solution designed to enhance the organization and management of cricket matches. It comprises two distinct applications: the User App and the Umpiring App. The User App allows users to create match schedules, form teams, and view match highlights and summaries. The Umpiring App empowers umpires to select venues, conduct tosses, configure run zones, manage the actual gameplay, and record detailed game statistics, ensuring a seamless cricket experience for all participants.',
             appIcon: 'assets/icons/ssportifan_icon.png',
-            teamMembers: ['Mayur Manu', 'Niranjan-Dorage', 'Nandish N S',],
+            teamMembers: [
+              'Mayur Manu',
+              'Niranjan-Dorage',
+              'Nandish N S',
+            ],
             date: DateTime(2024, 2, 15),
             rolesAndResponsibility: 'Frontend Developer, Tester',
             technologiesAndTools:
-            'Flutter, Stacked, MVVM Clean Architecture, Firebase, Youtube API',
-            keyFeatures: 'Create Match Schedule, Create Teams, View Match Highlights, View Match Summary, Select Venue to Play, Conduct Toss to Determine Heads or Tails, Configure Cricket Run Zones, Manage Actual Playing of the Match, Save All Game Data and Stats',
+                'Flutter, Stacked, MVVM Clean Architecture, Firebase, Youtube API',
+            keyFeatures:
+                'Create Match Schedule, Create Teams, View Match Highlights, View Match Summary, Select Venue to Play, Conduct Toss to Determine Heads or Tails, Configure Cricket Run Zones, Manage Actual Playing of the Match, Save All Game Data and Stats',
             icon: dartIcon,
             type: ProjectType.mobile,
             project: ProjectsEnum.sportifan,
             technology: 'Flutter',
             client: 'Sportifan',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsportifan.webp?alt=media&token=21e4c337-1b68-46d0-bd96-e0916421f146',
+            image:
+                'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Fsportifan.webp?alt=media&token=21e4c337-1b68-46d0-bd96-e0916421f146',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING - User App',
@@ -233,21 +326,28 @@ class ProjectsRepo {
           ),
           SideBarInfo(
             file: 'Altfit.dart',
-            info: 'The Fitness App, developed with Flutter, provides users with instructional videos and workout guides for cardio, flexibility, and weight training sessions. It also allows users to track their fitness progress by keeping streaks, logging workout history, and monitoring calories burnt.',
-            about: 'The Fitness App is a comprehensive Flutter-based application designed to help users achieve their fitness goals through structured guidance and tracking. It offers instructional videos for various types of workouts, including cardio, flexibility, and weight training sessions. Users can maintain workout streaks, log their workout history, and monitor calories burnt to track their progress effectively. This app provides a robust platform for users to stay motivated and on track with their fitness journey.',
+            info:
+                'The Fitness App, developed with Flutter, provides users with instructional videos and workout guides for cardio, flexibility, and weight training sessions. It also allows users to track their fitness progress by keeping streaks, logging workout history, and monitoring calories burnt.',
+            about:
+                'The Fitness App is a comprehensive Flutter-based application designed to help users achieve their fitness goals through structured guidance and tracking. It offers instructional videos for various types of workouts, including cardio, flexibility, and weight training sessions. Users can maintain workout streaks, log their workout history, and monitor calories burnt to track their progress effectively. This app provides a robust platform for users to stay motivated and on track with their fitness journey.',
             appIcon: 'assets/icons/altfit_icon.png',
-            teamMembers: ['Mayur Manu', '+ 21 more',],
+            teamMembers: [
+              'Mayur Manu',
+              '+ 21 more',
+            ],
             date: DateTime(2024, 3, 15),
             rolesAndResponsibility: 'Frontend Developer',
             technologiesAndTools:
-            'Flutter, Stacked, MVVM Clean Architecture, Amplify, AWS',
-            keyFeatures: 'Access to instructional videos for various workouts, Cardio, Flexibility, Weight Training, Keep streaks, Monitor calories burnt, Log workout history',
+                'Flutter, Stacked, MVVM Clean Architecture, Amplify, AWS',
+            keyFeatures:
+                'Access to instructional videos for various workouts, Cardio, Flexibility, Weight Training, Keep streaks, Monitor calories burnt, Log workout history',
             icon: dartIcon,
             type: ProjectType.mobile,
             project: ProjectsEnum.altFit,
             technology: 'Flutter',
             client: 'Altfit',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Faltfit.webp?alt=media&token=d6dac6ef-683c-4830-aed2-8b477156b94f',
+            image:
+                'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fcover%2Faltfit.webp?alt=media&token=d6dac6ef-683c-4830-aed2-8b477156b94f',
             projectAssets: [
               ProjectAssets(
                 title: 'ONBOARDING',
@@ -314,19 +414,24 @@ class ProjectsRepo {
         files: [
           SideBarInfo(
             file: 'ABB-Blind-Dating.kt',
-            info: 'ABB Blind-Dating App, built with Kotlin, allows users to sign up, create profiles, and connect with others through a swipe-based interface and in-app chat powered by Firebase. It features email verification for security and offers a fully translated experience in Korean.',
-            about: "ABB Blind-Dating is a Kotlin-based platform designed to help users connect with potential matches through a swipe-based interface and secure in-app chat powered by Firebase. Users can easily sign up, create profiles, and verify their accounts via email to ensure a safe and authentic experience. The app is fully translated into Korean, making it accessible to a broader audience. With its intuitive design and robust features, the app provides a seamless and engaging dating experience.",
+            info:
+                'ABB Blind-Dating App, built with Kotlin, allows users to sign up, create profiles, and connect with others through a swipe-based interface and in-app chat powered by Firebase. It features email verification for security and offers a fully translated experience in Korean.',
+            about:
+                "ABB Blind-Dating is a Kotlin-based platform designed to help users connect with potential matches through a swipe-based interface and secure in-app chat powered by Firebase. Users can easily sign up, create profiles, and verify their accounts via email to ensure a safe and authentic experience. The app is fully translated into Korean, making it accessible to a broader audience. With its intuitive design and robust features, the app provides a seamless and engaging dating experience.",
             appIcon: 'assets/icons/abb_dating.png',
             teamMembers: ['Solo project'],
             date: DateTime(2022, 6, 22),
             rolesAndResponsibility: 'Frontend Developer',
-            technologiesAndTools: 'Firebase RealtimeDB, Firebase Storage, Firebase Auth',
-            keyFeatures: 'User Sign-Up and Profile Creation, Swipe to Like or Dislike Profiles, In-App Chat Powered by Firebase, Email Verification for Security, Full App Translation to Korean',
+            technologiesAndTools:
+                'Firebase RealtimeDB, Firebase Storage, Firebase Auth',
+            keyFeatures:
+                'User Sign-Up and Profile Creation, Swipe to Like or Dislike Profiles, In-App Chat Powered by Firebase, Email Verification for Security, Full App Translation to Korean',
             icon: kotlinIcon,
             project: ProjectsEnum.abbBlindDating,
             technology: 'Android (Kotlin)',
             client: 'Korean Client',
-            image: 'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fabb1.webp?alt=media&token=dabde2d4-5fea-4b70-bd24-8a94cea3eeeb',
+            image:
+                'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fabb1.webp?alt=media&token=dabde2d4-5fea-4b70-bd24-8a94cea3eeeb',
             projectAssets: [
               ProjectAssets(
                 title: 'SIGN IN and SIGN UP',

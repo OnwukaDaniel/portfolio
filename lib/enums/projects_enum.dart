@@ -1,4 +1,5 @@
 enum ProjectsEnum{
+  nbrly("NBRLY"),
   powerPlug("PowerPlug"),
   snaccFood("SnaccFood"),
   sentrified("Sentrified"),
