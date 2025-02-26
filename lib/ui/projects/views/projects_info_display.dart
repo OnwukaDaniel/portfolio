@@ -165,8 +165,7 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                         Container(
                           height:
                               (constraints.maxHeight * .9) - kToolbarHeight * 3,
-                          width:
-                              (constraints.maxHeight * .9) - kToolbarHeight * 3,
+                          width: double.infinity,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               end: Alignment.bottomCenter,

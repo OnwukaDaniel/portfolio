@@ -56,20 +56,23 @@ class ProjectSideBar extends StackedHookView<ProjectsViewmodel> {
                     Image.asset(data.icon, width: 18, height: 18),
                     const SizedBox(width: 8),
                     Expanded(
-                      child: Text(
-                        data.project?.name ?? '',
-                        style: ll.copyWith(
-                          fontSize: model.carouselIndex == index
-                              ? bl.fontSize
-                              : ll.fontSize,
-                          color: model.carouselIndex == index
-                              ? ll.color
-                              : ll.color!.withOpacity(.7),
-                          fontWeight: model.carouselIndex == index
-                              ? FontWeight.bold
-                              : FontWeight.normal,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Text(
+                          data.project?.name ?? '',
+                          style: ll.copyWith(
+                            fontSize: model.carouselIndex == index
+                                ? bl.fontSize
+                                : ll.fontSize,
+                            color: model.carouselIndex == index
+                                ? ll.color
+                                : ll.color!.withOpacity(.7),
+                            fontWeight: model.carouselIndex == index
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                          ),
+                          maxLines: 1,
                         ),
-                        maxLines: 1,
                       ),
                     )
                   ],
