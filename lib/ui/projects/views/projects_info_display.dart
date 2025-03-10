@@ -66,10 +66,10 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
             child: Builder(builder: (context) {
               return GridView.builder(
                 itemCount: model.sideBarInfoList.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisExtent: 500,
                   crossAxisSpacing: 12,
-                  crossAxisCount: 2,
+                  crossAxisCount: context.device == DeviceType.mobile? 1 : 2,
                 ),
                 itemBuilder: (_, int index) {
                   var data = model.sideBarInfoList.elementAt(index);
