@@ -66,12 +66,12 @@ class ProjectsRepo {
                 ],
               ),
               ProjectAssets(
-                title: 'BUY AIRTIME',
+                title: 'OTHERS',
                 color: const Color(0xffFD7702),
                 links: [
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime1.jpg?alt=media&token=1bbce4b9-27d8-479e-a464-125e3bc73627',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime2.jpg?alt=media&token=d94461e1-fd47-4f78-b6ce-66dc1d2e4abf',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime3.jpg?alt=media&token=306b58e4-0a73-4ad5-8e05-3d4b6a7ddbf0',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FChat.png?alt=media&token=9b07e886-8a0a-4b33-95dd-677e1fcc5ee8',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FProfile.png?alt=media&token=f5e7e2aa-e4e6-4175-94c5-ce125dc00dfc',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FReview%20Chat%20Experience.png?alt=media&token=604ffc59-64cb-4182-bea7-ab403a6c4635',
                 ],
               ),
               ProjectAssets(
