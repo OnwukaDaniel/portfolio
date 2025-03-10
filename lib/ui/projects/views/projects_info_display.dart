@@ -69,35 +69,11 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisExtent: 500,
                   crossAxisSpacing: 12,
-                  crossAxisCount: context.device == DeviceType.mobile? 1 : 2,
+                  crossAxisCount: context.device == DeviceType.mobile ? 1 : 2,
                 ),
                 itemBuilder: (_, int index) {
                   var data = model.sideBarInfoList.elementAt(index);
                   return card(data, index + 1);
-                },
-              );
-              CarouselSlider.builder(
-                carouselController: model.carouselController,
-                options: CarouselOptions(
-                  onPageChanged: (index, _) => model.setCarouselIndex(index),
-                  viewportFraction: .7,
-                  enlargeFactor: .3,
-                  enlargeCenterPage: true,
-                  scrollDirection: Axis.vertical,
-                ),
-                itemCount: (model.sideBarInfoList.length / 2).round(),
-                itemBuilder: (_, int index, __) {
-                  var data = model.sideBarInfoList.elementAt(index);
-                  var data2 = model.sideBarInfoList.elementAtOrNull(index + 1);
-                  return Row(
-                    children: [
-                      card(data, index),
-                      if (data2 != null) ...[
-                        const SizedBox(width: 12),
-                        card(data2, index + 1),
-                      ]
-                    ],
-                  );
                 },
               );
             }),
@@ -110,7 +86,6 @@ class ProjectsInfoDisplay extends StackedHookView<ProjectsViewmodel> {
   Widget card(SideBarInfo data, int index) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        var size = MediaQuery.of(context).size;
         var ll = TextUtils.labelLarge(context);
         var bl = TextUtils.bodyLarge(context);
 

@@ -48,17 +48,17 @@ class ProjectsRepo {
                 'https://apps.apple.com/ng/app/nbrly/id6737793831',
             projectAssets: [
               ProjectAssets(
-                title: 'HOMEPAGE',
-                color: Colors.red,
+                title: 'ONBOARDING',
+                color: const Color(0xffFD7702),
                 links: [
-                  //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fscreen-20240702-121523.mp4?alt=media&token=424a304a-fa2a-4ec6-a9f0-b5bb038b29f0',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240614-051401.jpg?alt=media&token=739227cc-e95b-4692-bf14-c73815b438de',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240703-113456.jpg?alt=media&token=873eac6a-0966-4524-8e46-04a2d55b6ed0',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FInfo%20Pages-1.png?alt=media&token=ec08b796-9fd6-4cf0-9ff6-ec1ef86d86e1',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FInfo%20Pages-2.png?alt=media&token=27c48643-2aa9-4c1a-927e-40f5ca6f1476',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FInfo%20Pages.png?alt=media&token=616f909d-fcbd-48f5-bd96-fc11397f0e0a',
                 ],
               ),
               ProjectAssets(
                 title: 'BUY ELECTRICITY',
-                color: Colors.red,
+                color: const Color(0xffFD7702),
                 links: [
                   //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fscreen-20240703-215403.mp4?alt=media&token=3e783371-140e-4862-9383-17348c7a867d',
                   'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240614-051626.jpg?alt=media&token=3a22d153-ba26-4424-b57e-6623cab75c83',
@@ -67,7 +67,7 @@ class ProjectsRepo {
               ),
               ProjectAssets(
                 title: 'BUY AIRTIME',
-                color: Colors.red,
+                color: const Color(0xffFD7702),
                 links: [
                   //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime.mp4?alt=media&token=74e6f44b-5359-40c5-9152-279005044b47',
                   'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime1.jpg?alt=media&token=1bbce4b9-27d8-479e-a464-125e3bc73627',
@@ -77,7 +77,7 @@ class ProjectsRepo {
               ),
               ProjectAssets(
                 title: 'OTHERS',
-                color: Colors.red,
+                color: const Color(0xffFD7702),
                 links: [
                   'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Frewards_page.jpg?alt=media&token=0ff8dfb4-925e-4888-b8aa-9e79939a4cd8',
                   'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fhistory_page.jpg?alt=media&token=fbadf855-e3f3-4707-835d-1488ea7c6350',
