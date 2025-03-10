@@ -179,7 +179,7 @@ class Home extends StatelessWidget {
                           const SnakeGame(),
                         ),
                         child: Text(
-                          'Stat-game',
+                          'Start-game',
                           style: ll.copyWith(color: Colors.black),
                         ),
                       ),
