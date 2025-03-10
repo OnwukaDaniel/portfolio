@@ -57,19 +57,18 @@ class ProjectsRepo {
                 ],
               ),
               ProjectAssets(
-                title: 'BUY ELECTRICITY',
+                title: 'HOME - CHATS',
                 color: const Color(0xffFD7702),
                 links: [
-                  //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fscreen-20240703-215403.mp4?alt=media&token=3e783371-140e-4862-9383-17348c7a867d',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240614-051626.jpg?alt=media&token=3a22d153-ba26-4424-b57e-6623cab75c83',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FScreenshot_20240703-173725.jpg?alt=media&token=2c272cba-591f-4682-b9d7-a0aed6036a67',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FHome%20-%20Live%20Chat.png?alt=media&token=2a80aa72-e211-4748-93d9-a44fa316f0e7',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FHome%20-%20Live%20Chat-1.png?alt=media&token=7f1b31de-1576-45df-a6d1-8773b5cc8172',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2FHome%20-%20Live%20Profile.png?alt=media&token=cb4daaa6-d183-450b-afa9-d4615cf1fa7a',
                 ],
               ),
               ProjectAssets(
                 title: 'BUY AIRTIME',
                 color: const Color(0xffFD7702),
                 links: [
-                  //'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime.mp4?alt=media&token=74e6f44b-5359-40c5-9152-279005044b47',
                   'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime1.jpg?alt=media&token=1bbce4b9-27d8-479e-a464-125e3bc73627',
                   'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime2.jpg?alt=media&token=d94461e1-fd47-4f78-b6ce-66dc1d2e4abf',
                   'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbuy_airtime3.jpg?alt=media&token=306b58e4-0a73-4ad5-8e05-3d4b6a7ddbf0',
