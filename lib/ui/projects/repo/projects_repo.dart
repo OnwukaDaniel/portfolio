@@ -75,13 +75,11 @@ class ProjectsRepo {
                 ],
               ),
               ProjectAssets(
-                title: 'OTHERS',
+                title: 'EXTRAS',
                 color: const Color(0xffFD7702),
                 links: [
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Frewards_page.jpg?alt=media&token=0ff8dfb4-925e-4888-b8aa-9e79939a4cd8',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fhistory_page.jpg?alt=media&token=fbadf855-e3f3-4707-835d-1488ea7c6350',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fsecurity_page.jpg?alt=media&token=fa250c06-ccd1-43d9-88b1-672b60365287',
-                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fnotification_ppage.jpg?alt=media&token=f72dc7b3-1336-43d6-be26-9b0b5724b3c6',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbro.png?alt=media&token=3f78cfb9-d12c-4e63-b629-5fe36b2a449e',
+                  'https://firebasestorage.googleapis.com/v0/b/onwuka-b0f88.appspot.com/o/portfolio%2Fmocks%2Fbro%201.png?alt=media&token=ff2dab54-ab2e-41b8-a375-10818786fcba',
                 ],
               ),
             ],
